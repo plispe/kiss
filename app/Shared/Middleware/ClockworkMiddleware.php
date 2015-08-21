@@ -29,7 +29,7 @@ use Zend\Diactoros\Response\JsonResponse;
 /**
  * Own classes and interfaces
  */
-use Kiss\Middleware\MiddlewareInterface;
+
 use App\Shared\Behaviour\Common\ClockworkTrait;
 
 

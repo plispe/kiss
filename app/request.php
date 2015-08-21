@@ -8,4 +8,6 @@
 
 use Zend\Diactoros\ServerRequestFactory;
 
-return ServerRequestFactory::fromGlobals();
+$request =  ServerRequestFactory::fromGlobals();
+
+return $request;

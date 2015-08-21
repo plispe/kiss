@@ -12,7 +12,6 @@ namespace App\Module\Web\Controller;
  */
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\RequestInterface;
-use League\Uri\Schemes\Http as HttpUri;
 
 class IndexController extends AbstractWebController
 {

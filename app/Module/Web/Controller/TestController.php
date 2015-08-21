@@ -13,10 +13,14 @@ namespace App\Module\Web\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\RequestInterface;
 
-use Kiss\Middleware\MiddlewareInterface;
-
 class TestController extends AbstractWebController
 {
+    /**
+     * @param RequestInterface $request
+     * @param ResponseInterface $reseponse
+     *
+     * @return RequestInterface
+     */
     public function defaultAction(RequestInterface $request, ResponseInterface $response)
     {
         return $this->renderLatte('web/test/default');

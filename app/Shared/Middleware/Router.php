@@ -22,11 +22,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * Kiss middleware interface
- */
-use Kiss\Middleware\MiddlewareInterface;
-
-/**
  * Middleware classes and behaviours
  */
 use App\Shared\Middleware\Dispatcher;

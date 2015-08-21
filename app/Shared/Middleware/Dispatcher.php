@@ -26,10 +26,7 @@ use Psr\Http\Message\RequestInterface;
  */
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-/**
- * Kiss middleware interface
- */
-use Kiss\Middleware\MiddlewareInterface;
+
 use App\Shared\Behaviour\Common\ClockworkTrait;
 
 class Dispatcher implements MiddlewareInterface

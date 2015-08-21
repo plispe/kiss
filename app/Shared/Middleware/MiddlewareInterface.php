@@ -5,7 +5,7 @@
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 
-namespace Kiss\Middleware;
+namespace App\Shared\Middleware;
 
 /**
  * PSR-7 interfaces
