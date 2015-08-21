@@ -1,0 +1,10 @@
+.env
+.phpintel/
+.phpmetrics
+
+temp/cache/stash/*
+temp/cache/latte/*
+temp/proxies/*
+vendor/
+
+!.gitkeep
