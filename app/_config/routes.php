@@ -60,8 +60,8 @@ return [
              * Cactch all routes
              * @see http://auraphp.com/packages/Aura.Router/other-topics.html#2.7.1
              */
-            $map->get('catchall', '{/module,controller,action,id}');
-            $map->get('web.catchall', '{/controller,action,id}');
+            $map->route('catchall', '{/module,controller,action,id}');
+            $map->route('web.catchall', '{/controller,action,id}');
 
             return $map;
         }

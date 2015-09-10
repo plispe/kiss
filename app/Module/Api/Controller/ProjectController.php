@@ -44,7 +44,6 @@ class ProjectController extends AbstractApiController
      */
     public function findAllAction(RequestInterface $request, ResponseInterface $response)
     {
-        dump($this);exit;
         $response = new JsonResponse([]);
         return $response;
     }

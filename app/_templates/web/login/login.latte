@@ -1,0 +1,9 @@
+{$builder->open()|noescape}
+
+{$builder->label('Login')->forId('login')|noescape}<br />
+{$builder->text('login')->id('login')->required()|noescape}<br />
+
+{$builder->label('Password')->forId('password')|noescape}<br />
+{$builder->password('password')->id('password')->required()|noescape}<br />
+
+{$builder->submit('Login')|noescape}
