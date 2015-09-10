@@ -63,8 +63,7 @@
 
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Kiss\\": "lib/Kiss/"
+            "App\\": "app/"
         },
 
         "files": [
