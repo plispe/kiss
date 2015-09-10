@@ -6,7 +6,7 @@
     },
 
     "require": {
-        "php": "~7.0@beta",
+        "php": "~5.6.0",
 
         "ext-apcu": "*",
         "ext-mbstring": "*",
