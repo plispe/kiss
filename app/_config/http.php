@@ -10,6 +10,10 @@
 use App\Factory\Http\Psr7;
 use App\Factory\Http\Relay as RelayFactory;
 
+/**
+ * Middleware dispatcher
+ * @see http://relayphp.com/
+ */
 use Relay\Relay;
 
 /**
@@ -20,6 +24,7 @@ use Aura\Router\Map;
 use Aura\Router\Matcher;
 use Aura\Router\Generator;
 use Aura\Router\RouterContainer;
+use Aura\Router\Route;
 
 /**
  * PSR-7 interfaces
@@ -33,6 +38,8 @@ use Psr\Http\Message\ResponseInterface;
  * @see https://github.com/container-interop/container-interop
  */
 use Interop\Container\ContainerInterface;
+
+use App\Vendor\Aura\Router\Map\RestfulResourceMap;
 
 return [
     /**
@@ -48,7 +55,15 @@ return [
      * @see http://auraphp.com/packages/Aura.Router/
      */
 
-    RouterContainer::class => DI\object(),
+    RouterContainer::class => function (ContainerInterface $c) {
+        $container = new RouterContainer;
+        $container->setMapFactory(function () {
+            return new RestfulResourceMap(new Route());
+        });
+
+        return $container;
+    },
+
 
     Map::class => function (ContainerInterface $c) {
         return $c->get(RouterContainer::class)->getMap();

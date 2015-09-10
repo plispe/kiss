@@ -26,7 +26,9 @@ use Psr\Http\Message\RequestInterface;
  */
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-
+/**
+ * Own classes and interfaces
+ */
 use App\Shared\Behaviour\Common\ClockworkTrait;
 
 class Dispatcher implements MiddlewareInterface
@@ -63,12 +65,13 @@ class Dispatcher implements MiddlewareInterface
             $this->endEvent('dispatching');
             $this->startEvent('controller', 'Running controller action');
             // Call controller action
-            $response =  $controller->callAction(
+            $response = $controller->callAction(
                 $this->getFullActionName($route->attributes['action']),
                 $request,
                 $response
             );
             $this->endEvent('controller');
+            $response = $next($request, $response, $next);
             return $response;
         }
     }

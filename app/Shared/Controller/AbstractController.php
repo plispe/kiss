@@ -50,8 +50,11 @@ abstract class AbstractController
         $this->beforeAction($request, $response);
         // Action call
         $response = $this->$actionName($request, $response);
-        // After action hoop
-        $this->afterAction($request, $response);
+        if ($this->checkResponse($response)) {
+            // After action hoop
+            $this->afterAction($request, $response);
+        }
+
 
         return $response;
     }
@@ -84,6 +87,6 @@ abstract class AbstractController
             );
         }
 
-        return$isResponseInterface;
+        return $isResponseInterface;
     }
 }

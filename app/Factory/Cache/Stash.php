@@ -23,6 +23,9 @@ class Stash
         $driver = new FileSystem;
         $driver->setOptions(['path' => $c->get('stash.cache.dir')]);
 
+        // $driver = new \Stash\Driver\Redis;
+        // $driver->setOptions(['servers' => ['127.0.0.1', '6379']]);
+
         return new Pool($driver);
     }
 }

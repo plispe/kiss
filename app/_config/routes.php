@@ -35,7 +35,7 @@ return [
              */
             $map->tokens([
                 // Allowed module prefixes are admin and api
-                'module' => 'admin|api'
+                'module' => 'admin'
             ])->defaults([
                 // Default module is web (without prefix)
                 'module'     => 'web',
@@ -46,6 +46,8 @@ return [
                 // No default id
                 'id'         => null,
             ]);
+
+            $map->resource('project');
 
             /**
              * homepage route

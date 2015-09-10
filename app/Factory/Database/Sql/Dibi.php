@@ -29,7 +29,7 @@ class Dibi
         $connection = [
             'driver'   => $dsn->getEngine(),
             'host'     => $dsn->getHost(),
-            'username' => $dsn->getUser(),
+            'user' => $dsn->getUser(),
             'password' => $dsn->getPassword(),
             'database' => $dsn->getDatabase(),
         ];

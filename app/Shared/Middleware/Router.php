@@ -12,7 +12,7 @@ namespace App\Shared\Middleware;
  * Aura router classes
  */
 use Aura\Router\Matcher;
-use Aura\Router\Route;
+
 
 /**
  * PSR-7 interfaces
@@ -22,11 +22,12 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * Middleware classes and behaviours
+ * Own classes and interfaces
  */
 use App\Shared\Middleware\Dispatcher;
-use App\Shared\Behaviour\Middleware\AuraFailureHandlingTrait;
 use App\Shared\Behaviour\Common\ClockworkTrait;
+use App\Shared\Behaviour\Middleware\AuraFailureHandlingTrait;
+use App\Shared\Behaviour\Middleware\AuraSuccessHandlingTrait;
 
 class Router implements MiddlewareInterface
 {
@@ -34,6 +35,11 @@ class Router implements MiddlewareInterface
      * Handle unmatche route
      */
     use AuraFailureHandlingTrait;
+
+    /**
+     * Handle matched route
+     */
+    use AuraSuccessHandlingTrait;
 
     /**
      * Clockwork trait
@@ -57,20 +63,18 @@ class Router implements MiddlewareInterface
      */
     public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next)
     {
-        $route   = $this->matcher->match($request);
-
-        if (! $route) {
+        // If no route is matcher
+        if (! $route = $this->matcher->match($request)) {
             $this->handleFailure($this->matcher);
         }
 
+        // Log events
         $this->endEvent('routing');
-        $this->startEvent('dispatching', 'Dispatching controller');
-        $response =  $next(
-            $request->withAttribute('route', $route),
-            $response,
-            $next
-        );
 
-        return $response;
+        return $this->handleSuccess($route, $request->withAttribute('route', $route), $response, $next);
     }
 }
+
+
+
+

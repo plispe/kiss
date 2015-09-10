@@ -83,9 +83,9 @@ class ClockworkMiddleware implements MiddlewareInterface
          * Set clockwork headers
          */
         $response = $response
-                ->withHeader('X-Clockwork-Id', $this->clockwork->getRequest()->id)
-                ->withHeader('X-Clockwork-Version', Clockwork::VERSION)
-                ->withHeader('X-Clockwork-Path', 'http://api.kiss.local/__clockwork/');
+            ->withHeader('X-Clockwork-Id', $this->clockwork->getRequest()->id)
+            ->withHeader('X-Clockwork-Version', Clockwork::VERSION)
+            ->withHeader('X-Clockwork-Path', 'http://api.kiss.local/__clockwork/');
 
         return $response;
     }
