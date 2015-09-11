@@ -1,6 +1,7 @@
 .env
 .phpintel/
 .phpmetrics
+.DS_Store
 
 temp/cache/stash/*
 temp/cache/latte/*
