@@ -10,6 +10,11 @@
 namespace  App\Factory\Http;
 
 use Relay\RelayBuilder;
+
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
 use Interop\Container\ContainerInterface;
 
 class Relay

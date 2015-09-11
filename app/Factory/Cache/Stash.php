@@ -10,6 +10,11 @@ namespace App\Factory\Cache;
 
 use Stash\Pool;
 use Stash\Driver\FileSystem;
+
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
 use Interop\Container\ContainerInterface;
 
 class Stash

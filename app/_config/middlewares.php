@@ -13,11 +13,12 @@
  * Service classes and interfaces
  */
 use Relay\RelayBuilder;
-
+use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
 /**
  * Used factories
  */
 use App\Factory\Http\Relay;
+use App\Factory\Devtool\PhpDebugBar;
 
 /**
  * Interop DI intervace
@@ -26,14 +27,6 @@ use App\Factory\Http\Relay;
 use Interop\Container\ContainerInterface;
 
 return [
-     PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware::class => function (ContainerInterface $c) {
-        $debugbar = new DebugBar\StandardDebugBar();
-        $debugbarRenderer = $debugbar->getJavascriptRenderer('/php-debugbar');
-        $middleware = new PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware($debugbarRenderer);
-
-        return $middleware;
-    },
-
     /**
      * Middleware wildcard
      * @see http://php-di.org/doc/php-definitions.html#wildcards
@@ -49,6 +42,6 @@ return [
         DI\get(\App\Shared\Middleware\ClockworkMiddleware::class),
         DI\get(\App\Shared\Middleware\Router::class),
         DI\get(\App\Shared\Middleware\Dispatcher::class),
-        // DI\get(\PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware::class),
+        DI\factory([PhpDebugBar::class, 'create']),
     ]
 ];

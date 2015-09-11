@@ -11,6 +11,10 @@ namespace App\Factory\Devtool;
 use Clockwork\DataSource\PhpDataSource;
 use Clockwork\Storage\FileStorage;
 
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
 use Interop\Container\ContainerInterface;
 
 class Clockwork

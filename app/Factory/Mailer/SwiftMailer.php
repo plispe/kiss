@@ -9,6 +9,10 @@
 
 namespace App\Factory\Mailer;
 
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
 use Interop\Container\ContainerInterface;
 
 class SwiftMailer

@@ -11,6 +11,11 @@ namespace App\Factory\Filesystem;
 use League\Flysystem\Filesystem;
 use League\Flysystem\MountManager;
 use League\Flysystem\Adapter\Local;
+
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
 use Interop\Container\ContainerInterface;
 
 class Flysystem
