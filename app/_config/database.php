@@ -34,26 +34,20 @@ return [
      * Pomm is the default one
      * @see http://www.pomm-project.org/
      */
-    Pomm::class => function (ContainerInterface $c) {
-        return (new PommFactory)->create($c);
-    },
+    Pomm::class => DI\factory([PommFactory::class, 'create']),
 
 
     /**
      * DIBI
      * @see http://dibiphp.com/
      */
-    DibiConnection::class => function (ContainerInterface $c) {
-        return (new Dibi)->create($c);
-    },
+    DibiConnection::class => DI\factory([Dibi::class, 'create']),
 
     /**
      * Spot2
      * @see http://phpdatamapper.com/
      */
-    Locator::class => function (ContainerInterface $c) {
-        return (new Spot2)->create($c);
-    },
+    Locator::class => DI\factory([Spot2::class, 'create']),
 
     /**
      * NoSql database engines
@@ -63,7 +57,5 @@ return [
      * Monga
      * @see https://github.com/thephpleague/monga
      */
-    Database::class => function (ContainerInterface $c) {
-        return (new Monga)->create($c);
-    }
+    Database::class => DI\factory([Monga::class, 'create']),
 ];

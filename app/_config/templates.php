@@ -27,7 +27,5 @@ return [
      * Latte templating engine
      * @see http://latte.nette.org/en/
      */
-    Engine::class => function ($c) {
-        return (new Latte)->create($c);
-    },
+    Engine::class => DI\factory([Latte::class, 'create']),
 ];

@@ -46,9 +46,7 @@ return [
      * PSR-7 Middleware dispatcher
      * @see http://relayphp.com/
      */
-    Relay::class => function (ContainerInterface $c) {
-        return (new RelayFactory)->create($c);
-    },
+    Relay::class => DI\factory([RelayFactory::class, 'create']),
 
     /**
      * PSR-7 router

@@ -21,15 +21,12 @@ return [
     * Swift mailer
     * @see http://swiftmailer.org
     */
-    Swift_Mailer::class =>function (ContainerInterface $c) {
-        return (new SwiftMailer)->create($c);
-    },
+    Swift_Mailer::class => DI\factory([SwiftMailer::class, 'create']),
 
     /**
      * Php mailer
      * @see https://github.com/PHPMailer/PHPMailer
      */
-    PHPMailer::class => function (ContainerInterface $c) {
-        return (new PhpMailer)->create($c);
-    }
+    PHPMailer::class => DI\factory([PhpMailer::class, 'create'])
+
 ];

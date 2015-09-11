@@ -35,33 +35,25 @@ return [
      * Caching library
      * @see http://www.stashphp.com/
      */
-    PoolInterface::class => function (ContainerInterface $c) {
-        return (new Stash)->create($c);
-    },
+    PoolInterface::class => DI\factory([Stash::class, 'create']),
 
     /**
      * Flysystem - filesystem abstraction
      * @see http://flysystem.thephpleague.com/
      */
-    MountManager::class => function (ContainerInterface $c) {
-        return (new Flysystem)->create();
-    },
+    MountManager::class => DI\factory([Flysystem::class, 'create']),
 
     /**
      * Event emitter
      * @see http://event.thephpleague.com/2.0/
      */
-    Emitter::class => function (ContainerInterface $c) {
-        return (new League)->create();
-    },
+    Emitter::class => DI\factory([League::class, 'create']),
 
     /**
      * Clockwork
      * @see https://github.com/itsgoingd/clockwork
      */
-    Clockwork::class => function (ContainerInterface $c) {
-        return (new ClockworkFactory)->create($c);
-    },
+    Clockwork::class => DI\factory([ClockworkFactory::class, 'create']),
 
     /**
      * Form Builder
@@ -69,7 +61,5 @@ return [
      *
      * @todo replace with former @see http://formers.github.io/former/ (when possible)
      */
-    FormBuilder::class > function (ContainerInterface $c) {
-        return (new Form)->create($c);
-    }
+    FormBuilder::class => DI\factory([Form::class, 'create']),
 ];
