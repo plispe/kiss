@@ -42,6 +42,6 @@ return [
         DI\get(\App\Shared\Middleware\ClockworkMiddleware::class),
         DI\get(\App\Shared\Middleware\Router::class),
         DI\get(\App\Shared\Middleware\Dispatcher::class),
-        DI\factory([PhpDebugBar::class, 'create']),
+        // DI\factory([PhpDebugBar::class, 'create']),
     ]
 ];
