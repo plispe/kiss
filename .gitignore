@@ -5,6 +5,7 @@
 temp/cache/stash/*
 temp/cache/latte/*
 temp/proxies/*
-vendor
+vendor/*
+node_modules/*
 
 !.gitkeep
