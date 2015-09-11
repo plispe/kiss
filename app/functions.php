@@ -83,3 +83,28 @@ if (! function_exists('App\exceptionToJsonResponse')) {
         );
     }
 }
+
+if (! function_exists('App\renderExceptionTemplateToHtmlResponse')) {
+    /**
+     * Turns Exception object into PSR-7 HtmlMessage
+     * @see https://latte.nette.org/en/
+     *
+     * @param \Exception
+     *
+     * @return HtmlResponse
+     */
+    function renderExceptionTemplateToHtmlResponse(\Exception $e)
+    {
+        $engine = new \Latte\Engine;
+        $code = getStatusCode($e);
+        $template = sprintf(__DIR__ . '/_templates/web/error/%s.latte', getStatusCode($e));
+
+        // If specific template does not exist, template for error 500 will be rendered.
+        if (!file_exists($template)) {
+            $template = __DIR__ . '/_templates/web/error/500.latte';
+            $code = 500;
+        }
+
+        return new HtmlResponse($engine->renderToString($template), $code);
+    }
+}

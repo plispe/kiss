@@ -13,15 +13,25 @@
  */
 use Zend\Diactoros\Response\SapiEmitter;
 
+/**
+ * Stringy
+ * @see https://github.com/danielstjules/Stringy
+ */
+use function Stringy\create as s;
+
 $handler = new Error\Handler();
 $handler->error(function (Exception $e) {
-    /**
-     * If ENV variable DISPLAY_ERRORS is "true" Tracy is used for exception rendering
-     * @see http://tracy.nette.org/en/
-     */
-    $response = getenv('DISPLAY_ERRORS') === 'true' ?
-        App\exceptionToHtmlResponse($e)  :
-        App\exceptionToJsonResponse($e);
+
+    if (getenv('DISPLAY_ERRORS') === 'true') {
+        $response = App\exceptionToHtmlResponse($e) ;
+    } else {
+        // Check if api module is used
+        $isApiModule = s($_SERVER['REQUEST_URI'])->startsWith('/api/');
+
+        // If api is used response is rendered to JSON, otherwise HTML
+        $response = $isApiModule ?
+            App\exceptionToJsonResponse($e) : App\renderExceptionTemplateToHtmlResponse($e);
+    }
 
     /**
      * Emittes PSR-7 message
