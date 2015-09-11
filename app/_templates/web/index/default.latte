@@ -1,6 +1,6 @@
 {layout '../@layout.latte'}
 
-{block #content}
+{block #jumbotron}
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <div class="container">
@@ -9,8 +9,9 @@
     <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
   </div>
 </div>
+{/block}
 
-<div class="container">
+{block #content}
   <!-- Example row of columns -->
   <div class="row">
     <div class="col-md-4">
@@ -29,5 +30,4 @@
       <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
     </div>
   </div>
-
-  <hr>
+{/block}

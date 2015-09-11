@@ -1,0 +1,10 @@
+{$builder->open()->class('navbar-form navbar-right')->role('form')|noescape}
+<div class="form-group">
+  {$builder->text('login')->placeholder('Email')->class('form-control')->required()|noescape}
+</div>
+
+<div class="form-group">
+  {$builder->password('password')->placeholder('Password')->class('form-control')->required()|noescape}<br />
+</div>
+
+{$builder->submit('Sign in')->class('btn btn-success')|noescape}

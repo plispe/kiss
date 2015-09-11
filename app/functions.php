@@ -102,7 +102,7 @@ if (! function_exists('App\renderExceptionTemplateToHtmlResponse')) {
         // If specific template does not exist, template for error 500 will be rendered.
         if (!file_exists($template)) {
             $template = __DIR__ . '/_templates/web/error/500.latte';
-            $code = 500;
+            $code = Response::HTTP_INTERNAL_SERVER_ERROR;
         }
 
         return new HtmlResponse($engine->renderToString($template), $code);

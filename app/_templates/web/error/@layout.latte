@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>{$title}</title>
-<!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+{layout '../@layout.latte'}
+
+{block #head}
 <style n:syntax="off">
 /* Error Page Inline Styles */
   body {
-    padding-top: 20px;
+    padding-top: 50px;
   }
   /* Layout */
   .jumbotron {
@@ -41,19 +33,16 @@
   .orange {color:#f0ad4e;}
   .red {color:#d9534f;}
   </style>
-</head>
-<body>
-  {* if request is not given to template *}
-  {if !isset($request)}
-    {var $request = \Zend\Diactoros\ServerRequestFactory::fromGlobals()}
-  {/if}
+{/block}
 
-  <!-- Error Page Content -->
-  {block content}{/block}
-  <!-- End Error Page Content -->
-  <!--Scripts-->
-  <!-- jQuery library -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-</body>
-</html>
+{block #content}
+{* if request is not given to template *}
+{if !isset($request)}
+  {var $request = \Zend\Diactoros\ServerRequestFactory::fromGlobals()}
+{/if}
+
+<!-- Error Page Content -->
+{block error}{/block}
+
+{/block}
+

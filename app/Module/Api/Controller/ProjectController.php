@@ -30,7 +30,8 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class ProjectController extends AbstractApiController
 {
-     /**
+
+    /**
      * @Inject
      * @var DibiConnection
      */
@@ -44,6 +45,7 @@ class ProjectController extends AbstractApiController
      */
     public function findAllAction(RequestInterface $request, ResponseInterface $response)
     {
+        dump($this->database);exit;
         $response = new JsonResponse([]);
         return $response;
     }
