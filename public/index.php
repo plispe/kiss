@@ -21,6 +21,7 @@ use Relay\Relay;
 use Zend\Diactoros\Server;
 use Clockwork\Clockwork;
 use Clockwork\Request\Timeline;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * Index file
@@ -84,23 +85,6 @@ $timeline->endEvent('errorHandler');
 /******************************************************************************/
 
 /******************************************************************************/
-/*                        INIT OF PSR-7 REQUEST START                         */
-/******************************************************************************/
-
-// start of request event
-$timeline->startEvent('request', 'Init PSR-7 of request');
-
-// includes PSR-7 request
-$request = require_once __DIR__ . '/../app/request.php';
-
-// end of request event
-$timeline->endEvent('request');
-
-/******************************************************************************/
-/*                        INIT OF PSR-7 REQUEST START                         */
-/******************************************************************************/
-
-/******************************************************************************/
 /*                        INIT OF DI CONTAINER START                          */
 /******************************************************************************/
 
@@ -130,7 +114,7 @@ $container->get(Clockwork::class)->setTimeline($timeline);
 // Zend Diactoros server
 $server = Server::createServerfromRequest(
     $container->get(Relay::class),
-    $request
+    $container->get(RequestInterface::class)
 );
 
 // Listening to request

@@ -15,6 +15,12 @@ namespace App;
 use Tracy\BlueScreen;
 
 /**
+ * Latte tamplating engine
+ * @see https://latte.nette.org/en/
+ */
+use \Latte\Engine;
+
+/**
  * Zend implementation of PSR-7
  * @see https://github.com/zendframework/zend-diactoros
  */
@@ -55,12 +61,9 @@ if (! function_exists('App\exceptionToHtmlResponse')) {
     function exceptionToHtmlResponse(\Exception $e)
     {
         ob_start();
-        $bluescreen = new BlueScreen();
-        $bluescreen->render($e);
+        (new BlueScreen())->render($e);
 
-        $html = ob_get_clean();
-
-        return new HtmlResponse($html, getStatusCode($e));
+        return new HtmlResponse(ob_get_clean(), getStatusCode($e));
     }
 
 }
@@ -75,10 +78,9 @@ if (! function_exists('App\exceptionToJsonResponse')) {
     function exceptionToJsonResponse(\Exception $e)
     {
         $code          = getStatusCode($e);
-        $emptyResponse = new EmptyResponse($code);
 
         return new JsonResponse(
-            ['error' => $emptyResponse->getReasonPhrase()],
+            ['error' => (new EmptyResponse($code))->getReasonPhrase()],
             $code
         );
     }
@@ -95,7 +97,6 @@ if (! function_exists('App\renderExceptionTemplateToHtmlResponse')) {
      */
     function renderExceptionTemplateToHtmlResponse(\Exception $e)
     {
-        $engine = new \Latte\Engine;
         $code = getStatusCode($e);
         $template = sprintf(__DIR__ . '/_templates/web/error/%s.latte', getStatusCode($e));
 
@@ -105,6 +106,9 @@ if (! function_exists('App\renderExceptionTemplateToHtmlResponse')) {
             $code = Response::HTTP_INTERNAL_SERVER_ERROR;
         }
 
-        return new HtmlResponse($engine->renderToString($template), $code);
+        return new HtmlResponse(
+            (new Engine)->renderToString($template),
+            $code
+        );
     }
 }

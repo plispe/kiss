@@ -12,12 +12,11 @@
 /**
  * Service classes and interfaces
  */
-use Relay\RelayBuilder;
 use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
+
 /**
  * Used factories
  */
-use App\Factory\Http\Relay;
 use App\Factory\Devtool\PhpDebugBar;
 
 /**
@@ -27,12 +26,6 @@ use App\Factory\Devtool\PhpDebugBar;
 use Interop\Container\ContainerInterface;
 
 return [
-    /**
-     * Middleware wildcard
-     * @see http://php-di.org/doc/php-definitions.html#wildcards
-     */
-    '\App\Shared\Middleware\*'   => DI\object('App\Shared\Middleware\*'),
-
     /**
      * Middleware queue which is used for Relay
      *

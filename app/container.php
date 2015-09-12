@@ -50,14 +50,10 @@ $containerBuilder->writeProxiesToFile(true, __DIR__ . '/../temp/proxies');
 
 // Definitions files
 $definitionFiles = [
-    __DIR__ . '/_config/parameters.php',
-    __DIR__ . '/_config/http.php',
-    __DIR__ . '/_config/services.php',
-    __DIR__ . '/_config/database.php',
-    __DIR__ . '/_config/routes.php',
-    __DIR__ . '/_config/middlewares.php',
-    __DIR__ . '/_config/mailer.php',
-    __DIR__ . '/_config/templates.php',
+    __DIR__ . '/_config/di/parameters.php',
+    __DIR__ . '/_config/di/wildcards.php',
+    __DIR__ . '/_config/di/services.php',
+    __DIR__ . '/_config/di/middlewares.php',
 ];
 
 // Load files into container

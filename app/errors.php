@@ -36,6 +36,5 @@ $handler->error(function (Exception $e) {
     /**
      * Emittes PSR-7 message
      */
-    $emitter  = new SapiEmitter;
-    $emitter->emit($response);
+    (new SapiEmitter)->emit($response);
 });
