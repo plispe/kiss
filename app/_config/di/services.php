@@ -56,7 +56,9 @@ use App\Factory\Database\NoSql\Monga;
 use App\Factory\Http\Psr7;
 use App\Factory\Http\Relay as RelayFactory;
 use App\Factory\Http\Router;
+use App\Factory\Logger\Monolog;
 
+use Psr\Log\LoggerInterface;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -166,4 +168,6 @@ return [
      * @see https://github.com/thephpleague/monga
      */
     Database::class => DI\factory([Monga::class, 'create']),
+
+    LoggerInterface::class => DI\Factory([Monolog::class, 'create']),
 ];

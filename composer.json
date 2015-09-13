@@ -1,10 +1,4 @@
 {
-    "require-dev": {
-        "bookdown/bookdown": "*",
-        "edgedesign/phpqa": "*",
-        "sebastian/phpdcd": "*"
-    },
-
     "require": {
         "php": "~5.6.0",
 
@@ -12,12 +6,14 @@
         "ext-mbstring": "*",
         "ext-intl": "*",
 
+        "adamwathan/form": "^0.7.2",
         "ad7six/dsn": "^0.4.0",
         "anahkiasen/underscore-php": "*",
         "aura/router": "3.x-dev",
         "bernard/bernard": "*",
         "doctrine/annotations": "~1.2",
         "doctrine/cache": "*",
+        "doctrine/inflector": "^1.0",
         "dibi/dibi": "^2.3",
         "codegyre/robo": "*",
         "danielstjules/stringy": "*",
@@ -29,6 +25,7 @@
         "league/event": "^2.1",
         "league/monga": "^1.1",
         "league/uri": "dev-master",
+        "monolog/monolog": "^1.17",
         "nesbot/carbon": "*",
         "oscarotero/psr7-middlewares": "^2.0",
         "php-di/php-di": "*",
@@ -36,7 +33,6 @@
         "pomm-project/cli": "2.0.*@dev",
         "pomm-project/model-manager": "2.0.*@dev",
         "pomm-project/foundation": "2.0.*@dev",
-        "propel/propel": "2.0.0-alpha5",
         "relay/relay": "^0.2.0",
         "sjparkinson/static-review": "^4.1",
         "symfony/http-foundation": "^2.7",
@@ -46,14 +42,12 @@
         "tracy/tracy": "^2.3",
         "vlucas/phpdotenv": " 2.0.1",
         "vlucas/spot2": "^2.1",
-        "zendframework/zend-diactoros": "*",
-        "apigen/theme-bootstrap": "^1.1",
-        "apigen/apigen": "^4.1",
-        "doctrine/inflector": "^1.0",
-        "adamwathan/form": "^0.7.2"
+        "zendframework/zend-diactoros": "*"
     },
 
     "require-dev": {
+        "apigen/apigen": "^4.1",
+        "apigen/theme-bootstrap": "^1.1",
         "codeception/codeception": "*",
         "jakub-onderka/php-parallel-lint": "*",
         "jakub-onderka/php-console-highlighter": "*",
