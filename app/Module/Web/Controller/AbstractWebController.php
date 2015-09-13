@@ -14,6 +14,4 @@ abstract class AbstractWebController extends AbstractController
      * Helper for rendering latte templates
      */
     use \App\Shared\Behaviour\Controller\View\LatteTrait;
-
-
 }

@@ -74,7 +74,3 @@ class Router implements MiddlewareInterface
         return $this->handleSuccess($route, $request->withAttribute('route', $route), $response, $next);
     }
 }
-
-
-
-

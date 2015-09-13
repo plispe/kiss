@@ -29,7 +29,7 @@ trait GeneratorTrait
      *
      * @return String
      */
-    public function link($routeName, array $params = [], $absolute)
+    public function link($routeName, array $params = [], $absolute = false)
     {
         $defaultParams = [
             'action' => null

@@ -34,7 +34,7 @@ class ErrorController extends AbstractWebController
      */
     public function error404Action(RequestInterface $request, ResponseInterface $response)
     {
-        return $this->renderLatte('web/error/404' , ['request' => $request]);
+        return $this->renderLatte('web/error/404', ['request' => $request]);
 
     }
 

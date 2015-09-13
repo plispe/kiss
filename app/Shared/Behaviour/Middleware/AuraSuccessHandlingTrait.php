@@ -21,7 +21,8 @@ use Aura\Router\Route;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\RequestInterface;
 
-trait AuraSuccessHandlingTrait {
+trait AuraSuccessHandlingTrait
+{
     /**
      * Handle route execution, if route handler is callable, it will be executed directly.
      * Otherwise next middleware is called
