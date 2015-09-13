@@ -29,6 +29,8 @@ class PhpDebugBar
 {
     /**
      * @param ContainerInterface $c
+     *
+     * @return PhpDebugBarMiddleware
      */
     public function create(ContainerInterface $c)
     {

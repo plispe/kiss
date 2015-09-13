@@ -8,8 +8,9 @@
  */
 namespace App\Factory\Devtool;
 
-use Clockwork\DataSource\PhpDataSource;
 use Clockwork\Storage\FileStorage;
+use Clockwork\DataSource\PhpDataSource;
+
 
 /**
  * Interop DI intervace
@@ -21,6 +22,8 @@ class Clockwork
 {
     /**
      * @param ContainerInterface $c
+     *
+     * @return Clockwork\Clockwork
      */
     public function create(ContainerInterface $c)
     {

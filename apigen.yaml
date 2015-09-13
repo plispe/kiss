@@ -1,0 +1,12 @@
+source:
+  - ./app
+
+destination: ./docs
+
+extensions:
+  - php
+
+debug: True
+
+exclude:
+  - App/Shared/*

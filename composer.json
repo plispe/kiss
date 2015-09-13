@@ -46,7 +46,7 @@
     },
 
     "require-dev": {
-        "apigen/apigen": "^4.1",
+        "apigen/apigen": "^4.1.1",
         "apigen/theme-bootstrap": "^1.1",
         "codeception/codeception": "*",
         "jakub-onderka/php-parallel-lint": "*",
