@@ -11,8 +11,8 @@ class RoboFile extends \Robo\Tasks
      */
     public function devtoolsRunPhpServer()
     {
-        $this->taskServer(8080)
-            ->host('localhost')
+        $this->taskServer(8000)
+            ->host('www.kiss.local')
             ->dir('public')
             ->printed(true)
             ->run();
@@ -60,4 +60,6 @@ class RoboFile extends \Robo\Tasks
             ->printed(true)
             ->run();
     }
+
+
 }

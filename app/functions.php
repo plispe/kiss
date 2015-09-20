@@ -46,7 +46,6 @@ if (! function_exists('App\getStatusCode')) {
         return $e instanceof HttpExceptionInterface ?
             $e->getStatusCode() : Response::HTTP_INTERNAL_SERVER_ERROR;
     }
-
 }
 
 if (! function_exists('App\exceptionToHtmlResponse')) {
@@ -65,7 +64,6 @@ if (! function_exists('App\exceptionToHtmlResponse')) {
 
         return new HtmlResponse(ob_get_clean(), getStatusCode($e));
     }
-
 }
 
 if (! function_exists('App\exceptionToJsonResponse')) {

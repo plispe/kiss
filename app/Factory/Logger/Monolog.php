@@ -10,7 +10,18 @@
 namespace App\Factory\Logger;
 
 use Monolog\Logger;
-use Monolog\Handler\ErrorLogHandler;
+
+/**
+ * Monolog handlers
+ */
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\ChromePHPHandler;
+
+/**
+ * Monolog Processors
+ */
+use Monolog\Processor\WebProcessor;
+use Monolog\Processor\IntrospectionProcessor;
 
 /**
  * Interop DI intervace
@@ -27,8 +38,19 @@ class Monolog
      */
     public function create(ContainerInterface $c)
     {
-        $logger = new Logger("log");
-        $logger->pushHandler(new ErrorLogHandler());
+        $logger = new Logger("Monolog");
+        $logger->pushProcessor(new WebProcessor);
+        $logger->pushProcessor(new IntrospectionProcessor);
+
+        /**
+         * If chrome logger is used
+         * @see https://craig.is/writing/chrome-logger
+         */
+        if (getenv('USE_CHROME_LOGGER') === 'true') {
+            $logger->pushHandler(new ChromePHPHandler);
+        }
+
+        $logger->pushHandler(new StreamHandler('php://stderr'));
 
         return $logger;
     }

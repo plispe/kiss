@@ -9,6 +9,7 @@ namespace App\Shared\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\RequestInterface;
 
+use Psr\Log\LoggerInterface;
 use App\Shared\Behaviour\Controller\Link\GeneratorTrait;
 
 /**
@@ -19,6 +20,12 @@ use App\Shared\Behaviour\Controller\Link\GeneratorTrait;
 
 abstract class AbstractController
 {
+    /**
+     * @Inject
+     * @var LoggerInterface
+     */
+    protected $logger;
+
     /**
      * Helper for url generating
      */

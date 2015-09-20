@@ -45,6 +45,8 @@ class ProjectController extends AbstractApiController
      */
     public function findAllAction(RequestInterface $request, ResponseInterface $response)
     {
+        throw new NotFoundHttpException;
+
         $response = new JsonResponse([]);
         return $response;
     }

@@ -42,10 +42,13 @@
         "tracy/tracy": "^2.3",
         "vlucas/phpdotenv": " 2.0.1",
         "vlucas/spot2": "^2.1",
-        "zendframework/zend-diactoros": "*"
+        "zendframework/zend-diactoros": "*",
+        "knplabs/gaufrette": "^0.2.0",
+        "robmorgan/phinx": "^0.4.6"
     },
 
     "require-dev": {
+        "apigen/apigen": "dev-master",
         "codeception/codeception": "*",
         "jakub-onderka/php-parallel-lint": "*",
         "jakub-onderka/php-console-highlighter": "*",
