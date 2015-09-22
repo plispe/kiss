@@ -34,7 +34,6 @@ return [
         // \Psr7Middlewares\Middleware::ClientIp(),
         DI\get(\App\Shared\Middleware\ClockworkMiddleware::class),
         DI\get(\App\Shared\Middleware\Router::class),
-        DI\get(\App\Shared\Middleware\Dispatcher::class),
         // DI\factory([PhpDebugBar::class, 'create']),
     ]
 ];

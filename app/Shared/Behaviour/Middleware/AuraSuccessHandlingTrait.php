@@ -49,7 +49,10 @@ trait AuraSuccessHandlingTrait
             // Start dispatching event
             $this->startEvent('dispatching', 'Dispatching controller.');
             // Start dispatching route (calls next middleware which should be dispatcher)
-            $response = $next($request, $response, $next);
+
+            // Call dispatcher
+            $d        = $this->dispatcher;
+            $response = $d($request, $response, $next);
         }
 
         return $response;

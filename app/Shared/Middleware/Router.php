@@ -53,10 +53,17 @@ class Router implements MiddlewareInterface
     protected $matcher;
 
     /**
-     * @Inject
      * @var Dispatcher
      */
     protected $dispatcher;
+
+    /**
+     * @param Dispatcher $dispatcher [description]
+     */
+    public function __construct(Dispatcher $dispatcher)
+    {
+        $this->dispatcher = $dispatcher;
+    }
 
     /**
      * @inheritdoc
