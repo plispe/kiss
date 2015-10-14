@@ -19,14 +19,10 @@
         </style>
         {block #head}{/block}
 
-        {if getenv('ENVIRONMENT') == 'development'}
-            {include _gassetic/development/styles.latte}
-        {else}
-            {include _gassetic/production/styles.latte}
-        {/if}
-
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/main.css">
+        <script async src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -56,16 +52,6 @@
            <p>&copy; Company 2015</p>
          </footer>
       </div>
-
-        {if getenv('MODE') == 'development'}
-            {include _gassetic/development/scripts-body.latte}
-        {else}
-            {include _gassetic/production/scripts-body.latte}
-        {/if}
-
-        <script src="/js/plugins.js"></script>
-        <script src="/js/main.js"></script>
-
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script n:syntax="off">
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
