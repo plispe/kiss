@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1a130fa0a00553eb6fa29349b7e3d2e2",
+    "hash": "39f7d9c8f2d6060ddd3ccf6139697222",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -6962,6 +6962,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "php": 5,
         "aura/router": 20,
         "pomm-project/cli": 20,
         "pomm-project/model-manager": 20,
@@ -6971,7 +6972,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~7.0",
+        "php": "~7.0.0RC5",
         "ext-mbstring": "*"
     },
     "platform-dev": []
