@@ -10,8 +10,7 @@ namespace App\Module\Web\Controller;
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 class TestController extends AbstractWebController
 {
@@ -23,8 +22,6 @@ class TestController extends AbstractWebController
      */
     public function defaultAction(RequestInterface $request, ResponseInterface $response)
     {
-        throw new \Exception;
-
         return $this->renderLatte('web/test/default');
     }
 }

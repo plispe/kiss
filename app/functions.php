@@ -41,7 +41,7 @@ if (! function_exists('App\getStatusCode')) {
      *
      * @return Int
      */
-    function getStatusCode(\Exception $e)
+    function getStatusCode(\Throwable $e)
     {
         return $e instanceof HttpExceptionInterface ?
             $e->getStatusCode() : Response::HTTP_INTERNAL_SERVER_ERROR;
@@ -57,7 +57,7 @@ if (! function_exists('App\exceptionToHtmlResponse')) {
      *
      * @return HtmlResponse
      */
-    function exceptionToHtmlResponse(\Exception $e)
+    function exceptionToHtmlResponse(\Throwable $e)
     {
         ob_start();
         (new BlueScreen())->render($e);
@@ -73,7 +73,7 @@ if (! function_exists('App\exceptionToJsonResponse')) {
      *
      * @return JsonResponse
      */
-    function exceptionToJsonResponse(\Exception $e)
+    function exceptionToJsonResponse(\Throwable $e)
     {
         $code          = getStatusCode($e);
 
@@ -93,7 +93,7 @@ if (! function_exists('App\renderExceptionTemplateToHtmlResponse')) {
      *
      * @return HtmlResponse
      */
-    function renderExceptionTemplateToHtmlResponse(\Exception $e)
+    function renderExceptionTemplateToHtmlResponse(\Throwable $e)
     {
         $code = getStatusCode($e);
         $template = sprintf(__DIR__ . '/_templates/web/error/%s.latte', getStatusCode($e));

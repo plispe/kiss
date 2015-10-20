@@ -30,6 +30,9 @@ if (getenv('USE_DI_CACHE') === 'true') {
      */
     $cache->setNamespace(getenv('APP_NAME'));
 
+    /**
+     * Sets cache definition file
+     */
     $containerBuilder->setDefinitionCache($cache);
 }
 

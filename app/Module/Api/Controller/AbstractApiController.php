@@ -9,8 +9,7 @@ namespace App\Module\Api\Controller;
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 /**
  * Own classes and interfaces

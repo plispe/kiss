@@ -4,7 +4,6 @@
  * PhpDebugBar factory
  *
  * @see http://phpdebugbar.com/
- *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 namespace App\Factory\Devtool;

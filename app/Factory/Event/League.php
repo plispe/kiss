@@ -1,6 +1,7 @@
 <?php
 
 /**
+ *
  * @see http://event.thephpleague.com/2.0/
  * @author Petr Pliska <petr.pliska@post.cz>
  */

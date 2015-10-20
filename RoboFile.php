@@ -13,14 +13,6 @@ class RoboFile extends \Robo\Tasks
      */
     public function devtoolsRunPhpServer()
     {
-        // Compile assets
-        $this
-          ->taskExec('vendor/bin/robo assets:watch')
-          ->dir(__DIR__)
-          ->printed(true)
-          ->background()
-          ->run();
-
         // Run PHP build in server
         $this->taskServer(8000)
             ->host('www.kiss.local')
@@ -71,30 +63,4 @@ class RoboFile extends \Robo\Tasks
             ->printed(true)
             ->run();
     }
-
-    /**
-     * Compile assets using gassetic
-     */
-    public function assetsWatch()
-    {
-        if (getenv('COMPILE_ASSETS_AFTER_NPM_INSTALL') !== 'false') {
-            $this
-              ->taskExec(sprintf('node_modules/.bin/gassetic --env=%s', getenv('ENVIRONMENT')))
-              ->dir(__DIR__)
-              ->run();
-        }
-    }
-
-    /**
-     * Compile assets using gassetic
-     */
-    public function assetsCompile()
-    {
-        $this
-          ->taskExec(sprintf('node_modules/.bin/gassetic build --env=%s', getenv('ENVIRONMENT')))
-          ->dir(__DIR__)
-          ->run();
-    }
-
-
 }

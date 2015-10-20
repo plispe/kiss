@@ -15,6 +15,7 @@ return [
     'templates.dir'   => DI\string('{app.dir}_templates/'),
     'stash.cache.dir' => DI\string('{temp.dir}cache/stash/'),
     'latte.cache.dir' => DI\string('{temp.dir}cache/latte/'),
+    'twig.cache.dir'  => DI\string('{temp.dir}cache/twig/'),
     'clockwork.dir'   => DI\string('{temp.dir}clockwork/'),
     'db.dsn'          => DI\env('DATABASE_DSN'),
 ];

@@ -9,8 +9,7 @@ namespace App\Module\Api\Controller;
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\{RequestInterface, ResponseInterface};;
 
 /**
  * Zend diactoros server
@@ -24,9 +23,10 @@ use Zend\Diactoros\Response\JsonResponse;
  *
  * @see http://symfony.com/doc/current/components/http_kernel/introduction.html
  */
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Symfony\Component{
+    HttpFoundation\Response,
+    HttpKernel\Exception\{NotFoundHttpException, BadRequestHttpException}
+};
 
 class ProjectController extends AbstractApiController
 {

@@ -13,9 +13,9 @@ use Aura\Router\Matcher;
 /**
  * Symfony http exceptions
  */
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
-use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\{
+    NotFoundHttpException, NotAcceptableHttpException, MethodNotAllowedHttpException
+};
 
 trait AuraFailureHandlingTrait
 {

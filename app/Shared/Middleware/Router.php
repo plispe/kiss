@@ -18,16 +18,14 @@ use Aura\Router\Matcher;
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 /**
  * Own classes and interfaces
  */
 use App\Shared\Middleware\Dispatcher;
 use App\Shared\Behaviour\Common\ClockworkTrait;
-use App\Shared\Behaviour\Middleware\AuraFailureHandlingTrait;
-use App\Shared\Behaviour\Middleware\AuraSuccessHandlingTrait;
+use App\Shared\Behaviour\Middleware\{AuraSuccessHandlingTrait, AuraFailureHandlingTrait};
 
 class Router implements MiddlewareInterface
 {

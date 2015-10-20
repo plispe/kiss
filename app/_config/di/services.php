@@ -29,37 +29,34 @@ use Relay\Relay;
  * Aura.Router classes
  * @see http://auraphp.com/packages/Aura.Router/
  */
-use Aura\Router\Map;
-use Aura\Router\Matcher;
-use Aura\Router\Generator;
-use Aura\Router\RouterContainer;
+
+use Aura\Router\{Map, Matcher, Generator, RouterContainer};
 
 /**
  * Used factories
  */
-use App\Factory\Cache\Stash;
-use App\Factory\Event\League;
-use App\Factory\Devtool\Clockwork as ClockworkFactory;
-use App\Factory\Filesystem\Flysystem;
-use App\Factory\Html\Form;
 
-use App\Factory\Mailer\SwiftMailer;
-use App\Factory\Mailer\PhpMailer;
+use App\Factory\{
+    Cache\Stash,
+    Event\League,
+    Devtool\Clockwork as ClockworkFactory,
+    Filesystem\Flysystem,
+    Html\Form,
+    Mailer\SwiftMailer, Mailer\PhpMailer,
+    Template\Latte,
+    NoSql\Monga,
+    Logger\Monolog
+};
 
-use App\Factory\Template\Latte;
+use App\Factory\Database\Sql\{
+    Pomm as PommFactory, Dibi, Spot2
+};
 
-use App\Factory\Database\Sql\Pomm as PommFactory;
-use App\Factory\Database\Sql\Dibi;
-use App\Factory\Database\Sql\Spot2;
-use App\Factory\Database\NoSql\Monga;
+use App\Factory\Http\{
+    Psr7, Relay as RelayFactory, Router
+};
 
-use App\Factory\Http\Psr7;
-use App\Factory\Http\Relay as RelayFactory;
-use App\Factory\Http\Router;
-use App\Factory\Logger\Monolog;
-
-use Psr\Log\LoggerInterface;
-use Psr\Http\Message\RequestInterface;
+use Psr\{Log\LoggerInterface, Http\Message\RequestInterface};
 
 /**
  * Interop DI intervace

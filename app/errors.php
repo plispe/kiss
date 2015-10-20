@@ -20,7 +20,7 @@ use Zend\Diactoros\Response\SapiEmitter;
 use function Stringy\create as s;
 
 $handler = new Error\Handler();
-$handler->error(function (Exception $e) {
+$handler->error(function (Throwable $e) {
 
     if (getenv('DISPLAY_ERRORS') === 'true') {
         $response = App\exceptionToHtmlResponse($e) ;
