@@ -8,14 +8,12 @@ namespace App\Factory\Http;
 /**
  * Zend diactoros
  */
-use Zend\Diactoros\Response;
-use Zend\Diactoros\ServerRequestFactory;
+use Zend\Diactoros\{Response, ServerRequestFactory};
 
 /**
  * PSR-7 interfaces
  */
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 /**
  * Interop DI intervace

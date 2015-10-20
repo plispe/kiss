@@ -15,11 +15,7 @@ use Interop\Container\ContainerInterface;
  * Aura.Router classes
  * @see http://auraphp.com/packages/Aura.Router/
  */
-use Aura\Router\Map;
-use Aura\Router\Route;
-use Aura\Router\Matcher;
-use Aura\Router\Generator;
-use Aura\Router\RouterContainer;
+use Aura\Router\{Map, Route, Matcher, Generator, RouterContainer};
 
 use App\Vendor\Aura\Router\Map\RestfulResourceMap;
 

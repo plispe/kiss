@@ -14,14 +14,12 @@ use Monolog\Logger;
 /**
  * Monolog handlers
  */
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\ChromePHPHandler;
+use Monolog\Handler\{StreamHandler, ChromePHPHandler};
 
 /**
  * Monolog Processors
  */
-use Monolog\Processor\WebProcessor;
-use Monolog\Processor\IntrospectionProcessor;
+use Monolog\Processor\{WebProcessor, IntrospectionProcessor};
 
 /**
  * Interop DI intervace

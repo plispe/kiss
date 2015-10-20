@@ -8,8 +8,10 @@
  */
 namespace App\Factory\Devtool;
 
-use Clockwork\Storage\FileStorage;
-use Clockwork\DataSource\PhpDataSource;
+use Clockwork\{
+    Storage\FileStorage,
+    DataSource\PhpDataSource
+};
 
 
 /**

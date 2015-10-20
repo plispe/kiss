@@ -24,16 +24,16 @@ use \Latte\Engine;
  * Zend implementation of PSR-7
  * @see https://github.com/zendframework/zend-diactoros
  */
-use Zend\Diactoros\Response\JsonResponse;
-use Zend\Diactoros\Response\HtmlResponse;
-use Zend\Diactoros\Response\EmptyResponse;
+use Zend\Diactoros\Response\{JsonResponse, HtmlResponse, EmptyResponse};
 
 /**
  * Symfony exceptions
  * @see http://api.symfony.com/2.7/Symfony/Component/HttpKernel/Exception.html
  */
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Symfony\Component\{
+    HttpFoundation\Response,
+    HttpKernel\Exception\HttpExceptionInterface
+};
 
 if (! function_exists('App\getStatusCode')) {
     /**

@@ -9,8 +9,7 @@
 
 namespace App\Factory\Database\Sql;
 
-use Spot\Config;
-use Spot\Locator;
+use Spot\{Config, Locator};
 use Interop\Container\ContainerInterface;
 
 class Spot2

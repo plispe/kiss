@@ -8,9 +8,9 @@
  */
 namespace App\Factory\Filesystem;
 
-use League\Flysystem\Filesystem;
-use League\Flysystem\MountManager;
-use League\Flysystem\Adapter\Local;
+use League\Flysystem\{
+    Filesystem, MountManager, Adapter\Local
+};
 
 /**
  * Interop DI intervace

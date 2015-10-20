@@ -9,8 +9,7 @@
 
 namespace App\Factory\Filesystem;
 
-use Gaufrette\Filesystem;
-use Gaufrette\Adapter\Local;
+use Gaufrette\{Filesystem, Adapter\Local};
 
 /**
  * Interop DI intervace

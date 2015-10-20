@@ -2,13 +2,14 @@
 
 namespace App\Shared\Controller;
 
+use Psr\Log\LoggerInterface;
+
 /**
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
-use Psr\Log\LoggerInterface;
 use App\Shared\Behaviour\Controller\Link\GeneratorTrait;
 
 /**

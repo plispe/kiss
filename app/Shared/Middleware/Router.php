@@ -23,9 +23,13 @@ use Psr\Http\Message\{RequestInterface, ResponseInterface};
 /**
  * Own classes and interfaces
  */
-use App\Shared\Middleware\Dispatcher;
-use App\Shared\Behaviour\Common\ClockworkTrait;
-use App\Shared\Behaviour\Middleware\{AuraSuccessHandlingTrait, AuraFailureHandlingTrait};
+use App\Shared\{
+    Middleware\Dispatcher,
+    Behaviour\Common\ClockworkTrait,
+    Behaviour\Middleware\AuraSuccessHandlingTrait,
+    Behaviour\Middleware\AuraFailureHandlingTrait
+};
+
 
 class Router implements MiddlewareInterface
 {

@@ -8,8 +8,7 @@
  */
 namespace App\Factory\Cache;
 
-use Stash\Pool;
-use Stash\Driver\FileSystem;
+use Stash\{Pool, Driver\FileSystem};
 
 /**
  * Interop DI intervace

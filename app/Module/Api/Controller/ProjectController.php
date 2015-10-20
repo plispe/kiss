@@ -23,10 +23,8 @@ use Zend\Diactoros\Response\JsonResponse;
  *
  * @see http://symfony.com/doc/current/components/http_kernel/introduction.html
  */
-use Symfony\Component{
-    HttpFoundation\Response,
-    HttpKernel\Exception\{NotFoundHttpException, BadRequestHttpException}
-};
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\{NotFoundHttpException, BadRequestHttpException};
 
 class ProjectController extends AbstractApiController
 {
