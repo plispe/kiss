@@ -24,10 +24,10 @@ if (! function_exists('App\Factory\auraRouterMap')) {
      */
     function auraRouterMap(ContainerInterface $c)
     {
-        $map = $c->get(RouterContainer::class)->getMap();
-
-        require_once sprintf('%sroutes.php', $c->get('config.dir'));
-
-        return $map;
+        return $c->call(function (RouterContainer $container) use ($c) {
+            $map = $container->getMap();
+            require_once sprintf('%sroutes.php', $c->get('config.dir'));
+            return $map;
+        });
     }
 }

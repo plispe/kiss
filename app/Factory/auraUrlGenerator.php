@@ -25,6 +25,8 @@ if (! function_exists('App\Factory\auraUrlGenerator'))
      */
     function auraUrlGenerator(ContainerInterface $c)
     {
-        return $c->get(RouterContainer::class)->getGenerator();
+        return $c->call(function (RouterContainer $container) {
+            return $container->getGenerator();
+        });
     }
 }

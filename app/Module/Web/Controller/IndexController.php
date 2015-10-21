@@ -20,7 +20,7 @@ class IndexController extends AbstractWebController
      *
      * @return RequestInterface
      */
-    public function defaultAction(RequestInterface $request, ResponseInterface $response)
+    public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $this->logger->addInfo('Some event');
         return $this->renderLatte('web/index/default');

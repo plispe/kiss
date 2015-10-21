@@ -20,7 +20,7 @@ class LoginController extends AbstractWebController
      *
      * @return RequestInterface
      */
-    public function defaultAction(RequestInterface $request, ResponseInterface $response)
+    public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return $this->renderLatte(
             'web/login/login',

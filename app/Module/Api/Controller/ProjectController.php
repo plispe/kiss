@@ -40,7 +40,7 @@ class ProjectController extends AbstractApiController
      *
      * @return ResponseInterface
      */
-    public function findAllAction(RequestInterface $request, ResponseInterface $response)
+    public function findAllAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $response = new JsonResponse([]);
         return $response;
@@ -52,7 +52,7 @@ class ProjectController extends AbstractApiController
      *
      * @return ResponseInterface
      */
-    public function findOneAction(RequestInterface $request, ResponseInterface $response)
+    public function findOneAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         // throw new NotFoundHttpException;
         return $response;
@@ -64,7 +64,7 @@ class ProjectController extends AbstractApiController
      *
      * @return ResponseInterface
      */
-    public function createNewAction(RequestInterface $request, ResponseInterface $response)
+    public function createNewAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $json = $this->parseJsonRequestBody($request);
 
@@ -78,7 +78,7 @@ class ProjectController extends AbstractApiController
      *
      * @return ResponseInterface
      */
-    public function updateOneAction(RequestInterface $request, ResponseInterface $response)
+    public function updateOneAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $json = $this->parseJsonRequestBody($request);
 
@@ -92,7 +92,7 @@ class ProjectController extends AbstractApiController
      *
      * @return ResponseInterface
      */
-    public function updateOnePartialAction(RequestInterface $request, ResponseInterface $response)
+    public function updateOnePartialAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $response = new JsonResponse([], Response::HTTP_OK);
         return $response;
@@ -104,7 +104,7 @@ class ProjectController extends AbstractApiController
      *
      * @return ResponseInterface
      */
-    public function deleteOneAction(RequestInterface $request, ResponseInterface $response)
+    public function deleteOneAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $id = $request->getAttribute('route')->attributes['id'];
 
@@ -119,7 +119,7 @@ class ProjectController extends AbstractApiController
      *
      * @throws BadRequestHttpException
      */
-    protected function parseJsonRequestBody(RequestInterface $request)
+    protected function parseJsonRequestBody(RequestInterface $request): ResponseInterface
     {
         $requestJson = json_decode($request->getBody());
 

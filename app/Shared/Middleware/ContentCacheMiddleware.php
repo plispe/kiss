@@ -14,7 +14,6 @@ use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 class ContentCacheMiddleware implements MiddlewareInterface
 {
-
     protected $cache;
 
     public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface

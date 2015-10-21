@@ -25,7 +25,8 @@ if (! function_exists('App\Factory\auraRouterMatcher'))
      */
     function auraRouterMatcher(ContainerInterface $c)
     {
-        $map = $c->get(Map::class);
-        return $c->get(RouterContainer::class)->getMatcher();
+        return $c->call(function(Map $map, RouterContainer $container) {
+            return $container->getMatcher();
+        });
     }
 }
