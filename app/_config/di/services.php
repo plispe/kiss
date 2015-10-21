@@ -9,6 +9,13 @@
 /**
  * Service classes and interfaces
  */
+
+/**
+ * Aura.Router classes
+ * @see http://auraphp.com/packages/Aura.Router/
+ */
+use Aura\Router\{Map, Matcher, Generator, RouterContainer};
+
 use Stash\Interfaces\PoolInterface;
 use League\Flysystem\MountManager;
 use League\Event\Emitter;
@@ -18,6 +25,7 @@ use Latte\Engine;
 use PommProject\Foundation\Pomm;
 use Spot\Locator;
 use League\Monga\Database;
+use Gaufrette\Filesystem;
 
 /**
  * Middleware dispatcher
@@ -26,87 +34,60 @@ use League\Monga\Database;
 use Relay\Relay;
 
 /**
- * Aura.Router classes
- * @see http://auraphp.com/packages/Aura.Router/
+ * @see http://www.php-fig.org/psr/psr-3/
+ * @see http://www.php-fig.org/psr/psr-7/
  */
-
-use Aura\Router\{Map, Matcher, Generator, RouterContainer};
-
-/**
- * Used factories
- */
-
-use App\Factory\{
-    Cache\Stash,
-    Event\League,
-    Devtool\Clockwork as ClockworkFactory,
-    Filesystem\Flysystem,
-    Html\Form,
-    Mailer\SwiftMailer, Mailer\PhpMailer,
-    Template\Latte,
-    NoSql\Monga,
-    Logger\Monolog
-};
-
-use App\Factory\Database\Sql\{
-    Pomm as PommFactory, Dibi, Spot2
-};
-
-use App\Factory\Http\{
-    Psr7, Relay as RelayFactory, Router
-};
-
 use Psr\{Log\LoggerInterface, Http\Message\RequestInterface};
-
-/**
- * Interop DI intervace
- * @see https://github.com/container-interop/container-interop
- */
-use Interop\Container\ContainerInterface;
 
 return [
 
-    RequestInterface::class => DI\factory([Psr7::class, 'createRequest']),
+    RequestInterface::class => DI\factory('App\Factory\request'),
 
     /**
      * PSR-7 Middleware dispatcher
      * @see http://relayphp.com/
      */
-    Relay::class => DI\factory([RelayFactory::class, 'create']),
+    Relay::class => DI\factory('App\Factory\relay'),
 
     /**
      * PSR-7 router
      * @see http://auraphp.com/packages/Aura.Router/
      */
 
-    Map::class => DI\factory([Router::class, 'createMap']),
-    Matcher::class => DI\factory([Router::class, 'createMatcher']),
-    Generator::class => DI\factory([Router::class, 'createGenerator']),
-    RouterContainer::class => DI\factory([Router::class, 'createRouterContainer']),
+    Map::class => DI\factory('App\Factory\auraRouterMap'),
+    Matcher::class => DI\factory('App\Factory\auraRouterMatcher'),
+    Generator::class => DI\factory('App\Factory\auraUrlGenerator'),
+    RouterContainer::class => DI\factory('App\Factory\auraRoterContainer'),
 
     /**
      * Caching library
      * @see http://www.stashphp.com/
      */
-    PoolInterface::class => DI\factory([Stash::class, 'create']),
+    PoolInterface::class => DI\factory('App\Factory\stash'),
 
     /**
      * Flysystem - filesystem abstraction
      * @see http://flysystem.thephpleague.com/
      */
-    MountManager::class => DI\factory([Flysystem::class, 'create']),
+    MountManager::class => DI\factory('App\Factory\flysystem'),
+
+    /**
+     * Gaufrette
+     * @see
+     */
+    Filesystem::class => DI\factory('App\Factory\gaufrette'),
 
     /**
      * Event emitter
      * @see http://event.thephpleague.com/2.0/
      */
-    Emitter::class => DI\factory([League::class, 'create']),
+    Emitter::class => DI\factory('App\Factory\eventEmitter'),
 
     /**
      * Clockwork
      * @see https://github.com/itsgoingd/clockwork
      */
-    Clockwork::class => DI\factory([ClockworkFactory::class, 'create']),
+    Clockwork::class => DI\factory('App\Factory\clockwork'),
 
     /**
      * Form Builder
@@ -114,25 +95,25 @@ return [
      *
      * @todo replace with former @see http://formers.github.io/former/ (when possible)
      */
-    FormBuilder::class => DI\factory([Form::class, 'create']),
+    FormBuilder::class => DI\factory('App\Factory\FormBuilder'),
 
     /**
      * Latte templating engine
      * @see http://latte.nette.org/en/
      */
-    Engine::class => DI\factory([Latte::class, 'create']),
+    Engine::class => DI\factory('App\Factory\latte'),
 
     /**
     * Swift mailer
     * @see http://swiftmailer.org
     */
-    Swift_Mailer::class => DI\factory([SwiftMailer::class, 'create']),
+    Swift_Mailer::class => DI\factory('App\Factory\swiftMailer'),
 
     /**
      * Php mailer
      * @see https://github.com/PHPMailer/PHPMailer
      */
-    PHPMailer::class => DI\factory([PhpMailer::class, 'create']),
+    PHPMailer::class => DI\factory('App\Factory\phpMailer'),
 
     /**
      * SQL database engines
@@ -142,19 +123,19 @@ return [
      * Pomm is the default one
      * @see http://www.pomm-project.org/
      */
-    Pomm::class => DI\factory([PommFactory::class, 'create']),
+    Pomm::class => DI\factory('App\Factory\pomm'),
 
     /**
      * DIBI
      * @see http://dibiphp.com/
      */
-    DibiConnection::class => DI\factory([Dibi::class, 'create']),
+    DibiConnection::class => DI\factory('App\Factory\dibi'),
 
     /**
      * Spot2
      * @see http://phpdatamapper.com/
      */
-    Locator::class => DI\factory([Spot2::class, 'create']),
+    Locator::class => DI\factory('App\Factory\spot2'),
 
     /**
      * NoSql database engines
@@ -164,7 +145,10 @@ return [
      * Monga
      * @see https://github.com/thephpleague/monga
      */
-    Database::class => DI\factory([Monga::class, 'create']),
+    Database::class => DI\factory('App\Factory\monga'),
 
-    LoggerInterface::class => DI\Factory([Monolog::class, 'create']),
+    /**
+     * @see https://github.com/Seldaek/monolog
+     */
+    LoggerInterface::class => DI\factory('App\Factory\monolog'),
 ];

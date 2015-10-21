@@ -1,14 +1,13 @@
 <?php
 
+namespace  App\Factory;
+
 /**
  * PSR-7 relay PHP-DI factory
  *
  * @see http://relayphp.com/
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-
-namespace  App\Factory\Http;
-
 use Relay\RelayBuilder;
 
 /**
@@ -17,13 +16,12 @@ use Relay\RelayBuilder;
  */
 use Interop\Container\ContainerInterface;
 
-class Relay
-{
+if (! function_exists('App\Factory\relay')) {
     /**
      * @param ContainerInterface $c)
      * @return RelayBuilder
      */
-    public function create(ContainerInterface $c)
+    function relay(ContainerInterface $c)
     {
         $builder = new RelayBuilder(function ($middleware) use ($c) {
             /**

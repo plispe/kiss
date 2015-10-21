@@ -7,7 +7,7 @@
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 
-namespace App\Factory\Mailer;
+namespace App\Factory;
 
 /**
  * Interop DI intervace
@@ -15,13 +15,13 @@ namespace App\Factory\Mailer;
  */
 use Interop\Container\ContainerInterface;
 
-class SwiftMailer
+if (! function_exists('App\Factory\swiftMailer'))
 {
     /**
      * @param ContainerInterface $c
      * @return Swift_Mailer
      */
-    public function create(ContainerInterface $c)
+    function swiftMailer(ContainerInterface $c)
     {
         /**
          * Swift mailer transport

@@ -1,15 +1,12 @@
 <?php
 
+namespace App\Factory;
+
 /**
  * PhpDebugBar factory
  *
  * @see http://phpdebugbar.com/
  * @author Petr Pliska <petr.pliska@post.cz>
- */
-namespace App\Factory\Devtool;
-
-/**
- *  @see http://phpdebugbar.com/
  */
 use DebugBar\StandardDebugBar;
 
@@ -24,14 +21,14 @@ use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
  */
 use Interop\Container\ContainerInterface;
 
-class PhpDebugBar
+if (! function_exists('App\Factory\phpDebugBar'))
 {
     /**
      * @param ContainerInterface $c
      *
      * @return PhpDebugBarMiddleware
      */
-    public function create(ContainerInterface $c): StandardDebugBar
+    function phpDebugBar(ContainerInterface $c): PhpDebugBarMiddleware
     {
         $debugbar = new StandardDebugBar();
         $debugbarRenderer = $debugbar->getJavascriptRenderer('/php-debugbar');

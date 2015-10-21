@@ -15,11 +15,6 @@
 use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
 
 /**
- * Used factories
- */
-use App\Factory\Devtool\PhpDebugBar;
-
-/**
  * Interop DI intervace
  * @see https://github.com/container-interop/container-interop
  */
@@ -34,6 +29,6 @@ return [
         // \Psr7Middlewares\Middleware::ClientIp(),
         DI\get(\App\Shared\Middleware\ClockworkMiddleware::class),
         DI\get(\App\Shared\Middleware\Router::class),
-        // DI\factory([PhpDebugBar::class, 'create']),
+        // DI\factory('App\Factory\phpDebugBar'),
     ]
 ];

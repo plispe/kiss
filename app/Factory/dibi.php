@@ -7,18 +7,23 @@
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 
-namespace App\Factory\Database\Sql;
+namespace App\Factory;
 
 use AD7six\Dsn\DbDsn;
+
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
 use Interop\Container\ContainerInterface;
 
-class Dibi
+if (! function_exists('App\Factory\dibi'))
 {
     /**
      * @param ContainerInterface $c
      * @return DibiConnection
      */
-    public function create(ContainerInterface $c)
+    function dibi(ContainerInterface $c): \DibiConnection
     {
         /**
          * uses AD7six/php-dsn utility for parsing database DSN

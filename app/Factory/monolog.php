@@ -1,14 +1,13 @@
 <?php
 
+namespace App\Factory;
+
 /**
  * Monolog factory
  * @see https://github.com/Seldaek/monolog
  *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-
-namespace App\Factory\Logger;
-
 use Monolog\Logger;
 
 /**
@@ -22,20 +21,23 @@ use Monolog\Handler\{StreamHandler, ChromePHPHandler};
 use Monolog\Processor\{WebProcessor, IntrospectionProcessor};
 
 /**
+ * @see http://www.php-fig.org/psr/psr-3/
+ */
+use Psr\Log\LoggerInterface;
+
+/**
  * Interop DI intervace
  * @see https://github.com/container-interop/container-interop
  */
 use Interop\Container\ContainerInterface;
 
-class Monolog
-{
+if (!function_exists('App\Factory\monolog')) {
     /**
      * @param ContainerInterface $c
      *
-     * @return Logger
+     * @return LoggerInterface
      */
-    public function create(ContainerInterface $c)
-    {
+    function monolog(ContainerInterface $c): LoggerInterface {
         $logger = new Logger("Monolog");
         $logger->pushProcessor(new WebProcessor);
         $logger->pushProcessor(new IntrospectionProcessor);

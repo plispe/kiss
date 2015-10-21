@@ -7,18 +7,23 @@
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 
-namespace App\Factory\Database\NoSql;
+namespace App\Factory;
 
 use AD7six\Dsn\DbDsn;
+
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
 use Interop\Container\ContainerInterface;
 
-class Monga
+if (! function_exists('App\Factory\monga'))
 {
     /**
      * @param ContainerInterface $c
      * @return League\Monga\Database
      */
-    public function create(ContainerInterface $c)
+    function monga(ContainerInterface $c)
     {
         /**
          * uses AD7six/php-dsn utility for parsing database DSN

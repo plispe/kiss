@@ -43,7 +43,8 @@
         "knplabs/gaufrette": "^0.2.0",
         "robmorgan/phinx": "^0.4.6",
         "league/plates": "^3.1",
-        "twig/twig": "^1.22"
+        "twig/twig": "^1.22",
+        "phpmailer/phpmailer": "~5.2"
     },
 
     "require-dev": {
@@ -61,7 +62,8 @@
         },
 
         "files": [
-            "app/functions.php"
+            "app/functions.php",
+            "app/factoriesLoader.php"
         ]
     }
 }

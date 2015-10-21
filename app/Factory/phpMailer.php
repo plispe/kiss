@@ -7,7 +7,7 @@
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 
-namespace App\Factory\Mailer;
+namespace App\Factory;
 
 /**
  * Interop DI intervace
@@ -15,15 +15,14 @@ namespace App\Factory\Mailer;
  */
 use Interop\Container\ContainerInterface;
 
-class PhpMailer
-{
+if (! function_exists('App\Factory\phpMailer')) {
     /**
      * @param ContainerInterface $c
      * @return PHPMailer
      */
-    public function create(ContainerInterface $c)
+    function phpMailer(ContainerInterface $c)
     {
-        $mail = new PHPMailer;
+        $mail = new \PHPMailer;
 
         return $mail;
     }

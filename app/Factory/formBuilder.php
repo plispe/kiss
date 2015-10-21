@@ -6,7 +6,7 @@
  *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-namespace App\Factory\Html;
+namespace App\Factory;
 
 /**
  * Form builder
@@ -20,14 +20,14 @@ use AdamWathan\Form\FormBuilder;
  */
 use Interop\Container\ContainerInterface;
 
-class Form
+if (! function_exists('App\Factory\formbuilder'))
 {
     /**
      * @param ContainerInterface $c
      *
      * @return FormBuilder
      */
-    public function create(ContainerInterface $c): FormBuilder
+    function formbuilder(ContainerInterface $c): FormBuilder
     {
         return new FormBuilder;
     }

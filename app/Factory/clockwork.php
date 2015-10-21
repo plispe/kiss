@@ -1,18 +1,14 @@
 <?php
 
+namespace App\Factory;
+
 /**
  * Clockwork factory
  *
  * @see https://github.com/itsgoingd/clockwork
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-namespace App\Factory\Devtool;
-
-use Clockwork\{
-    Storage\FileStorage,
-    DataSource\PhpDataSource
-};
-
+use Clockwork\{Clockwork, Storage\FileStorage, DataSource\PhpDataSource};
 
 /**
  * Interop DI intervace
@@ -20,17 +16,16 @@ use Clockwork\{
  */
 use Interop\Container\ContainerInterface;
 
-class Clockwork
-{
+if (! function_exists('App\Factory\clockwork')) {
     /**
      * @param ContainerInterface $c
      *
-     * @return Clockwork\Clockwork
+     * @return Clockwork
      */
-    public function create(ContainerInterface $c): \Clockwork\Clockwork
+    function clockwork(ContainerInterface $c): Clockwork
     {
 
-        $clockwork = new \Clockwork\Clockwork;
+        $clockwork = new Clockwork;
         $clockwork
             ->addDataSource(new PhpDataSource())
             ->setStorage(new FileStorage($c->get('clockwork.dir')));

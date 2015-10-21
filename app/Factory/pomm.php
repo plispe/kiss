@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Factory;
+
 /**
  * Pomm PHP-DI factory
  *
@@ -7,20 +9,24 @@
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 
-namespace App\Factory\Database\Sql;
-
-use Interop\Container\ContainerInterface;
+use PommProject\Foundation\Pomm;
 use PommProject\ModelManager\SessionBuilder;
 
-class Pomm
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
+use Interop\Container\ContainerInterface;
+
+if (! function_exists('App\Factory\pomm'))
 {
     /**
      * @param ContainerInterface $c
      * @return PommProject\Foundation\Pomm
      */
-    public function create(ContainerInterface $c)
+    function pomm(ContainerInterface $c): Pomm
     {
-        return new \PommProject\Foundation\Pomm(['db' => [
+        return new Pomm(['db' => [
             'dsn' => $c->get('db.dsn'),
             'class:session_builder' => SessionBuilder::class
         ]]);

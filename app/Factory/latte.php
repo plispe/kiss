@@ -1,13 +1,13 @@
 <?php
 
+namespace App\Factory;
+
 /**
  * Latte templating engine PHP-DI factory
  *
  * @see http://latte.nette.org/en/
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-namespace App\Factory\Template;
-
 use Latte\Engine;
 
 /**
@@ -16,13 +16,12 @@ use Latte\Engine;
  */
 use Interop\Container\ContainerInterface;
 
-class Latte
-{
+if (! function_exists('App\Factory\latte')) {
     /**
      * @param ContainerInterface $c
      * @return Engine
      */
-    public function create(ContainerInterface $c)
+    function latte(ContainerInterface $c): Engine
     {
         $engine = new Engine;
 

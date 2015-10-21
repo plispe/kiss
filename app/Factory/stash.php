@@ -1,13 +1,13 @@
 <?php
 
+namespace App\Factory;
+
 /**
  * Stash cache PHP-DI factory
  *
  * @see http://www.stashphp.com/
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-namespace App\Factory\Cache;
-
 use Stash\{Pool, Driver\FileSystem};
 
 /**
@@ -16,13 +16,12 @@ use Stash\{Pool, Driver\FileSystem};
  */
 use Interop\Container\ContainerInterface;
 
-class Stash
-{
+if (! function_exists('App\Factory\stash')) {
     /**
      * @param ContainerInterface $c
      * @return Pool
      */
-    public function create(ContainerInterface $c): Pool
+    function stash(ContainerInterface $c): Pool
     {
         $driver = new FileSystem;
         $driver->setOptions(['path' => $c->get('stash.cache.dir')]);

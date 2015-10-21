@@ -6,7 +6,7 @@
  * @see http://twig.sensiolabs.org/
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-namespace App\Factory\Template;
+namespace App\Factory;
 
 /**
  * Interop DI intervace
@@ -14,13 +14,12 @@ namespace App\Factory\Template;
  */
 use Interop\Container\ContainerInterface;
 
-class Twig
-{
+if (! function_exists('App\Factory\twig')) {
     /**
      * @param ContainerInterface $c
      * @return
      */
-    public function create(ContainerInterface $c)
+    function twig(ContainerInterface $c)
     {
         $loader = new Twig_Loader_Filesystem($c->get('templates.dir'));
         $twig = new Twig_Environment($loader, array(
@@ -32,4 +31,4 @@ class Twig
 }
 
 
-// echo $twig->render('index.html', array('name' => 'Fabien'));
+

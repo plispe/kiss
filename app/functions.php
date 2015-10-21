@@ -38,6 +38,12 @@ use Symfony\Component\{
 
 use AdamWathan\Form\FormBuilder;
 
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
+use Interop\Container\ContainerInterface;
+
 if (! function_exists('App\getStatusCode')) {
     /**
      * @param \Exception
