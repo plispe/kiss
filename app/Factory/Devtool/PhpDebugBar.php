@@ -31,7 +31,7 @@ class PhpDebugBar
      *
      * @return PhpDebugBarMiddleware
      */
-    public function create(ContainerInterface $c)
+    public function create(ContainerInterface $c): StandardDebugBar
     {
         $debugbar = new StandardDebugBar();
         $debugbarRenderer = $debugbar->getJavascriptRenderer('/php-debugbar');

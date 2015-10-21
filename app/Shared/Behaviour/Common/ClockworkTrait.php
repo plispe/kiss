@@ -29,7 +29,7 @@ trait ClockworkTrait
      * @param Int $id
      * @param Int $last
      */
-    public function retrieveRequest($id, $last = null)
+    public function retrieveRequest(string $id, string $last = null)
     {
         return $this->clockwork->getStorage()->retrieve($id, $last);
     }
@@ -38,7 +38,7 @@ trait ClockworkTrait
      * @param String $name
      * @param String $description
      */
-    public function startEvent($name, $description, $time = null)
+    public function startEvent(string $name, string $description, $time = null)
     {
          $this->clockwork->startEvent($name, $description, $time);
     }
@@ -46,7 +46,7 @@ trait ClockworkTrait
     /**
      * @param String $name
      */
-    public function endEvent($name)
+    public function endEvent(string $name)
     {
         $this->clockwork->endEvent($name);
     }

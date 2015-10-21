@@ -43,7 +43,7 @@ class Dispatcher implements MiddlewareInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         $route = $request->getAttribute('route');
 

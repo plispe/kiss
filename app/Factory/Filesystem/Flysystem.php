@@ -24,7 +24,7 @@ class Flysystem
      * @param ContainerInterface $c
      * @return MountManager
      */
-    public function create(ContainerInterface $c)
+    public function create(ContainerInterface $c): MountManager
     {
         $localAdapter    = new Local($c->get('files.dir'));
         $localFilesystem = new Filesystem($localAdapter);

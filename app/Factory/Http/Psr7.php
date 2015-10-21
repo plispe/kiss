@@ -27,7 +27,7 @@ class Psr7
      * @param ContainerInterface $c
      * @return RequestInterface
      */
-    public function createRequest(ContainerInterface $c)
+    public function createRequest(ContainerInterface $c): RequestInterface
     {
         return ServerRequestFactory::fromGlobals();
     }
@@ -36,7 +36,7 @@ class Psr7
      * @param ContainerInterface $c
      * @return ResponseInterface
      */
-    public function createResponse(ContainerInterface $c)
+    public function createResponse(ContainerInterface $c): ResponseInterface
     {
         return new Zend\Diactoros\Response;
     }

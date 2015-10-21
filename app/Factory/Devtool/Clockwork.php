@@ -27,7 +27,7 @@ class Clockwork
      *
      * @return Clockwork\Clockwork
      */
-    public function create(ContainerInterface $c)
+    public function create(ContainerInterface $c): \Clockwork\Clockwork
     {
 
         $clockwork = new \Clockwork\Clockwork;

@@ -23,7 +23,7 @@ class Gaufrette
      * @param ContainerInterface $c
      * @return Filesystem
      */
-    public function create(ContainerInterface $c)
+    public function create(ContainerInterface $c): Filesystem
     {
         $adapter = new LocalAdapter($c->get('files.dir'));
         $filesystem = new Filesystem($adapter);

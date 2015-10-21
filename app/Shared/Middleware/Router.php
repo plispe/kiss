@@ -70,7 +70,7 @@ class Router implements MiddlewareInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         // If no route is matcher
         if (! $route = $this->matcher->match($request)) {
@@ -81,5 +81,6 @@ class Router implements MiddlewareInterface
         $this->endEvent('routing');
 
         return $this->handleSuccess($route, $request->withAttribute('route', $route), $response, $next);
+
     }
 }

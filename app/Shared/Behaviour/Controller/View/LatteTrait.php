@@ -41,7 +41,7 @@ trait LatteTrait
      *
      * @return HtmlResponse
      */
-    public function renderLatte($view, array $params = [])
+    public function renderLatte(string $view, array $params = []): HtmlResponse
     {
         $params = Arrays::merge($params, ['builder' => $this->formBuilder]);
         // Path to template

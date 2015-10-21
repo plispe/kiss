@@ -17,7 +17,7 @@ class ContentCacheMiddleware implements MiddlewareInterface
 
     protected $cache;
 
-    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         $key = (string) $request->getUri();
 

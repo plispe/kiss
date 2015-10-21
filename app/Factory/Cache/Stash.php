@@ -22,7 +22,7 @@ class Stash
      * @param ContainerInterface $c
      * @return Pool
      */
-    public function create(ContainerInterface $c)
+    public function create(ContainerInterface $c): Pool
     {
         $driver = new FileSystem;
         $driver->setOptions(['path' => $c->get('stash.cache.dir')]);

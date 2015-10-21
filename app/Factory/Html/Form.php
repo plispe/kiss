@@ -27,7 +27,7 @@ class Form
      *
      * @return FormBuilder
      */
-    public function create(ContainerInterface $c)
+    public function create(ContainerInterface $c): FormBuilder
     {
         return new FormBuilder;
     }

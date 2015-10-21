@@ -33,7 +33,7 @@ trait AuraSuccessHandlingTrait
      *
      * @return ResponseInterface
      */
-    protected function handleSuccess(Route $route, RequestInterface $request, ResponseInterface $response, callable $next)
+    protected function handleSuccess(Route $route, RequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         if (is_callable($route->handler)) {
             // get handler callable

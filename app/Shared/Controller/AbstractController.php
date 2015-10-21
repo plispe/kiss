@@ -11,6 +11,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 use App\Shared\Behaviour\Controller\Link\GeneratorTrait;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Simple abstract controller
@@ -51,10 +52,16 @@ abstract class AbstractController
      *
      * @return ResponseInterface
      */
-    public function callAction($actionName, RequestInterface $request, ResponseInterface $response)
+    public function callAction(string $actionName, RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         // Before action hoook
         $this->beforeAction($request, $response);
+
+        // Method not exists
+        if (! method_exists($this, $actionName)) {
+            throw new NotFoundHttpException(sprintf('Action "%s" not exists.', $actionName));
+        }
+
         // Action call
         $response = $this->$actionName($request, $response);
         if ($this->checkResponse($response)) {
@@ -83,7 +90,7 @@ abstract class AbstractController
      *
      * @throws Exception
      */
-    protected function checkResponse($response)
+    protected function checkResponse($response): bool
     {
         $isResponseInterface = $response instanceof ResponseInterface;
 

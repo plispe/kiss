@@ -27,7 +27,7 @@ class RestfulResourceMap extends Map
      *
      * @return RestfulResourceMap
      */
-    public function resource($namePrefix, $pathPrefix = '/api/')
+    public function resource(string $namePrefix, string $pathPrefix = '/api/')
     {
         return $this->attach(
             $this->formatNamePrefix($namePrefix),
@@ -47,7 +47,7 @@ class RestfulResourceMap extends Map
      *
      * @return string
      */
-    protected function formatPathPrefix($pathPrefix, $namePrefix)
+    protected function formatPathPrefix(string $pathPrefix, string $namePrefix): string
     {
         return sprintf('%s%s', $pathPrefix, Inflector::pluralize($namePrefix));
     }
@@ -57,7 +57,7 @@ class RestfulResourceMap extends Map
      *
      * @return string
      */
-    protected function formatNamePrefix($namePrefix)
+    protected function formatNamePrefix(string $namePrefix): string
     {
         return sprintf('%s.', $namePrefix);
     }
@@ -66,7 +66,7 @@ class RestfulResourceMap extends Map
      * @param Map $map
      * @param string $controller
      */
-    protected function setResourceDefaults($map, $namePrefix)
+    protected function setResourceDefaults(self $map, string $namePrefix)
     {
         $map->defaults([
             // Default module is api
@@ -83,7 +83,7 @@ class RestfulResourceMap extends Map
     /**
      * @param Map $map
      */
-    protected function setResourceRoutes($map)
+    protected function setResourceRoutes(self $map)
     {
         /**
          * GET /

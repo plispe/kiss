@@ -24,6 +24,7 @@ use \Latte\Engine;
  * Zend implementation of PSR-7
  * @see https://github.com/zendframework/zend-diactoros
  */
+use Zend\Diactoros\ServerRequestFactory;
 use Zend\Diactoros\Response\{JsonResponse, HtmlResponse, EmptyResponse};
 
 /**
@@ -35,13 +36,15 @@ use Symfony\Component\{
     HttpKernel\Exception\HttpExceptionInterface
 };
 
+use AdamWathan\Form\FormBuilder;
+
 if (! function_exists('App\getStatusCode')) {
     /**
      * @param \Exception
      *
      * @return Int
      */
-    function getStatusCode(\Throwable $e)
+    function getStatusCode(\Throwable $e): int
     {
         return $e instanceof HttpExceptionInterface ?
             $e->getStatusCode() : Response::HTTP_INTERNAL_SERVER_ERROR;
@@ -57,7 +60,7 @@ if (! function_exists('App\exceptionToHtmlResponse')) {
      *
      * @return HtmlResponse
      */
-    function exceptionToHtmlResponse(\Throwable $e)
+    function exceptionToHtmlResponse(\Throwable $e): HtmlResponse
     {
         ob_start();
         (new BlueScreen())->render($e);
@@ -73,7 +76,7 @@ if (! function_exists('App\exceptionToJsonResponse')) {
      *
      * @return JsonResponse
      */
-    function exceptionToJsonResponse(\Throwable $e)
+    function exceptionToJsonResponse(\Throwable $e): JsonResponse
     {
         $code          = getStatusCode($e);
 
@@ -93,7 +96,7 @@ if (! function_exists('App\renderExceptionTemplateToHtmlResponse')) {
      *
      * @return HtmlResponse
      */
-    function renderExceptionTemplateToHtmlResponse(\Throwable $e)
+    function renderExceptionTemplateToHtmlResponse(\Throwable $e): HtmlResponse
     {
         $code = getStatusCode($e);
         $template = sprintf(__DIR__ . '/_templates/web/error/%s.latte', getStatusCode($e));
@@ -104,8 +107,13 @@ if (! function_exists('App\renderExceptionTemplateToHtmlResponse')) {
             $code = Response::HTTP_INTERNAL_SERVER_ERROR;
         }
 
+        $params = [
+            'request' => ServerRequestFactory::fromGlobals(),
+            'builder' => new FormBuilder
+        ];
+
         return new HtmlResponse(
-            (new Engine)->renderToString($template),
+            (new Engine)->renderToString($template, $params),
             $code
         );
     }
