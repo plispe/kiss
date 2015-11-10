@@ -25,10 +25,10 @@ class IndexController extends AbstractWebController
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         // $this->logger->addInfo('Some event');
-        $this->notifier->send(
-             (new Notification())
-                ->setTitle('Notification title')
-                ->setBody('This is the body of your notification'));
+//        $this->notifier->send(
+//             (new Notification())
+//                ->setTitle('Notification title')
+//                ->setBody('This is the body of your notification'));
 
         return $this->renderLatte('web/index/default');
     }
