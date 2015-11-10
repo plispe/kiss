@@ -28,6 +28,12 @@ abstract class AbstractController
     protected $logger;
 
     /**
+     * @Inject
+     * @var Joli\JoliNotif\Notifier
+     */
+    protected $notifier;
+
+    /**
      * Helper for url generating
      */
     use GeneratorTrait;

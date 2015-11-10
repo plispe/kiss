@@ -24,7 +24,6 @@ if (! function_exists('App\Factory\clockwork')) {
      */
     function clockwork(ContainerInterface $c): Clockwork
     {
-
         $clockwork = new Clockwork;
         $clockwork
             ->addDataSource(new PhpDataSource())

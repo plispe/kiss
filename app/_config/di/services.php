@@ -26,6 +26,8 @@ use PommProject\Foundation\Pomm;
 use Spot\Locator;
 use League\Monga\Database;
 use Gaufrette\Filesystem;
+use Joli\JoliNotif\Notifier;
+use Dibi\Connection;
 
 /**
  * Middleware dispatcher
@@ -129,7 +131,7 @@ return [
      * DIBI
      * @see http://dibiphp.com/
      */
-    DibiConnection::class => DI\factory('App\Factory\dibi'),
+    Connection::class => DI\factory('App\Factory\dibi'),
 
     /**
      * Spot2
@@ -151,4 +153,9 @@ return [
      * @see https://github.com/Seldaek/monolog
      */
     LoggerInterface::class => DI\factory('App\Factory\monolog'),
+
+    /**
+     * @see
+     */
+    Notifier::class => DI\factory('App\Factory\joliNotifier'),
 ];

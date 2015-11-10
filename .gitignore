@@ -2,6 +2,7 @@
 .phpintel/
 .phpmetrics
 .DS_Store
+.idea
 
 temp/cache/stash/*
 temp/cache/latte/*

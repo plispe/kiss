@@ -9,6 +9,7 @@
 
 namespace App\Factory;
 
+use Dibi\Connection;
 use AD7six\Dsn\DbDsn;
 
 /**
@@ -21,9 +22,9 @@ if (! function_exists('App\Factory\dibi'))
 {
     /**
      * @param ContainerInterface $c
-     * @return DibiConnection
+     * @return Connection
      */
-    function dibi(ContainerInterface $c): \DibiConnection
+    function dibi(ContainerInterface $c): Connection
     {
         /**
          * uses AD7six/php-dsn utility for parsing database DSN
@@ -39,6 +40,6 @@ if (! function_exists('App\Factory\dibi'))
             'database' => $dsn->getDatabase(),
         ];
 
-        return new \DibiConnection($connection);
+        return new Connection($connection);
     }
 }

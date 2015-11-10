@@ -20,13 +20,18 @@ use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
  */
 use Interop\Container\ContainerInterface;
 
+/**
+ * PSR 7 middlewares
+ * @see https://github.com/oscarotero/psr7-middlewares
+ */
+use Psr7Middlewares\Middleware;
+
 return [
     /**
      * Middleware queue which is used for Relay
      *
      */
     'middlewares' => [
-        // \Psr7Middlewares\Middleware::ClientIp(),
         DI\get(\App\Shared\Middleware\ClockworkMiddleware::class),
         DI\get(\App\Shared\Middleware\Router::class),
         // DI\factory('App\Factory\phpDebugBar'),
