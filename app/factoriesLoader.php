@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
+
+/**
  * Factory functions loader
  *
  * @author Petr Pliska
