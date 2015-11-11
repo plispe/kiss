@@ -20,6 +20,7 @@
         "itsgoingd/clockwork": "1.9",
         "joegreen0991/error": "1.0.2",
         "jolicode/jolinotif": "dev-master",
+        "ktamas77/firebase-php": "~2.0",
         "latte/latte": "2.3.7",
         "league/event": "2.1.2",
         "league/flysystem": "1.0.15",
@@ -64,6 +65,7 @@
         },
 
         "files": [
+            "RoboFile.php",
             "app/functions.php",
             "app/factoriesLoader.php"
         ]

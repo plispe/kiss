@@ -158,4 +158,9 @@ return [
      * @see
      */
     Notifier::class => DI\factory('App\Factory\joliNotifier'),
+
+    /**
+     * @see https://github.com/ktamas77/firebase-php
+     */
+    Firebase\FirebaseLib::class => DI\factory('App\Factory\firebase'),
 ];
