@@ -22,6 +22,7 @@ $map->tokens([
     'id'         => null,
 ]);
 
+// Api resources
 $map->resource('project');
 
 /**

@@ -36,6 +36,10 @@ use Symfony\Component\{
     HttpKernel\Exception\HttpExceptionInterface
 };
 
+/**
+ * Html form builder
+ * @see https://github.com/adamwathan/form
+ */
 use AdamWathan\Form\FormBuilder;
 
 /**
