@@ -15,6 +15,3 @@ if (! function_exists('App\Factory\joliNotifier')) {
         return $notifier = NotifierFactory::create();
     }
 }
-// Create a Notifier (or null if no notifier supported)
-
-
