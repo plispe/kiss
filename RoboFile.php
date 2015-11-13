@@ -1,6 +1,10 @@
 <?php
 
 require_once __DIR__ . '/app/environment.php';
+
+use League\Tactician\CommandBus;
+use App\CommandBus\Command\CommandInterface;
+
 /**
  * This is project's console commands configuration for Robo task runner.
  *
@@ -62,5 +66,15 @@ class RoboFile extends \Robo\Tasks
             ->arg('.')
             ->printed(true)
             ->run();
+    }
+
+    /**
+     * @param  string $email
+     * @param  string $password
+     * @return [type]
+     */
+    public function userRegister(string $email, string $password): CommandInterface
+    {
+        return new \App\CommandBus\Command\User\Register($email, $password);
     }
 }
