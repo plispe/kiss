@@ -8,7 +8,7 @@ namespace  App\Factory;
  * @see http://relayphp.com/
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-use Relay\RelayBuilder;
+use Relay\Runner;
 
 /**
  * Interop DI intervace
@@ -23,7 +23,7 @@ if (! function_exists('App\Factory\relay')) {
      */
     function relay(ContainerInterface $c)
     {
-        $builder = new RelayBuilder(function ($middleware) use ($c) {
+        return new Runner($c->get('middlewares'), function ($middleware) use ($c) {
             /**
             * Inject dependencies in middleware if PHP-DI is used
             * @see http://php-di.org/doc/inject-on-instance.html
@@ -34,7 +34,5 @@ if (! function_exists('App\Factory\relay')) {
 
             return $middleware;
         });
-
-        return $builder->newInstance($c->get('middlewares'));
     }
 }
