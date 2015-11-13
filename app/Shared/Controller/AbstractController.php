@@ -27,11 +27,11 @@ abstract class AbstractController
      */
     protected $logger;
 
-    /**
+     /**
      * @Inject
-     * @var Joli\JoliNotif\Notifier
+     * @var \League\Tactician\CommandBus
      */
-    protected $notifier;
+    protected $commandBus;
 
     /**
      * Helper for url generating

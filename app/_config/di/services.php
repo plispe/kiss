@@ -18,7 +18,7 @@ use Aura\Router\{Map, Matcher, Generator, RouterContainer};
 
 use Stash\Interfaces\PoolInterface;
 use League\Flysystem\MountManager;
-use League\Event\Emitter;
+use League\Tactician\CommandBus;
 use Clockwork\Clockwork;
 use AdamWathan\Form\FormBuilder;
 use Latte\Engine;
@@ -26,7 +26,7 @@ use PommProject\Foundation\Pomm;
 use Spot\Locator;
 use League\Monga\Database;
 use Gaufrette\Filesystem;
-use Joli\JoliNotif\Notifier;
+// use Joli\JoliNotif\Notifier;
 use Dibi\Connection;
 
 /**
@@ -78,12 +78,6 @@ return [
      * @see
      */
     Filesystem::class => DI\factory('App\Factory\gaufrette'),
-
-    /**
-     * Event emitter
-     * @see http://event.thephpleague.com/2.0/
-     */
-    Emitter::class => DI\factory('App\Factory\eventEmitter'),
 
     /**
      * Clockwork
@@ -157,10 +151,15 @@ return [
     /**
      * @see
      */
-    Notifier::class => DI\factory('App\Factory\joliNotifier'),
+    // Notifier::class => DI\factory('App\Factory\joliNotifier'),
 
     /**
      * @see https://github.com/ktamas77/firebase-php
      */
     Firebase\FirebaseLib::class => DI\factory('App\Factory\firebase'),
+
+    /**
+     * @see http://tactician.thephpleague.com/
+     */
+    CommandBus::class => DI\factory('App\Factory\commandBus'),
 ];
