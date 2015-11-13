@@ -22,6 +22,6 @@ class TestController extends AbstractWebController
      */
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->renderLatte('web/test/default');
+        return $this->view->render('web/test/default.latte');
     }
 }

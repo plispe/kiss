@@ -162,4 +162,6 @@ return [
      * @see http://tactician.thephpleague.com/
      */
     CommandBus::class => DI\factory('App\Factory\commandBus'),
+
+    'view' => DI\factory('App\Factory\view'),
 ];

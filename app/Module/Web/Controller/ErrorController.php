@@ -22,7 +22,7 @@ class ErrorController extends AbstractWebController
      */
     public function error403Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->renderLatte('web/error/403', ['request' => $request]);
+        return $this->view->render('web/error/403.latte');
     }
 
     /**
@@ -33,7 +33,7 @@ class ErrorController extends AbstractWebController
      */
     public function error404Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->renderLatte('web/error/404', ['request' => $request]);
+        return $this->view->render('web/error/404.latte');
 
     }
 
@@ -45,7 +45,7 @@ class ErrorController extends AbstractWebController
      */
     public function error500Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->renderLatte('web/error/500', ['request' => $request]);
+        return $this->view->render('web/error/500.latte');
     }
 
     /**
@@ -56,7 +56,7 @@ class ErrorController extends AbstractWebController
      */
     public function error502Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->renderLatte('web/error/502', ['request' => $request]);
+        return $this->view->render('web/error/502.latte');
     }
 
     /**
@@ -67,7 +67,7 @@ class ErrorController extends AbstractWebController
      */
     public function error503Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->renderLatte('web/error/503', ['request' => $request]);
+        return $this->view->render('web/error/503.latte');
     }
 
     /**
@@ -78,6 +78,6 @@ class ErrorController extends AbstractWebController
      */
     public function error504Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->renderLatte('web/error/504', ['request' => $request]);
+        return $this->view->render('web/error/504.latte');
     }
 }

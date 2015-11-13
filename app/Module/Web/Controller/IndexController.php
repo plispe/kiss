@@ -12,8 +12,6 @@ namespace App\Module\Web\Controller;
  */
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
-use Joli\JoliNotif\Notification;
-
 class IndexController extends AbstractWebController
 {
     /**
@@ -24,12 +22,15 @@ class IndexController extends AbstractWebController
      */
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+       // $command = new \App\Service\Command\User\Register('alice@example.com', 'secret');
+       // $this->commandBus->handle($command);
+
         // $this->logger->addInfo('Some event');
 //        $this->notifier->send(
 //             (new Notification())
 //                ->setTitle('Notification title')
 //                ->setBody('This is the body of your notification'));
 
-        return $this->renderLatte('web/index/default');
+        return $this->view->render('web/index/default.latte');
     }
 }

@@ -11,7 +11,7 @@ use App\Shared\Controller\AbstractController;
 abstract class AbstractWebController extends AbstractController
 {
     /**
-     * Helper for rendering latte templates
+     * @Inject("view")
      */
-    use \App\Shared\Behaviour\Controller\View\LatteTrait;
+    protected $view;
 }
