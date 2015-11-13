@@ -35,7 +35,7 @@ if (! function_exists('App\Factory\view')) {
         // Inject dependencies
         return $c->call(function (\Latte\Engine $latte, FormBuilder $builder, RequestInterface $request) use ($c) {
             // Create view object
-            $view = new Class($c->get('templates.dir')) {
+            $view = new class($c->get('templates.dir')) {
                 /**
                  * @var array
                  */
