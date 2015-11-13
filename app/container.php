@@ -54,7 +54,6 @@ $containerBuilder->writeProxiesToFile(true, __DIR__ .'/../temp/proxies');
 // Definitions files
 $definitionFiles = [
     __DIR__ .'/_config/di/parameters.php',
-    __DIR__ .'/_config/di/wildcards.php',
     __DIR__ .'/_config/di/services.php',
     __DIR__ .'/_config/di/middlewares.php',
 ];
