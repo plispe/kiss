@@ -26,7 +26,7 @@ if (! function_exists('App\Factory\commandBus')) {
             new CommandHandlerMiddleware(
                 new ClassNameExtractor,
                 new CallableLocator(function($command)  use ($c) {
-                    return $c->get(str_replace("\\Command\\", "\\Handler\\", $command));
+                    return $c->get(str_replace("\\Command\\", "\\CommandHandler\\", $command));
                 }),
                 new InvokeInflector
             )

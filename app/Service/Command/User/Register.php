@@ -1,10 +1,8 @@
 <?php
 
-namespace App\CommandBus\Command\User;
+namespace App\Service\Command\User;
 
-use App\CommandBus\Command\CommandInterface;
-
-class Register implements CommandInterface
+class Register
 {
     /**
      * @var string

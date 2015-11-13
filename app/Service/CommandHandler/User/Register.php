@@ -1,8 +1,8 @@
 <?php
 
-namespace App\CommandBus\Handler\User;
+namespace App\Service\CommandHandler\User;
 
-use App\CommandBus\Command\User\Register as RegisterCommand;
+use App\Service\Command\User\Register as RegisterCommand;
 
 class Register
 {
