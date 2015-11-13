@@ -10,7 +10,9 @@ use Psr\Log\LoggerInterface;
  */
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
-use App\Shared\Behaviour\Controller\Link\GeneratorTrait;
+/**
+ * @see http://symfony.com/doc/current/components/http_kernel/introduction.html
+ */
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -32,11 +34,6 @@ abstract class AbstractController
      * @var \League\Tactician\CommandBus
      */
     protected $commandBus;
-
-    /**
-     * Helper for url generating
-     */
-    use GeneratorTrait;
 
     /**
      * Beforea action hoook
