@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a986d4146f54eb180a7be7c0643eb82d",
-    "content-hash": "d689f2fd6f130c8b21169a012568b42f",
+    "hash": "c20d53333795b04ed3de9276c5c760ce",
+    "content-hash": "a18967fe0fa3c202c55fc61f9466647e",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -6513,13 +6513,14 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "php": 5,
         "aura/router": 10,
         "bernard/bernard": 15
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "hhvm": "~3.3",
+        "php": "~7.0.0RC6",
         "ext-mbstring": "*",
         "ext-intl": "*"
     },
