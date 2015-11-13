@@ -70,11 +70,9 @@ abstract class AbstractController
 
         // Action call
         $response = $this->$actionName($request, $response);
-        if ($this->checkResponse($response)) {
-            // After action hoop
-            $this->afterAction($request, $response);
-        }
 
+        // After action hoop
+        $this->afterAction($request, $response);
 
         return $response;
     }
@@ -88,25 +86,5 @@ abstract class AbstractController
     public function afterAction(RequestInterface $request, ResponseInterface $response)
     {
 
-    }
-
-    /**
-     * @param $response
-     * @return Bool
-     *
-     * @throws Exception
-     */
-    protected function checkResponse($response): bool
-    {
-        $isResponseInterface = $response instanceof ResponseInterface;
-
-        // Check response
-        if (! $isResponseInterface) {
-            throw new \Exception(
-                "Controller action must return object of 'Psr\Http\Message\ResponseInterface'"
-            );
-        }
-
-        return $isResponseInterface;
     }
 }
