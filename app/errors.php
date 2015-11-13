@@ -23,6 +23,7 @@ $handler = new Error\Handler();
 $handler->error(function (\Throwable $e) {
 
     if (getenv('DISPLAY_ERRORS') === 'true') {
+        // Display tracy bluescreen
         $response = App\exceptionToHtmlResponse($e) ;
     } else {
         // Check if api module is used
