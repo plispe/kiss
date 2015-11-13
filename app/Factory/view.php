@@ -30,81 +30,17 @@ use AdamWathan\Form\FormBuilder;
  */
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @todo Rewrite to anonymous class, but now it is not work on heroku
+ */
+use App\Library\View;
+
 if (! function_exists('App\Factory\view')) {
     function view(ContainerInterface $c) {
         // Inject dependencies
         return $c->call(function (\Latte\Engine $latte, FormBuilder $builder, RequestInterface $request) use ($c) {
             // Create view object
-            $view = new class($c->get('templates.dir')) {
-                /**
-                 * @var array
-                 */
-                protected $engines = [];
-
-                /**
-                 * @var array
-                 */
-                protected $params = [];
-
-                /**
-                 * Path to templates dir
-                 * @var string
-                 */
-                protected $templatesDir;
-
-                /**
-                 * @param string
-                 */
-                public function __construct(string $templatesDir)
-                {
-                    $this->templatesDir = $templatesDir;
-                }
-                /**
-                 * Render template with variables
-                 *
-                 * @param  string $template
-                 * @param  array $params
-                 */
-                public function render(string $template, array $params = []): HtmlResponse
-                {
-                    // get extension of template file
-                    $ext = sprintf('.%s', pathinfo($template, PATHINFO_EXTENSION));
-
-                    // if File not exists, search in template dirs
-                    $template = file_exists($template)
-                        ? $template
-                        : sprintf('%s%s', $this->templatesDir, $template);
-
-                    // if template exngine for current file extension not exists
-                    if (! isset($this->engines[$ext])) {
-                        throw new \Exception(sprintf('Teplate engine for files with extensions "%s" is not provided.', $ext));
-                    }
-
-                    // call render callback for engine
-                    return $this->engines[$ext]($template, array_merge($this->params, $params));
-                }
-
-                /**
-                 * Register new template engine
-                 * @param  string $fileExtension
-                 * @param  callable $renderCallback
-                 */
-                public function registerTemplateEngine(string $fileExtension, callable $renderCallback)
-                {
-                    $this->engines[$fileExtension] = $renderCallback;
-                }
-
-                /**
-                 * Set template variable
-                 *
-                 * @param string $name
-                 * @param mixed $value
-                 */
-                public function __set(string $name, $value)
-                {
-                    $this->params[$name] = $value;
-                }
-            };
+            $view = new View($c->get('templates.dir'));
 
             /*
                Register tempalte engines
@@ -117,7 +53,10 @@ if (! function_exists('App\Factory\view')) {
             /*
                Set default variables
              */
+
+            // Html form builder
             $view->builder = $builder;
+            // Psr7 request
             $view->request = $request;
 
             return $view;
