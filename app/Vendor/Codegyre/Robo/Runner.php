@@ -39,6 +39,7 @@ class Runner extends \Robo\Runner
         $input = $this->prepareInput($input ? $input : $_SERVER['argv']);
         $app = new Application('Robo', self::VERSION);
         $app->setDiContainer($this->diContainer);
+        $app->setCatchExceptions(false);
 
         if (!$this->loadRoboFile()) {
             $this->yell("Robo is not initialized here. Please run `robo init` to create a new RoboFile", 40, 'yellow');
