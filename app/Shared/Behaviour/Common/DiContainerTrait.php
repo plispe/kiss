@@ -15,6 +15,9 @@ trait DiContainerTrait
      */
     protected $diContainer;
 
+    /**
+     * @param Container $diContainer
+     */
     public function setDiContainer(Container $diContainer)
     {
         $this->diContainer = $diContainer;

@@ -9,7 +9,7 @@ namespace App\Module\Api\Controller;
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\{RequestInterface, ResponseInterface};;
+use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 /**
  * Zend diactoros server
@@ -115,8 +115,7 @@ class ProjectController extends AbstractApiController
 
     /**
      * @param RequestInterface $request
-     * @return string
-     *
+     * @return ResponseInterface
      * @throws BadRequestHttpException
      */
     protected function parseJsonRequestBody(RequestInterface $request): ResponseInterface

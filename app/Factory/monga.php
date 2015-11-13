@@ -21,7 +21,7 @@ if (! function_exists('App\Factory\monga'))
 {
     /**
      * @param ContainerInterface $c
-     * @return League\Monga\Database
+     * @return \League\Monga\Database
      */
     function monga(ContainerInterface $c)
     {

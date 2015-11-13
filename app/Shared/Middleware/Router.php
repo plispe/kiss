@@ -30,7 +30,6 @@ use App\Shared\{
     Behaviour\Middleware\AuraFailureHandlingTrait
 };
 
-
 class Router implements MiddlewareInterface
 {
     /**
@@ -81,6 +80,5 @@ class Router implements MiddlewareInterface
         $this->endEvent('routing');
 
         return $this->handleSuccess($route, $request->withAttribute('route', $route), $response, $next);
-
     }
 }
