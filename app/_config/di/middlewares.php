@@ -33,6 +33,7 @@ return [
      */
     'middlewares' => [
         DI\get(\App\Shared\Middleware\ClockworkMiddleware::class),
+        Middleware::AuraSession(),
         DI\get(\App\Shared\Middleware\Router::class),
         // DI\factory('App\Factory\phpDebugBar'),
     ]
