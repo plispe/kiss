@@ -29,7 +29,6 @@ if (! function_exists('App\Factory\clockwork')) {
             ->addDataSource(new PhpDataSource())
             ->setStorage(new FileStorage($c->get('clockwork.dir')));
 
-        $clockwork->startEvent('init', 'Application init');
         return $clockwork;
     }
 }
