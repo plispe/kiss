@@ -26,7 +26,7 @@ if (! function_exists('App\Factory\latte')) {
         $engine = new Engine;
 
         if (getenv('USE_LATTE_CACHE') === 'true') {
-            $engine->setTempDirectory($c->get('latte.cache.dir'));
+            $engine->setTempDirectory($c->get('templates.cache.dir'));
         }
 
         return $engine;
