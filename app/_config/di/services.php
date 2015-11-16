@@ -163,5 +163,11 @@ return [
      */
     CommandBus::class => DI\factory('App\Factory\commandBus'),
 
+    League\Plates\Engine::class => DI\factory('App\Factory\plates'),
+
+    Xiaoler\Blade\Factory::class => DI\factory('App\Factory\blade'),
+
+    Twig_Environment::class => DI\factory('App\Factory\twig'),
+
     'view' => DI\factory('App\Factory\view'),
 ];
