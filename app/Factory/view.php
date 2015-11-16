@@ -35,29 +35,76 @@ use Psr\Http\Message\RequestInterface;
  */
 use App\Library\View;
 
+use Aura\Router\Generator;
+
+use function Stringy\create as s;
+
 if (! function_exists('App\Factory\view')) {
     function view(ContainerInterface $c) {
         // Inject dependencies
-        return $c->call(function (\Latte\Engine $latte, FormBuilder $builder, RequestInterface $request) use ($c) {
-            // Create view object
-            $view = new View($c->get('templates.dir'));
+        return $c->call(function (
+                \Latte\Engine $latte,
+                // \League\Plates\Engine $plates,
+                // \Xiaoler\Blade\Factory $blade,
+                // \Twig_Environment $twig,
+                FormBuilder $builder,
+                RequestInterface $request,
+                Generator $urlGenerator
+            ) use ($c) {
+                // Create view object
+                $view = new View($c->get('templates.dir'));
+                $templatesDir = $c->get('templates.dir');
+                /*
+                   Register tempalte engines
+                 */
 
-            /*
-               Register tempalte engines
-             */
-            $view->registerTemplateEngine('.latte', function (string $template, array $params) use ($latte) {
-                // Creates html response with rendered html
-                return new HtmlResponse($latte->renderToString($template, $params));
-            });
+                // Latte
+                $view->registerTemplateEngine('.latte', function (string $template, array $params) use ($latte, $templatesDir) {
+                    // Creates html response with rendered html
+                    return new HtmlResponse($latte->renderToString(sprintf('%s%s', $templatesDir, $template), $params));
+                });
 
-            /*
-               Set default variables
-             */
+                // plates
+                // $view->registerTemplateEngine('.php', function (string $template, array $variables) use ($plates) {
+                //     $t = s($template);
 
-            // Html form builder
-            $view->builder = $builder;
-            // Psr7 request
-            $view->request = $request;
+                //     return new HtmlResponse(
+                //         $plates->render(
+                //             (string) ($t->startsWith('/') ?  $t->removeLeft('/') : $t)->replace('.php', ''),
+                //             $variables
+                //         )
+                //     );
+                // });
+
+                // blade
+                // $view->registerTemplateEngine('.blade', function (string $template, array $variables) use ($blade) {
+                //     $t = s($template);
+                //     return new HtmlResponse(
+                //         $blade
+                //             ->make(
+                //                 (string) ($t->startsWith('/') ?  $t->removeLeft('/') : $t)->replace('.blade', ''),
+                //                 $variables)
+                //             ->render()
+                //     );
+                // });
+
+                // twig
+                // $view->registerTemplateEngine('.twig', function (string $template, array $variables) use ($twig) {
+                //     $template = $twig->loadTemplate($template);
+
+                //     return new HtmlResponse($template->render($variables));
+                // });
+
+                /*
+                   Set default variables
+                 */
+
+                // Html form builder
+                $view->builder = $builder;
+                // Psr7 request
+                $view->request = $request;
+                // Url generator
+                $view->urlGenerator = $urlGenerator;
 
             return $view;
         });
