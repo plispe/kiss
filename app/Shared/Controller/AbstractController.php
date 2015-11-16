@@ -8,12 +8,29 @@ use Psr\Log\LoggerInterface;
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\{RequestInterface, ResponseInterface};
+use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 
 /**
  * @see http://symfony.com/doc/current/components/http_kernel/introduction.html
  */
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+/**
+ * Zend implementation of PSR-7
+ * @see https://github.com/zendframework/zend-diactoros
+ */
+use Zend\Diactoros\Response\SapiEmitter;
+use Zend\Diactoros\Response\RedirectResponse;
+
+/**
+ * @see http://auraphp.com/packages/Aura.Router/generating-paths.html#2.4
+ */
+use Aura\Router\Generator;
+
+/**
+ * @see  http://tactician.thephpleague.com/
+ */
+use League\Tactician\CommandBus;
 
 /**
  * Simple abstract controller
@@ -24,27 +41,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 abstract class AbstractController
 {
     /**
-     * @Inject
-     * @var LoggerInterface
-     */
-    protected $logger;
-
-     /**
-     * @Inject
-     * @var \League\Tactician\CommandBus
+     * @injectd
+     * @var CommandBus
      */
     protected $commandBus;
 
     /**
-     * Beforea action hoook
-     *
-     * @param RequestInterface $request
-     * @param ResponseInterface $response
+     * @Inject
+     * @var Generator
      */
-    protected function beforeAction(RequestInterface $request, ResponseInterface $response)
-    {
-
-    }
+    protected $uriGenerator;
 
     /**
      * Helper for calling controller action
@@ -57,31 +63,32 @@ abstract class AbstractController
      */
     public function callAction(string $actionName, RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        // Before action hoook
-        $this->beforeAction($request, $response);
-
         // Method not exists
         if (! method_exists($this, $actionName)) {
             throw new NotFoundHttpException(sprintf('Action "%s" not exists.', $actionName));
         }
 
         // Action call
-        $response = $this->$actionName($request, $response);
-
-        // After action hoop
-        $this->afterAction($request, $response);
-
-        return $response;
+        return $this->$actionName($request, $response);
     }
 
     /**
-     * After action hoook
-     *
-     * @param RequestInterface $request
-     * @param ResponseInterface $response
+     * @param  string
+     * @param  int|integer
      */
-    public function afterAction(RequestInterface $request, ResponseInterface $response)
+    public function redirect(string $url, int $code = 301)
     {
+        (new SapiEmitter)->emit(new RedirectResponse($url, $code));
+        die;
+    }
 
+    /**
+     * @param  string
+     * @param  array
+     * @return UriInterface
+     */
+    public function link(string $routeName, array $params): UriInterface
+    {
+        return $this->generator->generate($routeName, $params);
     }
 }
