@@ -21,10 +21,10 @@ if (! function_exists('App\Factory\twig')) {
      */
     function twig(ContainerInterface $c)
     {
-        $loader = new Twig_Loader_Filesystem($c->get('templates.dir'));
-        $twig = new Twig_Environment($loader, array(
-            $c->get('twig.cache.dir'),
-        ));
+        $loader = new \Twig_Loader_Filesystem($c->get('templates.dir'));
+        $twig = new \Twig_Environment($loader, [
+            'cache' => $c->get('templates.cache.dir'),
+        ]);
 
         return $twig;
     }
