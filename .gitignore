@@ -4,8 +4,7 @@
 .DS_Store
 .idea
 
-temp/cache/stash/*
-temp/cache/latte/*
+temp/cache/templates/*
 temp/proxies/*
 vendor/*
 node_modules/*
