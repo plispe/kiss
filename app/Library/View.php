@@ -24,19 +24,6 @@ class View
     protected $params = [];
 
     /**
-     * Path to templates dir
-     * @var string
-     */
-    protected $templatesDir;
-
-    /**
-     * @param string
-     */
-    public function __construct(string $templatesDir)
-    {
-        $this->templatesDir = $templatesDir;
-    }
-    /**
      * Render template with variables
      *
      * @param  string $template
@@ -46,11 +33,6 @@ class View
     {
         // get extension of template file
         $ext = sprintf('.%s', pathinfo($template, PATHINFO_EXTENSION));
-
-        // if File not exists, search in template dirs
-        $template = file_exists($template)
-            ? $template
-            : sprintf('%s%s', $this->templatesDir, $template);
 
         // if template exngine for current file extension not exists
         if (! isset($this->engines[$ext])) {
