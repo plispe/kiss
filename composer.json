@@ -4,7 +4,7 @@
     "license"     : "MIT",
 
     "require": {
-        "php": "~7.0.0RC6",
+        "php": "~7.0.0RC7",
 
         "ext-mbstring": "*",
         "ext-intl": "*",
