@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "53b2ac32cfc8a86cb68e978312218e58",
-    "content-hash": "e7e32f1fa1d9f7ab382e8505fd8e16c2",
+    "hash": "a884d6c093897358bf51807b369cae1c",
+    "content-hash": "4cd2be90d25426e3ab43b670416a5aae",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -1614,16 +1614,16 @@
         },
         {
             "name": "league/monga",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/monga.git",
-                "reference": "0d999a5382122462046a35cc64741805d57f64fd"
+                "reference": "2815e29bfdfa3bf4b6b3acf9c20d60984413b715"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/monga/zipball/0d999a5382122462046a35cc64741805d57f64fd",
-                "reference": "0d999a5382122462046a35cc64741805d57f64fd",
+                "url": "https://api.github.com/repos/thephpleague/monga/zipball/2815e29bfdfa3bf4b6b3acf9c20d60984413b715",
+                "reference": "2815e29bfdfa3bf4b6b3acf9c20d60984413b715",
                 "shasum": ""
             },
             "require": {
@@ -1657,7 +1657,7 @@
             "keywords": [
                 "mongodb"
             ],
-            "time": "2015-10-11 01:34:01"
+            "time": "2015-11-20 01:29:19"
         },
         {
             "name": "league/plates",
@@ -2009,16 +2009,16 @@
         },
         {
             "name": "oscarotero/psr7-middlewares",
-            "version": "v3.7.2",
+            "version": "v3.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/psr7-middlewares.git",
-                "reference": "d572c7f9c5afa4d0e20b97dd5c207d6334f1ecdd"
+                "reference": "b156e4dc0489ba137bff5dca678d50a2d1095327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/psr7-middlewares/zipball/d572c7f9c5afa4d0e20b97dd5c207d6334f1ecdd",
-                "reference": "d572c7f9c5afa4d0e20b97dd5c207d6334f1ecdd",
+                "url": "https://api.github.com/repos/oscarotero/psr7-middlewares/zipball/b156e4dc0489ba137bff5dca678d50a2d1095327",
+                "reference": "b156e4dc0489ba137bff5dca678d50a2d1095327",
                 "shasum": ""
             },
             "require": {
@@ -2077,7 +2077,7 @@
                 "psr-7",
                 "psr-messages"
             ],
-            "time": "2015-11-05 19:26:27"
+            "time": "2015-11-19 00:59:38"
         },
         {
             "name": "patchwork/utf8",
@@ -6557,16 +6557,16 @@
         },
         {
             "name": "vinkla/climb",
-            "version": "0.5.0",
+            "version": "0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vinkla/climb.git",
-                "reference": "75fe8457ecce567b86c973ec4a8565048c19e382"
+                "reference": "b6c1111b4eafa394af5b6e7e1bab136ed5f67eb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vinkla/climb/zipball/75fe8457ecce567b86c973ec4a8565048c19e382",
-                "reference": "75fe8457ecce567b86c973ec4a8565048c19e382",
+                "url": "https://api.github.com/repos/vinkla/climb/zipball/b6c1111b4eafa394af5b6e7e1bab136ed5f67eb8",
+                "reference": "b6c1111b4eafa394af5b6e7e1bab136ed5f67eb8",
                 "shasum": ""
             },
             "require": {
@@ -6574,7 +6574,8 @@
                 "knplabs/packagist-api": "^1.3",
                 "league/climate": "^3.2",
                 "php": ">=5.5.9",
-                "symfony/console": "^2.7"
+                "symfony/console": "^2.6",
+                "symfony/process": "^2.6"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9.4",
@@ -6611,7 +6612,7 @@
                 "composer",
                 "version"
             ],
-            "time": "2015-11-09 07:23:39"
+            "time": "2015-11-20 12:54:51"
         }
     ],
     "aliases": [],
