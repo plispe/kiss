@@ -13,7 +13,7 @@
         "adamwathan/form": "0.8.0",
         "anahkiasen/underscore-php": "2.0.0",
         "aura/router": "3.0.0-beta2",
-        "aura/session": "^2.0",
+        "aura/session": "2.0.1",
         "bernard/bernard": "1.0.0-alpha1",
         "codegyre/robo": "0.6.0",
         "danielstjules/stringy": "2.1.0",
@@ -25,7 +25,7 @@
         "itsgoingd/clockwork": "1.9",
         "joegreen0991/error": "1.0.2",
         "knplabs/gaufrette": "0.2.0",
-        "ktamas77/firebase-php": "~2.0",
+        "ktamas77/firebase-php": "2.0.0",
         "latte/latte": "2.3.7",
         "league/flysystem": "1.0.15",
         "league/monga": "1.2.2",
@@ -52,7 +52,7 @@
         "vlucas/phpdotenv": "2.1.0",
         "vlucas/spot2": "2.1.7",
         "zendframework/zend-diactoros": "1.1.4",
-        "xiaoler/blade": "^0.2.2"
+        "xiaoler/blade": "0.2.2"
     },
 
     "require-dev": {
