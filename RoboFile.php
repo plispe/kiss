@@ -62,6 +62,7 @@ class RoboFile extends \Robo\Tasks
         $this
             ->taskExec('vendor/bin/phpmetrics')
             ->option('config','phpmetrics.yml')
+            ->option('ansi')
             ->option('failure-condition', 'false <> false')
             ->arg('.')
             ->printed(true)
