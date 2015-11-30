@@ -4,6 +4,8 @@
  * Phinx configuration file
  * @see http://docs.phinx.org/en/latest/configuration.html
  *
+ * For using Phinx please install "robmorgan/phinx" composer package
+ *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 
