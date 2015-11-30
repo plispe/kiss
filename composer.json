@@ -7,7 +7,6 @@
         "php": "~7.0.0RC7",
 
         "ext-mbstring": "*",
-        "ext-intl": "*",
 
         "ad7six/dsn": "0.4.0",
         "adamwathan/form": "0.8.0",
@@ -17,44 +16,27 @@
         "bernard/bernard": "1.0.0-alpha1",
         "codegyre/robo": "0.6.0",
         "danielstjules/stringy": "2.1.0",
-        "dibi/dibi": "3.0.0",
         "doctrine/annotations": "1.2.7",
         "doctrine/cache": "1.5.1",
         "doctrine/inflector": "1.1.0",
         "gordalina/cachetool": "1.10.0",
         "itsgoingd/clockwork": "1.9",
         "joegreen0991/error": "1.0.2",
-        "knplabs/gaufrette": "0.2.0",
-        "ktamas77/firebase-php": "2.0.0",
         "latte/latte": "2.3.7",
-        "league/flysystem": "1.0.15",
         "league/monga": "1.2.2",
-        "league/plates": "3.1.1",
         "league/tactician": "0.6.1",
-        "league/uri": "4.0.1",
         "monolog/monolog": "1.17.2",
         "nesbot/carbon": "1.21.0",
         "oscarotero/psr7-middlewares": "3.8.1",
-        "phpmailer/phpmailer": "5.2.14",
         "php-di/php-di": "5.1.0",
-        "php-middleware/php-debug-bar": "1.0.0",
-        "pomm-project/cli": "2.0.0",
-        "pomm-project/foundation": "2.0.0",
-        "pomm-project/model-manager": "2.0.0",
         "relay/relay": "1.0.0",
-        "robmorgan/phinx": "0.4.6",
-        "swiftmailer/swiftmailer": "5.4.1",
         "symfony/http-foundation": "2.7.7",
         "symfony/http-kernel": "2.7.7",
         "tedivm/stash": "0.13.1",
         "tracy/tracy": "2.3.7",
-        "twig/twig": "1.23.1",
         "vlucas/phpdotenv": "2.1.0",
-        "vlucas/spot2": "2.1.7",
-        "zendframework/zend-diactoros": "1.2.0",
-        "xiaoler/blade": "0.2.2"
+        "zendframework/zend-diactoros": "1.2.0"
     },
-
     "require-dev": {
         "codeception/codeception": "2.1.4",
         "jakub-onderka/php-parallel-lint": "0.9",
@@ -62,6 +44,24 @@
         "halleck45/php-metrics": "1.6.3",
         "squizlabs/php_codesniffer": "2.4.0",
         "vinkla/climb": "0.7.0"
+    },
+
+    "suggest": {
+        "dibi/dibi" : "Dibi is Database Abstraction Library for PHP",
+        "ktamas77/firebase-php": "Firebase PHP Client",
+        "knplabs/gaufrette": "PHP5 library that provides a filesystem abstraction layer",
+        "league/flysystem": "Filesystem abstraction: Many filesystems, one API.",
+        "league/plates": "Plates, the native PHP template system that's fast, easy to use and easy to extend.",
+        "phpmailer/phpmailer": "PHPMailer is a full-featured email creation and transfer class for PHP",
+        "php-middleware/php-debug-bar": "PHP Debug bar middleware with PSR-7",
+        "pomm-project/cli": "Postgresql object model manager for PHP - CLI",
+        "pomm-project/foundation": "Postgresql object model manager for PHP - Foundation",
+        "pomm-project/model-manager": "Postgresql object model manager for PHP - Model Manager",
+        "robmorgan/phinx": "PHP Database Migrations for Everyone",
+        "swiftmailer/swiftmailer": "Swiftmailer, free feature-rich PHP mailer",
+        "twig/twig": "Twig, the flexible, fast, and secure template language for PHP",
+        "vlucas/spot2": "Simple and efficient DataMapper built on Doctrine DBAL",
+        "xiaoler/blade": "Standalone Laravel Blade template"
     },
 
     "autoload": {
