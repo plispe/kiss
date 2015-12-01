@@ -11,7 +11,7 @@
         "ad7six/dsn": "0.4.0",
         "adamwathan/form": "0.8.0",
         "anahkiasen/underscore-php": "2.0.0",
-        "aura/router": "3.0.0-beta2",
+        "aura/router": "3.0.0",
         "aura/session": "2.0.1",
         "bernard/bernard": "1.0.0-alpha1",
         "codegyre/robo": "0.6.0",
@@ -30,18 +30,20 @@
         "oscarotero/psr7-middlewares": "3.8.1",
         "php-di/php-di": "5.1.0",
         "relay/relay": "1.0.0",
-        "symfony/http-foundation": "2.7.7",
-        "symfony/http-kernel": "2.7.7",
+        "symfony/http-foundation": "3.0.0",
+        "symfony/http-kernel": "3.0.0",
         "tedivm/stash": "0.13.1",
         "tracy/tracy": "2.3.7",
         "vlucas/phpdotenv": "2.1.0",
-        "zendframework/zend-diactoros": "1.2.0"
+        "zendframework/zend-diactoros": "1.2.0",
+        "league/uri": "^4.0",
+        "fguillot/json-rpc": "^1.0"
     },
     "require-dev": {
         "codeception/codeception": "2.1.4",
         "jakub-onderka/php-parallel-lint": "0.9",
         "jakub-onderka/php-console-highlighter": "0.3.2",
-        "halleck45/php-metrics": "1.6.3",
+        "halleck45/php-metrics": "1.7.0",
         "squizlabs/php_codesniffer": "2.4.0",
         "vinkla/climb": "0.7.0"
     },
