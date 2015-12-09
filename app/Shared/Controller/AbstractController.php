@@ -11,11 +11,6 @@ use Psr\Log\LoggerInterface;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 
 /**
- * @see http://symfony.com/doc/current/components/http_kernel/introduction.html
- */
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
-/**
  * Zend implementation of PSR-7
  * @see https://github.com/zendframework/zend-diactoros
  */
@@ -41,46 +36,16 @@ use League\Tactician\CommandBus;
 abstract class AbstractController
 {
     /**
-     * @injectd
+     * @inject
      * @var CommandBus
      */
     protected $commandBus;
 
     /**
-     * @Inject
+     * @inject
      * @var Generator
      */
     protected $uriGenerator;
-
-    /**
-     * Helper for calling controller action
-     *
-     * @param String $actionName
-     * @param RequestInterface $request
-     * @param ResponseInterface $response
-     *
-     * @return ResponseInterface
-     */
-    public function callAction(string $actionName, RequestInterface $request, ResponseInterface $response): ResponseInterface
-    {
-        // Method not exists
-        if (! method_exists($this, $actionName)) {
-            throw new NotFoundHttpException(sprintf('Action "%s" not exists.', $actionName));
-        }
-
-        // Action call
-        return $this->$actionName($request, $response);
-    }
-
-    /**
-     * @param  string
-     * @param  int|integer
-     */
-    public function redirect(string $url, int $code = 301)
-    {
-        (new SapiEmitter)->emit(new RedirectResponse($url, $code));
-        die;
-    }
 
     /**
      * @param  string

@@ -29,12 +29,6 @@ use Symfony\Component\HttpKernel\Exception\{NotFoundHttpException, BadRequestHtt
 class ProjectController extends AbstractApiController
 {
     /**
-     * @Inject
-     * @var DibiConnection
-     */
-    protected $database;
-
-    /**
      * @param RequestInterface $request
      * @param ResponseInterface $response
      *

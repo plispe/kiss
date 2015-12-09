@@ -35,7 +35,7 @@ class Dispatcher implements MiddlewareInterface
     use ClockworkTrait;
 
     /**
-     * @Inject
+     * @inject
      * @var DI\Container
      */
     protected $diContainer;
@@ -61,14 +61,19 @@ class Dispatcher implements MiddlewareInterface
         if ($this->controllerClassExists($controllerClass)) {
             // Instance of controller
             $controller = $this->diContainer->get($controllerClass);
+            $action = $this->getFullActionName($route->attributes['action']);
+
             $this->endEvent('dispatching');
+
             $this->startEvent('controller', 'Running controller action');
+
+            // Check existence of controller action
+            if (! method_exists($controller, $action)) {
+                throw new NotFoundHttpException(sprintf('Controller "%s" has no action "%s".', $controllerClass, $action));
+            }
             // Call controller action
-            $response = $controller->callAction(
-                $this->getFullActionName($route->attributes['action']),
-                $request,
-                $response
-            );
+            $response = $controller->$action($request, $response);
+
             $this->endEvent('controller');
             $response = $next($request, $response, $next);
             return $response;
@@ -81,7 +86,7 @@ class Dispatcher implements MiddlewareInterface
      * @return Bool
      * @throws NotFoundHttpException
      */
-    protected function controllerClassExists($controllerClass)
+    protected function controllerClassExists($controllerClass): bool
     {
         $existence = class_exists($controllerClass);
 
@@ -100,7 +105,7 @@ class Dispatcher implements MiddlewareInterface
      * @param String $action
      * @return String
      */
-    protected function getFullActionName($action)
+    protected function getFullActionName($action): string
     {
         return sprintf('%sAction', $action);
     }
@@ -111,7 +116,7 @@ class Dispatcher implements MiddlewareInterface
      * @param String $module
      * @param String $controller
      */
-    protected function getFullControllerName($module, $controller)
+    protected function getFullControllerName($module, $controller): string
     {
         return sprintf(
             '\App\Module\%s\Controller\%sController',

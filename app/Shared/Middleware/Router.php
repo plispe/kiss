@@ -48,23 +48,16 @@ class Router implements MiddlewareInterface
     use ClockworkTrait;
 
     /**
-     * @Inject
+     * @inject
      * @var Matcher
      */
     protected $matcher;
 
     /**
+     * @inject
      * @var Dispatcher
      */
     protected $dispatcher;
-
-    /**
-     * @param Dispatcher $dispatcher [description]
-     */
-    public function __construct(Dispatcher $dispatcher)
-    {
-        $this->dispatcher = $dispatcher;
-    }
 
     /**
      * @inheritdoc

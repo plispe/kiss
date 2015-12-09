@@ -14,6 +14,13 @@ use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 class IndexController extends AbstractWebController
 {
+
+    /**
+     * @Inject
+     * @var App\Module\Web\Controller\TestController
+     */
+    protected $testController;
+
     /**
      * @param RequestInterface $request
      * @param ResponseInterface $reseponse
@@ -30,7 +37,6 @@ class IndexController extends AbstractWebController
 //             (new Notification())
 //                ->setTitle('Notification title')
 //                ->setBody('This is the body of your notification'));
-
         return $this->view->render('web/index/default.latte');
     }
 }
