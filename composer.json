@@ -4,9 +4,10 @@
     "license"     : "MIT",
 
     "require": {
-        "php": "~7.0.0RC7",
+        "php": "^7.0.0",
 
         "ext-mbstring": "*",
+        "ext-intl": "*",
 
         "ad7six/dsn": "0.4.0",
         "adamwathan/form": "0.8.0",
