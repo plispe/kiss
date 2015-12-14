@@ -25,9 +25,12 @@ class IndexController extends AbstractWebController
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
        $session = $request->getAttribute(SessionMiddleware::SESSION_ATTRIBUTE);
-       // $session->set('counter',0);
+       if (! $session->get('counter')) {
+         $session->set('counter',10);
+       }
+       var_dump($session->get('counter'));
 
-       dump($session->get('counter',0));exit;
+       // dump($session->get('counter'));exit;
        // $command = new \App\Service\Command\User\Register('alice@example.com', 'secret');
        // $this->commandBus->handle($command);
 
@@ -36,10 +39,6 @@ class IndexController extends AbstractWebController
 //             (new Notification())
 //                ->setTitle('Notification title')
 //                ->setBody('This is the body of your notification'));
-//
-        $response
-               ->getBody()
-               ->write('Counter Value: ' . $session->get('counter'));
         return $response;
     }
 }
