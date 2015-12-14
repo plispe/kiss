@@ -58,7 +58,9 @@ return [
 
     Map::class => DI\factory('App\Factory\auraRouterMap'),
     Matcher::class => DI\factory('App\Factory\auraRouterMatcher'),
-    Generator::class => DI\factory('App\Factory\auraUrlGenerator'),
+    Generator::class => function($c) {
+        return App\Factory\auraUrlGenerator($c);
+    },
     RouterContainer::class => DI\factory('App\Factory\auraRoterContainer'),
 
     /**
@@ -169,5 +171,7 @@ return [
 
     Twig_Environment::class => DI\factory('App\Factory\twig'),
 
-    'view' => DI\factory('App\Factory\view'),
+    'view' => function($c) {
+        return App\Factory\view($c);
+    },
 ];
