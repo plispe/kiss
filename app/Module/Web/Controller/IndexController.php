@@ -12,8 +12,6 @@ namespace App\Module\Web\Controller;
  */
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
-use PSR7Session\Http\SessionMiddleware;
-
 class IndexController extends AbstractWebController
 {
     /**
@@ -24,17 +22,6 @@ class IndexController extends AbstractWebController
      */
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-       $session = $request->getAttribute(SessionMiddleware::SESSION_ATTRIBUTE);
-       if (getenv('SET_COUNTER') !== 'false') {
-         $session->set('counter', 100);
-       } else {
-          $session->set('counter', $session->get('counter') + 1);
-       }
-
-
-       echo $session->get('counter');
-
-       // dump($session->get('counter'));exit;
        // $command = new \App\Service\Command\User\Register('alice@example.com', 'secret');
        // $this->commandBus->handle($command);
 
@@ -43,6 +30,7 @@ class IndexController extends AbstractWebController
 //             (new Notification())
 //                ->setTitle('Notification title')
 //                ->setBody('This is the body of your notification'));
-        return $response;
+//
+        return $this->view->render('web/index/default.latte');
     }
 }
