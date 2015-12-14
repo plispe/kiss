@@ -26,15 +26,23 @@ use Interop\Container\ContainerInterface;
  */
 use Psr7Middlewares\Middleware;
 
+/**
+ * PSR 7 storage-less session
+ * @see https://github.com/Ocramius/PSR7Session
+ */
+use PSR7Session\Http\SessionMiddleware;
+
 return [
     /**
      * Middleware queue which is used for Relay
      *
      */
     'middlewares' => [
+        SessionMiddleware::fromSymmetricKeyDefaults(
+            getenv('SESSION_KEY') ?: 'session-key',
+            getenv('SESSION_EXPIRATION_TIME') ?: 1440
+        ),
         DI\get(\App\Shared\Middleware\ClockworkMiddleware::class),
-        Middleware::AuraSession(),
         DI\get(\App\Shared\Middleware\Router::class),
-        // DI\factory('App\Factory\phpDebugBar'),
     ]
 ];

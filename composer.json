@@ -13,7 +13,6 @@
         "adamwathan/form": "0.8.0",
         "anahkiasen/underscore-php": "2.0.0",
         "aura/router": "3.0.0",
-        "aura/session": "2.0.1",
         "bernard/bernard": "1.0.0-alpha1",
         "codegyre/robo": "0.6.0",
         "danielstjules/stringy": "2.1.0",
@@ -26,6 +25,7 @@
         "latte/latte": "2.3.8",
         "league/monga": "1.2.3",
         "league/tactician": "0.6.1",
+        "league/uri": "4.0.1",
         "monolog/monolog": "1.17.2",
         "nesbot/carbon": "1.21.0",
         "oscarotero/psr7-middlewares": "3.8.1",
@@ -37,8 +37,7 @@
         "tracy/tracy": "2.3.7",
         "vlucas/phpdotenv": "2.1.0",
         "zendframework/zend-diactoros": "1.2.0",
-        "league/uri": "^4.0",
-        "fguillot/json-rpc": "^1.0"
+        "ocramius/psr7-session": "1.0.10"
     },
     "require-dev": {
         "codeception/codeception": "2.1.4",

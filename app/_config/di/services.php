@@ -42,7 +42,6 @@ use Relay\Relay;
 use Psr\{Log\LoggerInterface, Http\Message\RequestInterface};
 
 return [
-
     RequestInterface::class => DI\factory('App\Factory\request'),
 
     /**
