@@ -25,10 +25,14 @@ class IndexController extends AbstractWebController
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
        $session = $request->getAttribute(SessionMiddleware::SESSION_ATTRIBUTE);
-       if (! $session->get('counter')) {
-         $session->set('counter',10);
+       if (getenv('SET_COUNTER') !== 'false') {
+         $session->set('counter', 100);
+       } else {
+          $session->set('counter', $session->get('counter') + 1);
        }
-       var_dump($session->get('counter'));
+
+
+       echo $session->get('counter');
 
        // dump($session->get('counter'));exit;
        // $command = new \App\Service\Command\User\Register('alice@example.com', 'secret');
