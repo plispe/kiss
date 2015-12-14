@@ -25,12 +25,6 @@ class IndexController extends AbstractWebController
        // $command = new \App\Service\Command\User\Register('alice@example.com', 'secret');
        // $this->commandBus->handle($command);
 
-        // $this->logger->addInfo('Some event');
-//        $this->notifier->send(
-//             (new Notification())
-//                ->setTitle('Notification title')
-//                ->setBody('This is the body of your notification'));
-//
-        return $this->view->render('web/index/default.latte');
+    return $this->view->render('web/index/default.latte');
     }
 }
