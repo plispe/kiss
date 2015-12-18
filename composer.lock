@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42a005d40b2e9764320fa7a8ca2c3971",
-    "content-hash": "dcddf1507841f3f64c0a8cb6e03e062a",
+    "hash": "093c6e97790bebd060fdc5b283f64137",
+    "content-hash": "5eb6ead4991134a93a4b56544b4424d6",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -1520,29 +1520,30 @@
         },
         {
             "name": "oscarotero/psr7-middlewares",
-            "version": "v3.8.1",
+            "version": "v3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/psr7-middlewares.git",
-                "reference": "7dba56a806ab78937a1ef8b4ab5dba211bab0dcb"
+                "reference": "89cb46026c177083f37b4d2f6d6f6bf2e00b6123"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/psr7-middlewares/zipball/7dba56a806ab78937a1ef8b4ab5dba211bab0dcb",
-                "reference": "7dba56a806ab78937a1ef8b4ab5dba211bab0dcb",
+                "url": "https://api.github.com/repos/oscarotero/psr7-middlewares/zipball/89cb46026c177083f37b4d2f6d6f6bf2e00b6123",
+                "reference": "89cb46026c177083f37b4d2f6d6f6bf2e00b6123",
                 "shasum": ""
             },
             "require": {
-                "container-interop/container-interop": "^1.1",
                 "php": ">=5.5.0",
                 "phpseclib/phpseclib": "^2.0"
             },
             "require-dev": {
-                "aura/router": "3.0.0-beta2",
+                "aura/router": "^3.0",
                 "aura/session": "2.*",
+                "imagecow/imagecow": "^1.5",
+                "league/route": "2.0.0-RC1",
                 "m6web/firewall": "~1.0",
                 "matthiasmullie/scrapbook": "dev-master",
-                "maximebf/debugbar": "~1.10",
+                "maximebf/debugbar": "~1.11",
                 "mobiledetect/mobiledetectlib": "^2.8",
                 "mrclay/minify": "^2.2",
                 "neomerx/cors-psr7": "^0.2.0",
@@ -1557,6 +1558,8 @@
             "suggest": {
                 "aura/router": "To use Middleware::auraRouter",
                 "aura/session": "To use Middleware::auraSession",
+                "imagecow/imagecow": "To use Middleware::imageTransformer",
+                "league/route": "To use Middleware::leagueRoute",
                 "m6web/firewall": "To use Middleware::firewall()",
                 "maximebf/debugbar": "To use Middleware::debugBar()",
                 "mobiledetect/mobiledetectlib": "To use Middleware::detectDevice",
@@ -1593,7 +1596,7 @@
                 "psr-7",
                 "psr-messages"
             ],
-            "time": "2015-11-30 07:21:09"
+            "time": "2015-12-17 11:32:41"
         },
         {
             "name": "patchwork/utf8",
@@ -1968,16 +1971,16 @@
         },
         {
             "name": "relay/relay",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/relayphp/Relay.Relay.git",
-                "reference": "277638ddafe184550d9c2441c23dd911d605a5ce"
+                "reference": "e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/relayphp/Relay.Relay/zipball/277638ddafe184550d9c2441c23dd911d605a5ce",
-                "reference": "277638ddafe184550d9c2441c23dd911d605a5ce",
+                "url": "https://api.github.com/repos/relayphp/Relay.Relay/zipball/e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae",
+                "reference": "e835fc45351b7a92a6fdf2a36be7bd59ef56c8ae",
                 "shasum": ""
             },
             "require": {
@@ -2009,7 +2012,7 @@
                 "middleware",
                 "psr-7"
             ],
-            "time": "2015-10-14 20:15:30"
+            "time": "2015-12-17 18:18:30"
         },
         {
             "name": "symfony/config",
@@ -2975,16 +2978,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "08284cfe5b5d91f64d87911902acaca1b6cff11e"
+                "reference": "9d760c8db53d2fb2cfc4a33d0bfbef4fae4ed797"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/08284cfe5b5d91f64d87911902acaca1b6cff11e",
-                "reference": "08284cfe5b5d91f64d87911902acaca1b6cff11e",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/9d760c8db53d2fb2cfc4a33d0bfbef4fae4ed797",
+                "reference": "9d760c8db53d2fb2cfc4a33d0bfbef4fae4ed797",
                 "shasum": ""
             },
             "require": {
@@ -3021,7 +3024,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2015-12-15 17:59:11"
+            "time": "2015-12-16 16:29:46"
         },
         {
             "name": "zendframework/zend-escaper",
