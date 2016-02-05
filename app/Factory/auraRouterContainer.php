@@ -27,10 +27,6 @@ if (! function_exists('App\Factory\auraRoterContainer')) {
     function auraRoterContainer(ContainerInterface $c): RouterContainer
     {
         $container = new RouterContainer;
-        $container->setMapFactory(function () {
-            return new RestfulResourceMap(new Route());
-        });
-
         return $container;
     }
 }
