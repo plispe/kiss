@@ -20,32 +20,31 @@
         "doctrine/cache": "1.6.0",
         "doctrine/inflector": "1.1.0",
         "gordalina/cachetool": "1.10.0",
-        "itsgoingd/clockwork": "1.10",
+        "itsgoingd/clockwork": "1.10.1",
         "joegreen0991/error": "1.0.2",
-        "latte/latte": "2.3.8",
+        "latte/latte": "2.3.9",
         "league/monga": "1.2.3",
         "league/tactician": "1.0.0",
         "league/uri": "4.0.1",
         "monolog/monolog": "1.17.2",
         "nesbot/carbon": "1.21.0",
         "ocramius/psr7-session": "1.0.2",
-        "oscarotero/psr7-middlewares": "3.10.2",
-        "php-di/php-di": "5.2.0",
+        "oscarotero/psr7-middlewares": "3.13.0",
+        "php-di/php-di": "5.2.1",
         "relay/relay": "1.1.0",
-        "symfony/http-foundation": "3.0.1",
-        "symfony/http-kernel": "3.0.1",
+        "symfony/http-foundation": "3.0.2",
+        "symfony/http-kernel": "3.0.2",
         "tedivm/stash": "0.13.2",
-        "tracy/tracy": "2.3.7",
+        "tracy/tracy": "2.3.8",
         "vlucas/phpdotenv": "2.2.0",
-        "zendframework/zend-diactoros": "1.3.2"
+        "zendframework/zend-diactoros": "1.3.3"
     },
     "require-dev": {
         "codeception/codeception": "2.1.5",
         "jakub-onderka/php-parallel-lint": "0.9.2",
         "jakub-onderka/php-console-highlighter": "0.3.2",
-        "halleck45/php-metrics": "1.8.3",
-        "squizlabs/php_codesniffer": "2.5.0",
-        "vinkla/climb": "0.8.0"
+        "squizlabs/php_codesniffer": "2.5.1",
+        "vinkla/climb": "0.8.1"
     },
 
     "suggest": {
