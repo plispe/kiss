@@ -26,7 +26,7 @@ use Zend\Diactoros\Response\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\{NotFoundHttpException, BadRequestHttpException};
 
-class ProjectController extends AbstractApiController
+class ProjectController extends AbstractApiController implements RestfulInterface
 {
     /**
      * @param RequestInterface $request
@@ -105,21 +105,5 @@ class ProjectController extends AbstractApiController
         $response = new JsonResponse(null, Response::HTTP_NO_CONTENT);
 
         return $response;
-    }
-
-    /**
-     * @param RequestInterface $request
-     * @return ResponseInterface
-     * @throws BadRequestHttpException
-     */
-    protected function parseJsonRequestBody(RequestInterface $request): ResponseInterface
-    {
-        $requestJson = json_decode($request->getBody());
-
-        if ($requestJson === null) {
-            throw new BadRequestHttpException('Request body is not a valid JSON.');
-        }
-
-        return $requestJson;
     }
 }
