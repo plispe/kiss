@@ -5,10 +5,8 @@
 
     "require": {
         "php": "^7.0.0",
-
-        "ext-mbstring": "*",
         "ext-intl": "*",
-
+        "ext-mbstring": "*",
         "ad7six/dsn": "0.4.0",
         "adamwathan/form": "0.8.0",
         "anahkiasen/underscore-php": "2.0.0",
@@ -84,5 +82,10 @@
         "robo": "bin/robo.php --ansi",
         "start": "composer robo devtools:run-php-server"
 
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "preferred-install": "dist"
     }
 }
