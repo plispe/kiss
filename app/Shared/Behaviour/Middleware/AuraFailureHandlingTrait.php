@@ -20,10 +20,10 @@ use Symfony\Component\HttpKernel\Exception\{
 trait AuraFailureHandlingTrait
 {
     /**
-     * @param Aura\Router\Matcher $matcher
+     * @param Matcher $matcher
      *
-     * @throws NotAcceptableHttpException
      * @throws MethodNotAllowedHttpException
+     * @throws NotAcceptableHttpException
      * @throws NotFoundHttpException
      */
     protected function handleFailure(Matcher $matcher)

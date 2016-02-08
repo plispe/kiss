@@ -16,15 +16,13 @@ class IndexController extends AbstractWebController
 {
     /**
      * @param RequestInterface $request
-     * @param ResponseInterface $reseponse
-     *
-     * @return RequestInterface
+     * @param ResponseInterface $response
+     * @return ResponseInterface
      */
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
        // $command = new \App\Service\Command\User\Register('alice@example.com', 'secret');
        // $this->commandBus->handle($command);
-
-    return $this->view->render('web/index/default.latte');
+        return $this->view->render('web/index/default.latte');
     }
 }

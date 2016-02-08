@@ -16,9 +16,9 @@ class ErrorController extends AbstractWebController
 {
     /**
      * @param RequestInterface $request
-     * @param ResponseInterface $reseponse
+     * @param ResponseInterface $response
      *
-     * @return RequestInterface
+     * @return ResponseInterface
      */
     public function error403Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
@@ -27,9 +27,9 @@ class ErrorController extends AbstractWebController
 
     /**
      * @param RequestInterface $request
-     * @param ResponseInterface $reseponse
+     * @param ResponseInterface $response
      *
-     * @return RequestInterface
+     * @return ResponseInterface
      */
     public function error404Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
@@ -39,9 +39,9 @@ class ErrorController extends AbstractWebController
 
     /**
      * @param RequestInterface $request
-     * @param ResponseInterface $reseponse
+     * @param ResponseInterface $response
      *
-     * @return RequestInterface
+     * @return ResponseInterface
      */
     public function error500Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
@@ -50,9 +50,9 @@ class ErrorController extends AbstractWebController
 
     /**
      * @param RequestInterface $request
-     * @param ResponseInterface $reseponse
+     * @param ResponseInterface $response
      *
-     * @return RequestInterface
+     * @return ResponseInterface
      */
     public function error502Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
@@ -61,9 +61,9 @@ class ErrorController extends AbstractWebController
 
     /**
      * @param RequestInterface $request
-     * @param ResponseInterface $reseponse
+     * @param ResponseInterface $response
      *
-     * @return RequestInterface
+     * @return ResponseInterface
      */
     public function error503Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
@@ -72,9 +72,9 @@ class ErrorController extends AbstractWebController
 
     /**
      * @param RequestInterface $request
-     * @param ResponseInterface $reseponse
+     * @param ResponseInterface $response
      *
-     * @return RequestInterface
+     * @return ResponseInterface
      */
     public function error504Action(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {

@@ -35,8 +35,9 @@ if (! function_exists('App\Factory\auraUrlGenerator'))
                 protected $uri;
 
                 /**
-                 * @param Generator
-                 * @param RequestInterface
+                 *  constructor.
+                 * @param RouterContainer $container
+                 * @param RequestInterface $request
                  */
                 public function __construct(RouterContainer $container, RequestInterface $request)
                 {

@@ -26,8 +26,10 @@ class View
     /**
      * Render template with variables
      *
-     * @param  string $template
-     * @param  array $params
+     * @param string $template
+     * @param array $params
+     * @return HtmlResponse
+     * @throws \Exception
      */
     public function render(string $template, array $params = []): HtmlResponse
     {

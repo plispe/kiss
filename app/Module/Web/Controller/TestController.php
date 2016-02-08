@@ -16,9 +16,9 @@ class TestController extends AbstractWebController
 {
     /**
      * @param RequestInterface $request
-     * @param ResponseInterface $reseponse
+     * @param ResponseInterface $response
      *
-     * @return RequestInterface
+     * @return ResponseInterface
      */
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {

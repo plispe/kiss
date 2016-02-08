@@ -26,8 +26,10 @@ trait ClockworkTrait
     }
 
     /**
-     * @param Int $id
-     * @param Int $last
+     * @param string $id
+     * @param string|null $last
+     *
+     * @return mixed
      */
     public function retrieveRequest(string $id, string $last = null)
     {
