@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7aba5fd09afff9b8c50e99f51dc60f22",
-    "content-hash": "982f97d65590c20dc0754bd25be754da",
+    "hash": "ff70a4f0b7c29e9e7bb340e026decf83",
+    "content-hash": "98e17a377cec4ce960b50f96621c2a5f",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -922,6 +922,57 @@
                 "watching"
             ],
             "time": "2013-05-24 06:47:29"
+        },
+        {
+            "name": "hirak/prestissimo",
+            "version": "0.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hirak/prestissimo.git",
+                "reference": "cf526eee464e93dcb13c8d3521bad2ea0111bbfd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hirak/prestissimo/zipball/cf526eee464e93dcb13c8d3521bad2ea0111bbfd",
+                "reference": "cf526eee464e93dcb13c8d3521bad2ea0111bbfd",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "~1.0.0-alpha10",
+                "ext-curl": "*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.0-alpha10",
+                "pdepend/pdepend": "^2.2",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Hirak\\Prestissimo\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hirak\\Prestissimo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hiraku NAKANO",
+                    "email": "hiraku@tojiru.net"
+                }
+            ],
+            "description": "composer parallel install plugin",
+            "keywords": [
+                "install",
+                "parallel",
+                "speedup"
+            ],
+            "time": "2016-02-06 06:13:10"
         },
         {
             "name": "itsgoingd/clockwork",
