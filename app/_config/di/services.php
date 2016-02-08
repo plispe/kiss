@@ -26,7 +26,6 @@ use PommProject\Foundation\Pomm;
 use Spot\Locator;
 use League\Monga\Database;
 use Gaufrette\Filesystem;
-// use Joli\JoliNotif\Notifier;
 use Dibi\Connection;
 
 /**
