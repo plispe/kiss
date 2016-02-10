@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ff70a4f0b7c29e9e7bb340e026decf83",
-    "content-hash": "98e17a377cec4ce960b50f96621c2a5f",
+    "hash": "dabad91a336683baeaa0d678aa832047",
+    "content-hash": "82a1d5a59a68c3d5bc504564f610604b",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -924,57 +924,6 @@
             "time": "2013-05-24 06:47:29"
         },
         {
-            "name": "hirak/prestissimo",
-            "version": "0.1.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hirak/prestissimo.git",
-                "reference": "cf526eee464e93dcb13c8d3521bad2ea0111bbfd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hirak/prestissimo/zipball/cf526eee464e93dcb13c8d3521bad2ea0111bbfd",
-                "reference": "cf526eee464e93dcb13c8d3521bad2ea0111bbfd",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "~1.0.0-alpha10",
-                "ext-curl": "*",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "composer/composer": "1.0.0-alpha10",
-                "pdepend/pdepend": "^2.2",
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Hirak\\Prestissimo\\Plugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Hirak\\Prestissimo\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Hiraku NAKANO",
-                    "email": "hiraku@tojiru.net"
-                }
-            ],
-            "description": "composer parallel install plugin",
-            "keywords": [
-                "install",
-                "parallel",
-                "speedup"
-            ],
-            "time": "2016-02-06 06:13:10"
-        },
-        {
             "name": "itsgoingd/clockwork",
             "version": "v1.10.1",
             "source": {
@@ -1571,16 +1520,16 @@
         },
         {
             "name": "oscarotero/psr7-middlewares",
-            "version": "v3.13.0",
+            "version": "v3.13.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/psr7-middlewares.git",
-                "reference": "5a36263b3c331aa67012f41936dd323576e9099b"
+                "reference": "e47dc8ffd975affc41eeabfc9c6ffcbca4440b5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/psr7-middlewares/zipball/5a36263b3c331aa67012f41936dd323576e9099b",
-                "reference": "5a36263b3c331aa67012f41936dd323576e9099b",
+                "url": "https://api.github.com/repos/oscarotero/psr7-middlewares/zipball/e47dc8ffd975affc41eeabfc9c6ffcbca4440b5d",
+                "reference": "e47dc8ffd975affc41eeabfc9c6ffcbca4440b5d",
                 "shasum": ""
             },
             "require": {
@@ -1659,7 +1608,7 @@
                 "psr-7",
                 "psr-messages"
             ],
-            "time": "2016-01-31 20:24:02"
+            "time": "2016-02-06 17:33:54"
         },
         {
             "name": "patchwork/utf8",
@@ -1765,16 +1714,16 @@
         },
         {
             "name": "php-di/php-di",
-            "version": "5.2.1",
+            "version": "5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "f3ae41b493b9e95edcb698ecbd15990063c0414c"
+                "reference": "f574bcc841201ab04587b1c6da1234d4044f67d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/f3ae41b493b9e95edcb698ecbd15990063c0414c",
-                "reference": "f3ae41b493b9e95edcb698ecbd15990063c0414c",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/f574bcc841201ab04587b1c6da1234d4044f67d8",
+                "reference": "f574bcc841201ab04587b1c6da1234d4044f67d8",
                 "shasum": ""
             },
             "require": {
@@ -1818,7 +1767,7 @@
                 "dependency injection",
                 "di"
             ],
-            "time": "2016-01-14 21:46:36"
+            "time": "2016-02-09 22:00:00"
         },
         {
             "name": "php-di/phpdoc-reader",
@@ -3104,16 +3053,16 @@
     "packages-dev": [
         {
             "name": "codeception/codeception",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf"
+                "reference": "b199941f5e59d1e7fd32d78296c8ab98db873d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/4ee562f421fd404139dd7b73ae46d075396a4baf",
-                "reference": "4ee562f421fd404139dd7b73ae46d075396a4baf",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/b199941f5e59d1e7fd32d78296c8ab98db873d89",
+                "reference": "b199941f5e59d1e7fd32d78296c8ab98db873d89",
                 "shasum": ""
             },
             "require": {
@@ -3180,7 +3129,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2015-12-20 12:11:42"
+            "time": "2016-02-09 22:27:48"
         },
         {
             "name": "composer/semver",
