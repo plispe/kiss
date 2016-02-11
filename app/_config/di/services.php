@@ -36,9 +36,10 @@ use Relay\Relay;
 
 /**
  * @see http://www.php-fig.org/psr/psr-3/
+ * @see http://www.php-fig.org/psr/psr-6/
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\{Log\LoggerInterface, Http\Message\RequestInterface};
+use Psr\{Log\LoggerInterface, Http\Message\RequestInterface, Cache\CacheItemPoolInterface};
 
 return [
     RequestInterface::class => DI\factory('App\Factory\request'),
@@ -65,7 +66,7 @@ return [
      * Caching library
      * @see http://www.stashphp.com/
      */
-    PoolInterface::class => DI\factory('App\Factory\stash'),
+    CacheItemPoolInterface::class => DI\factory('App\Factory\stash'),
 
     /**
      * Flysystem - filesystem abstraction
@@ -162,12 +163,6 @@ return [
      * @see http://tactician.thephpleague.com/
      */
     CommandBus::class => DI\factory('App\Factory\commandBus'),
-
-    League\Plates\Engine::class => DI\factory('App\Factory\plates'),
-
-    Xiaoler\Blade\Factory::class => DI\factory('App\Factory\blade'),
-
-    Twig_Environment::class => DI\factory('App\Factory\twig'),
 
     'view' => function($c) {
         return App\Factory\view($c);

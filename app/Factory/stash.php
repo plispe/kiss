@@ -16,19 +16,23 @@ use Stash\{Pool, Driver\FileSystem};
  */
 use Interop\Container\ContainerInterface;
 
+/**
+ * PSR-6  cache standard
+ * @see http://www.php-fig.org/psr/psr-6/
+ */
+use \Psr\Cache\CacheItemPoolInterface;
+
 if (! function_exists('App\Factory\stash')) {
     /**
      * @param ContainerInterface $c
      * @return Pool
      */
-    function stash(ContainerInterface $c): Pool
+    function stash(ContainerInterface $c): CacheItemPoolInterface
     {
-        $driver = new FileSystem;
-        $driver->setOptions(['path' => $c->get('stash.cache.dir')]);
+        $driver = new FileSystem(['path' => $c->get('stash.cache.dir')]);
+//        $driver = new \Stash\Driver\Redis(['servers' => ['127.0.0.1', '6379']]);
+        $pool = new Pool($driver);
 
-        // $driver = new \Stash\Driver\Redis;
-        // $driver->setOptions(['servers' => ['127.0.0.1', '6379']]);
-
-        return new Pool($driver);
+        return $pool;
     }
 }
