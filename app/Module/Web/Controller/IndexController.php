@@ -15,30 +15,12 @@ use Psr\Http\Message\{RequestInterface, ResponseInterface};
 class IndexController extends AbstractWebController
 {
     /**
-     * @inject
-     * @var  League\Monga\Database
-     */
-    protected $monga;
-
-    /**
-     * @inject("db.dsn")
-     * @var [type]
-     */
-    protected $test;
-    /**
-     * @inject
-     * @var Dibi\Connection
-     */
-    protected $dibi;
-
-    /**
      * @param RequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface
      */
     public function defaultAction(RequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        dump($this->dibi);exit;
        // $command = new \App\Service\Command\User\Register('alice@example.com', 'secret');
        // $this->commandBus->handle($command);
         return $this->view->render('web/index/default.latte');
