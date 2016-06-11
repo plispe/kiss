@@ -13,7 +13,7 @@ use App\Shared\Controller\AbstractController;
 abstract class AbstractWebController extends AbstractController
 {
     /**
-     * @inject
+     * @Inject
      * @var View
      */
     protected $view;
