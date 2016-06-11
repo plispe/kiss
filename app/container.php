@@ -18,7 +18,7 @@
 $containerBuilder = new \DI\ContainerBuilder;
 
 // If cache is enabled
-if (getenv('USE_DI_CACHE') === 'true') {
+if (getenv('USE_PHPDI_CACHE') === 'true') {
     /**
      * PHP DI uses doctrine cache
      * @see http://php-di.org/doc/performances.html
@@ -28,7 +28,7 @@ if (getenv('USE_DI_CACHE') === 'true') {
     /**
      * Sets cache namespace. usefun when more applications use same cache
      */
-    $cache->setNamespace(getenv('APP_NAME'));
+    $cache->setNamespace(getenv('PHPDI_CACHE_NAMESPACE'));
 
     /**
      * Sets cache definition file
@@ -54,7 +54,6 @@ $containerBuilder->writeProxiesToFile(true, __DIR__ .'/../temp/proxies');
 // Definitions files
 $definitionFiles = [
     __DIR__ .'/_config/di/parameters.php',
-    __DIR__ .'/_config/di/services.php',
     __DIR__ .'/_config/di/middlewares.php',
 ];
 
@@ -62,6 +61,13 @@ $definitionFiles = [
 foreach ($definitionFiles as $definitions) {
     $containerBuilder->addDefinitions($definitions);
 }
+
+$containerBuilder->addDefinitions((new \App\ServiceProvider\Server)->getServices());
+$containerBuilder->addDefinitions((new \App\ServiceProvider\Monolog)->getServices());
+$containerBuilder->addDefinitions((new \App\ServiceProvider\AuraRouter)->getServices());
+$containerBuilder->addDefinitions((new \App\ServiceProvider\Latte)->getServices());
+$containerBuilder->addDefinitions((new \App\ServiceProvider\View)->getServices());
+$containerBuilder->addDefinitions((new \App\ServiceProvider\CommandBus)->getServices());
 
 // Returns instance of builded container
 return $containerBuilder->build();

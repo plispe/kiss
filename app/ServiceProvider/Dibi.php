@@ -1,0 +1,61 @@
+<?php
+
+namespace App\ServiceProvider;
+
+use Dibi\Connection;
+use AD7six\Dsn\DbDsn;
+
+/**
+ * Interop DI intervace
+ * @see https://github.com/container-interop/container-interop
+ */
+use Interop\Container\ServiceProvider;
+use Interop\Container\ContainerInterface;
+
+/**
+ * Class Dibi
+ * @package App\ServiceProvider
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
+class Dibi implements ServiceProvider
+{
+
+    /**
+     * Returns a list of all container entries registered by this service provider.
+     *
+     * - the key is the entry name
+     * - the value is a callable that will return the entry, aka the **factory**
+     *
+     * Factories have the following signature:
+     *        function(ContainerInterface $container, callable $getPrevious = null)
+     *
+     * About factories parameters:
+     *
+     * - the container (instance of `Interop\Container\ContainerInterface`)
+     * - a callable that returns the previous entry if overriding a previous entry, or `null` if not
+     *
+     * @return callable[]
+     */
+    public function getServices()
+    {
+        return [
+            Connection::class => function (ContainerInterface $container) {
+                /**
+                 * uses AD7six/php-dsn utility for parsing database DSN
+                 * @see https://github.com/AD7six/php-dsn
+                 */
+                $dsn = new DbDsn($container->get('db.dsn'));
+
+                $connection = [
+                    'driver'   => $dsn->getEngine(),
+                    'host'     => $dsn->getHost(),
+                    'user' => $dsn->getUser(),
+                    'password' => $dsn->getPassword(),
+                    'database' => $dsn->getDatabase(),
+                ];
+
+                return new Connection($connection);
+            }
+        ];
+    }
+}
