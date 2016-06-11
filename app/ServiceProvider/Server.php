@@ -6,6 +6,7 @@ namespace App\ServiceProvider;
  * PSR-7 middleware dispatcher
  * @see http://relayphp.com/
  */
+use DI\Container;
 use Relay\Runner;
 
 /**
@@ -64,7 +65,7 @@ class Server implements ServiceProvider
                      * Inject dependencies in middleware if PHP-DI is used
                      * @see http://php-di.org/doc/inject-on-instance.html
                      */
-                    if ($container instanceof \DI\Container) {
+                    if ($container instanceof Container) {
                         $container->injectOn($middleware);
                     }
 

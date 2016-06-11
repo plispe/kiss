@@ -21,6 +21,5 @@ if (getenv('USE_DOTENV_FILE') !== 'false' && file_exists($dotEnvFile)) {
     /**
      * @see https://github.com/vlucas/phpdotenv
      */
-    $dotenv = new Dotenv\Dotenv($dotEnvFile);
-    $dotenv->load();
+    (new Dotenv\Dotenv($dotEnvFile))->load();
 }

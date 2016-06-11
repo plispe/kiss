@@ -51,17 +51,15 @@ $containerBuilder->ignorePhpDocErrors(true);
  */
 $containerBuilder->writeProxiesToFile(true, __DIR__ .'/../temp/proxies');
 
-// Definitions files
-$definitionFiles = [
-    __DIR__ .'/_config/di/parameters.php',
-    __DIR__ .'/_config/di/middlewares.php',
-];
+/**
+ * Service definitions
+ */
+$containerBuilder->addDefinitions(__DIR__ .'/_config/di/parameters.php');
+$containerBuilder->addDefinitions(__DIR__ .'/_config/di/middlewares.php');
 
-// Load files into container
-foreach ($definitionFiles as $definitions) {
-    $containerBuilder->addDefinitions($definitions);
-}
-
+/**
+ * Service providers
+ */
 $containerBuilder->addDefinitions((new \App\ServiceProvider\Server)->getServices());
 $containerBuilder->addDefinitions((new \App\ServiceProvider\Monolog)->getServices());
 $containerBuilder->addDefinitions((new \App\ServiceProvider\AuraRouter)->getServices());
