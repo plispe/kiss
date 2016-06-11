@@ -38,16 +38,24 @@ class Router implements MiddlewareInterface
     use AuraSuccessHandlingTrait;
 
     /**
-     * @inject
      * @var Matcher
      */
     protected $matcher;
 
     /**
-     * @inject
      * @var Dispatcher
      */
     protected $dispatcher;
+
+    /**
+     * Router constructor.
+     * @param Matcher $matcher
+     */
+    public function __construct(Matcher $matcher, Dispatcher $dispatcher)
+    {
+        $this->matcher = $matcher;
+        $this->dispatcher = $dispatcher;
+    }
 
     /**
      * @inheritdoc
