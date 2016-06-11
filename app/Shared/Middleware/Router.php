@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Routing middleware using PSR-7 aura router
- *
- * @author Petr Pliska <petr.pliska@post.cz>
- */
-
 namespace App\Shared\Middleware;
 
 /**
@@ -13,23 +7,24 @@ namespace App\Shared\Middleware;
  */
 use Aura\Router\Matcher;
 
-
 /**
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\{RequestInterface, ResponseInterface};
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Own classes and interfaces
  */
-use App\Shared\{
-    Middleware\Dispatcher,
-    Behaviour\Common\ClockworkTrait,
-    Behaviour\Middleware\AuraSuccessHandlingTrait,
-    Behaviour\Middleware\AuraFailureHandlingTrait
-};
+use App\Shared\Behaviour\Middleware\AuraSuccessHandlingTrait;
+use App\Shared\Behaviour\Middleware\AuraFailureHandlingTrait;
 
+/**
+ * Class Router
+ * @package App\Shared\Middleware
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
 class Router implements MiddlewareInterface
 {
     /**
@@ -41,11 +36,6 @@ class Router implements MiddlewareInterface
      * Handle matched route
      */
     use AuraSuccessHandlingTrait;
-
-    /**
-     * Clockwork trait
-     */
-    use ClockworkTrait;
 
     /**
      * @inject
@@ -62,15 +52,12 @@ class Router implements MiddlewareInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         // If no route is matcher
         if (! $route = $this->matcher->match($request)) {
             $this->handleFailure($this->matcher);
         }
-
-        // Log events
-        $this->endEvent('routing');
 
         return $this->handleSuccess($route, $request->withAttribute('route', $route), $response, $next);
     }

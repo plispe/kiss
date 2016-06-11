@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @author Petr Pliska <petr.pliska@post.cz>
- */
-
 namespace App\Vendor\Codegyre\Robo;
 
 /**
@@ -22,13 +18,22 @@ use Symfony\Component\Console\Output\ConsoleOutput;
  */
 use App\Shared\Behaviour\Common\DiContainerTrait;
 
+/**
+ * Class Runner
+ * @package App\Vendor\Codegyre\Robo
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
 class Runner extends \Robo\Runner
 {
+    /**
+     *
+     */
     use DiContainerTrait;
 
     /**
      * @param null $input
      * @throws \Exception
+     * @return null
      */
     public function execute($input = null)
     {

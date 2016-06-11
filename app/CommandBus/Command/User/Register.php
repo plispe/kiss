@@ -1,7 +1,12 @@
 <?php
 
-namespace App\Service\Command\User;
+namespace App\CommandBus\Command\User;
 
+/**
+ * Class Register
+ * @package App\CommandBus\Command\User
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
 class Register
 {
     /**

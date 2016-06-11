@@ -10,17 +10,6 @@
  */
 
 /**
- * Service classes and interfaces
- */
-use PhpMiddleware\PhpDebugBar\PhpDebugBarMiddleware;
-
-/**
- * Interop DI intervace
- * @see https://github.com/container-interop/container-interop
- */
-use Interop\Container\ContainerInterface;
-
-/**
  * PSR 7 middlewares
  * @see https://github.com/oscarotero/psr7-middlewares
  */
@@ -42,7 +31,6 @@ return [
             getenv('SESSION_KEY') ?: 'session-key',
             getenv('SESSION_EXPIRATION_TIME') ?: 1440
         ),
-        DI\get(\App\Shared\Middleware\ClockworkMiddleware::class),
         DI\get(\App\Shared\Middleware\Router::class),
     ]
 ];

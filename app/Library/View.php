@@ -3,14 +3,15 @@
 namespace App\Library;
 
 /**
- * @author  Petr Pliska <petr.pliska@post.cz>
- */
-
-/**
  * @see https://github.com/zendframework/zend-diactoros
  */
 use Zend\Diactoros\Response\HtmlResponse;
 
+/**
+ * Class View
+ * @package App\Library
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
 class View
 {
     /**

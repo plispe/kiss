@@ -2,15 +2,29 @@
 
 namespace App\ServiceProvider;
 
+/**
+ * Dibi database abstraction library
+ * @see https://dibiphp.com/
+ */
 use Dibi\Connection;
+
+/**
+ * Utility for parsion DSN
+ * @see https://github.com/AD7six/php-dsn
+ */
 use AD7six\Dsn\DbDsn;
 
 /**
  * Interop DI intervace
  * @see https://github.com/container-interop/container-interop
  */
-use Interop\Container\ServiceProvider;
 use Interop\Container\ContainerInterface;
+
+/**
+ * Standard service providers
+ * @see https://github.com/container-interop/service-provider
+ */
+use Interop\Container\ServiceProvider;
 
 /**
  * Class Dibi

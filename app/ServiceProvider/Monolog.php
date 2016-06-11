@@ -3,10 +3,8 @@
 namespace App\ServiceProvider;
 
 /**
- * Monolog factory
+ * Monolog PSR-3 logger implementation
  * @see https://github.com/Seldaek/monolog
- *
- * @author Petr Pliska <petr.pliska@post.cz>
  */
 use Monolog\Logger;
 
@@ -31,6 +29,11 @@ use Psr\Log\LoggerInterface;
  * @see https://github.com/container-interop/container-interop
  */
 use Interop\Container\ContainerInterface;
+
+/**
+ * Standard service providers
+ * @see https://github.com/container-interop/service-provider
+ */
 use Interop\Container\ServiceProvider;
 
 /**
@@ -58,8 +61,8 @@ class Monolog implements ServiceProvider
      */
     public function getServices()
     {
-       return [
-           LoggerInterface::class => function (ContainerInterface $container) {
+        return [
+           LoggerInterface::class => function () {
                $logger = new Logger("Monolog");
                $logger->pushProcessor(new WebProcessor);
                $logger->pushProcessor(new IntrospectionProcessor);
@@ -69,6 +72,6 @@ class Monolog implements ServiceProvider
 
                return $logger;
            }
-       ];
+        ];
     }
 }

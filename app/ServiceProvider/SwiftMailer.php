@@ -3,12 +3,17 @@
 namespace App\ServiceProvider;
 
 /**
- * Interop DI intervace
- * @see https://github.com/container-interop/container-interop
+ * Swiftmailer library
+ * @see http://swiftmailer.org/
+ */
+use Swift_Mailer;
+use Swift_SmtpTransport;
+
+/**
+ * Standard service providers
+ * @see https://github.com/container-interop/service-provider
  */
 use Interop\Container\ServiceProvider;
-use Interop\Container\ContainerInterface;
-
 
 /**
  * Class SwiftMailer
@@ -36,18 +41,18 @@ class SwiftMailer implements ServiceProvider
     public function getServices()
     {
         return [
-            Swift_Mailer::class => function (ContainerInterface $container) {
+            Swift_Mailer::class => function () {
                 /**
                  * Swift mailer transport
                  * @see http://swiftmailer.org/docs/sending.html#transport-types
                  */
-                $transport = \Swift_SmtpTransport::newInstance();
+                $transport = Swift_SmtpTransport::newInstance();
 
                 /**
                  * Swift mailer
                  * @see http://swiftmailer.org/docs/sending.html#available-methods-for-sending-messages
                  */
-                return new \Swift_Mailer($transport);
+                return new Swift_Mailer($transport);
             }
         ];
     }

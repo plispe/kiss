@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Own implementation of Robo Application
- *
- * @author Petr Pliska <petr.pliska@post.cz>
- */
 namespace App\Vendor\Codegyre\Robo;
 
 /**
@@ -35,6 +30,11 @@ use Symfony\Component\Console\Input\InputOption;
 use App\CommandBus\Command\CommandInterface;
 use App\Shared\Behaviour\Common\DiContainerTrait;
 
+/**
+ * Class Application
+ * @package App\Vendor\Codegyre\Robo
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
 class Application extends \Robo\Application
 {
     /**

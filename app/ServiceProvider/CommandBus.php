@@ -7,10 +7,16 @@ namespace App\ServiceProvider;
  * @see https://github.com/container-interop/container-interop
  */
 use Interop\Container\ContainerInterface;
+
+/**
+ * Standard service providers
+ * @see https://github.com/container-interop/service-provider
+ */
 use Interop\Container\ServiceProvider;
 
 /**
- *
+ * Tactician command bus implementation
+ * @see http://tactician.thephpleague.com/
  */
 use League\Tactician\Handler\Locator\CallableLocator;
 use League\Tactician\Handler\CommandHandlerMiddleware;

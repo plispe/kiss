@@ -18,22 +18,16 @@ use function Stringy\create as s;
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\{RequestInterface, ResponseInterface};
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Symfony exceptions
  */
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-/**
- * Own classes and interfaces
- */
-use App\Shared\Behaviour\Common\ClockworkTrait;
-
 class Dispatcher implements MiddlewareInterface
 {
-    use ClockworkTrait;
-
     /**
      * @inject
      * @var DI\Container
@@ -43,7 +37,7 @@ class Dispatcher implements MiddlewareInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(RequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         $route = $request->getAttribute('route');
 
@@ -63,10 +57,6 @@ class Dispatcher implements MiddlewareInterface
             $controller = $this->diContainer->get($controllerClass);
             $action = $this->getFullActionName($route->attributes['action']);
 
-            $this->endEvent('dispatching');
-
-            $this->startEvent('controller', 'Running controller action');
-
             // Check existence of controller action
             if (! method_exists($controller, $action)) {
                 throw new NotFoundHttpException(sprintf('Controller "%s" has no action "%s".', $controllerClass, $action));
@@ -74,7 +64,6 @@ class Dispatcher implements MiddlewareInterface
             // Call controller action
             $response = $controller->$action($request, $response);
 
-            $this->endEvent('controller');
             $response = $next($request, $response, $next);
             return $response;
         }
@@ -113,8 +102,9 @@ class Dispatcher implements MiddlewareInterface
     /**
      * Get real controller class name
      *
-     * @param String $module
-     * @param String $controller
+     * @param $module
+     * @param $controller
+     * @return string
      */
     protected function getFullControllerName($module, $controller): string
     {

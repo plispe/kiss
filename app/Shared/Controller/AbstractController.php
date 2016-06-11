@@ -2,20 +2,11 @@
 
 namespace App\Shared\Controller;
 
-use Psr\Log\LoggerInterface;
-
 /**
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
-use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
-
-/**
- * Zend implementation of PSR-7
- * @see https://github.com/zendframework/zend-diactoros
- */
-use Zend\Diactoros\Response\SapiEmitter;
-use Zend\Diactoros\Response\RedirectResponse;
+use Psr\Http\Message\{UriInterface};
 
 /**
  * @see http://auraphp.com/packages/Aura.Router/generating-paths.html#2.4
@@ -32,7 +23,6 @@ use League\Tactician\CommandBus;
  *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-
 abstract class AbstractController
 {
     /**

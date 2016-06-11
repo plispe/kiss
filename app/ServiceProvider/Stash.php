@@ -3,10 +3,9 @@
 namespace App\ServiceProvider;
 
 /**
- * Stash cache PHP-DI factory
+ * Stash caching factory
  *
  * @see http://www.stashphp.com/
- * @author Petr Pliska <petr.pliska@post.cz>
  */
 use Stash\Pool;
 use Stash\Driver\FileSystem;
@@ -16,6 +15,11 @@ use Stash\Driver\FileSystem;
  * @see https://github.com/container-interop/container-interop
  */
 use Interop\Container\ContainerInterface;
+
+/**
+ * Standard service providers
+ * @see https://github.com/container-interop/service-provider
+ */
 use Interop\Container\ServiceProvider;
 
 /**

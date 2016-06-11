@@ -23,14 +23,14 @@ $map->tokens([
 ]);
 
 // /api
-$map->attach('api.', '/api', function($map) {
+$map->attach('api.', '/api', function ($map) {
     $map->defaults([
             'module' => 'api',
     ]);
 
     // /api/projects
     // Project resource
-    $map->attach('projects.','/projects', function($map) {
+    $map->attach('projects.', '/projects', function ($map) {
         $map->defaults(['controller' => 'project']);
         // actions
         $map->get('findAll', '')->defaults(['action' => 'findAll']);
@@ -41,7 +41,7 @@ $map->attach('api.', '/api', function($map) {
         $map->delete('delete', '/{projectId}')->defaults(['action' => 'deleteOne']);
 
         // /api/projects/<projectId>/tasks
-        $map->attach('tasks.','/{projectId}/tasks', function($map) {
+        $map->attach('tasks.', '/{projectId}/tasks', function ($map) {
             // Sub resources
             $map->defaults(['controller' => 'task']);
 
@@ -54,7 +54,7 @@ $map->attach('api.', '/api', function($map) {
         });
     });
 
-    $map->attach('tasks.', '/tasks', function($map) {
+    $map->attach('tasks.', '/tasks', function ($map) {
         $map->defaults(['controller' => 'task']);
 
         // actions

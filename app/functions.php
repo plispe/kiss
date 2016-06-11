@@ -25,28 +25,22 @@ use \Latte\Engine;
  * @see https://github.com/zendframework/zend-diactoros
  */
 use Zend\Diactoros\ServerRequestFactory;
-use Zend\Diactoros\Response\{JsonResponse, HtmlResponse, EmptyResponse};
+use Zend\Diactoros\Response\JsonResponse;
+use Zend\Diactoros\Response\HtmlResponse;
+use Zend\Diactoros\Response\EmptyResponse;
 
 /**
  * Symfony exceptions
  * @see http://api.symfony.com/2.7/Symfony/Component/HttpKernel/Exception.html
  */
-use Symfony\Component\{
-    HttpFoundation\Response,
-    HttpKernel\Exception\HttpExceptionInterface
-};
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 /**
  * Html form builder
  * @see https://github.com/adamwathan/form
  */
 use AdamWathan\Form\FormBuilder;
-
-/**
- * Interop DI intervace
- * @see https://github.com/container-interop/container-interop
- */
-use Interop\Container\ContainerInterface;
 
 if (! function_exists('App\getStatusCode')) {
     /**

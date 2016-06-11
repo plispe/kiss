@@ -1,9 +1,14 @@
 <?php
 
-namespace App\Service\CommandHandler\User;
+namespace App\CommandBus\CommandHandler\User;
 
-use App\Service\Command\User\Register as RegisterCommand;
+use App\CommandBus\Command\User\Register as RegisterCommand;
 
+/**
+ * Class Register
+ * @package App\CommandBus\CommandHandler\User
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
 class Register
 {
     /**
