@@ -12,6 +12,7 @@ namespace App\Shared\Middleware;
  * String manipulation tollbelt
  * @see https://github.com/danielstjules/Stringy#totitlecase
  */
+use DI\Container;
 use function Stringy\create as s;
 
 /**
@@ -29,10 +30,18 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class Dispatcher implements MiddlewareInterface
 {
     /**
-     * @inject
-     * @var DI\Container
+     * @var Container
      */
     protected $diContainer;
+
+    /**
+     * Dispatcher constructor.
+     * @param Container $diContainer
+     */
+    public function __construct(Container $diContainer)
+    {
+        $this->diContainer = $diContainer;
+    }
 
     /**
      * @inheritdoc
