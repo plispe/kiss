@@ -54,22 +54,30 @@ class Dibi implements ServiceProvider
     {
         return [
             Connection::class => function (ContainerInterface $container) {
-                /**
-                 * uses AD7six/php-dsn utility for parsing database DSN
-                 * @see https://github.com/AD7six/php-dsn
-                 */
-                $dsn = new DbDsn($container->get('db.dsn'));
-
-                $connection = [
-                    'driver'   => $dsn->getEngine(),
-                    'host'     => $dsn->getHost(),
-                    'user' => $dsn->getUser(),
-                    'password' => $dsn->getPassword(),
-                    'database' => $dsn->getDatabase(),
-                ];
-
-                return new Connection($connection);
+                return new Connection($$this->getConnection());
             }
         ];
     }
+
+    /**
+     * @param ContainerInterface $container
+     * @return array
+     */
+    protected function getConnection(ContainerInterface $container)
+    {
+        /**
+         * uses AD7six/php-dsn utility for parsing database DSN
+         * @see https://github.com/AD7six/php-dsn
+         */
+        $dsn = new DbDsn($container->get('db.dsn'));
+
+        return [
+            'driver'   => $dsn->getEngine(),
+            'host'     => $dsn->getHost(),
+            'user' => $dsn->getUser(),
+            'password' => $dsn->getPassword(),
+            'database' => $dsn->getDatabase(),
+        ];
+    }
+
 }

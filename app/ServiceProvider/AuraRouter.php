@@ -49,24 +49,53 @@ class AuraRouter implements ServiceProvider
     public function getServices()
     {
         return [
-            RouterContainer::class => function () {
-                return new RouterContainer;
-            },
-
-            Map::class => function (ContainerInterface $container) {
-                $map = $container->get(RouterContainer::class)->getMap();
-                require_once sprintf('%sroutes.php', $container->get('config.dir'));
-                return $map;
-            },
-
-            Matcher::class => function (ContainerInterface $container) {
-                    $map = $container->get(Map::class);
-                    return $container->get(RouterContainer::class)->getMatcher();
-            },
-
-            Generator::class => function (ContainerInterface $container) {
-                return $container->get(RouterContainer::class)->getGenerator();
-            }
+            RouterContainer::class => $this->getRouterContainer(),
+            Map::class             => $this->getMap(),
+            Matcher::class         => $this->getMatcher(),
+            Generator::class       => $this->getGenerator()
         ];
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function getRouterContainer()
+    {
+        return function () {
+            return new RouterContainer;
+        };
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function getMap()
+    {
+        return function (ContainerInterface $container) {
+            $map = $container->get(RouterContainer::class)->getMap();
+            require_once sprintf('%sroutes.php', $container->get('config.dir'));
+            return $map;
+        };
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function getMatcher()
+    {
+        return function (ContainerInterface $container) {
+            $map = $container->get(Map::class);
+            return $container->get(RouterContainer::class)->getMatcher();
+        };
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function getGenerator()
+    {
+        return function (ContainerInterface $container) {
+            return $container->get(RouterContainer::class)->getGenerator();
+        };
     }
 }

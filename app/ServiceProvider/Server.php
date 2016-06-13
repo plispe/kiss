@@ -59,30 +59,52 @@ class Server implements ServiceProvider
     public function getServices()
     {
         return [
-            Runner::class => function (ContainerInterface $container) {
-                return new Runner($container->get('middlewares'), function ($middleware) use ($container) {
-                    /**
-                     * Inject dependencies in middleware if PHP-DI is used
-                     * @see http://php-di.org/doc/inject-on-instance.html
-                     */
-                    if ($container instanceof Container) {
-                        $container->injectOn($middleware);
-                    }
-
-                    return $middleware;
-                });
-            },
-
-            \Zend\Diactoros\Server::class => function (ContainerInterface $container) {
-                return \Zend\Diactoros\Server::createServerfromRequest(
-                    $container->get(Runner::class),
-                    $container->get(ServerRequestInterface::class)
-                );
-            },
-
-            ServerRequestInterface::class => function () {
-                return ServerRequestFactory::fromGlobals();
-            }
+            Runner::class                 => $this->getRunner(),
+            \Zend\Diactoros\Server::class => $this->getServer(),
+            ServerRequestInterface::class => $this->getRequest()
         ];
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function getRunner()
+    {
+        return function (ContainerInterface $container) {
+            return new Runner($container->get('middlewares'), function ($middleware) use ($container) {
+                /**
+                 * Inject dependencies in middleware if PHP-DI is used
+                 * @see http://php-di.org/doc/inject-on-instance.html
+                 */
+                if ($container instanceof Container) {
+                    $container->injectOn($middleware);
+                }
+
+                return $middleware;
+            });
+        };
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function getServer()
+    {
+        return function (ContainerInterface $container) {
+            return \Zend\Diactoros\Server::createServerfromRequest(
+                $container->get(Runner::class),
+                $container->get(ServerRequestInterface::class)
+            );
+        };
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function getRequest()
+    {
+        return function () {
+            return ServerRequestFactory::fromGlobals();
+        };
     }
 }
