@@ -50,7 +50,7 @@ class CommandBus implements ServiceProvider
     {
         return [
             \League\Tactician\CommandBus::class => function (ContainerInterface $container) {
-                return new CommandBus([
+                return new \League\Tactician\CommandBus([
                     new CommandHandlerMiddleware(
                         new ClassNameExtractor,
                         new CallableLocator(function ($command) use ($container) {
