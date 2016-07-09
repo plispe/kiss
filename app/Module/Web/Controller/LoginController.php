@@ -8,6 +8,7 @@ namespace App\Module\Web\Controller;
  */
 use PSR\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Zend\Diactoros\Response\HtmlResponse;
 
 /**
  * Class LoginController
@@ -24,6 +25,6 @@ class LoginController extends AbstractWebController
      */
     public function defaultAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->view->render('web/login/login.latte');
+        return new HtmlResponse((string)$this->viewFactory->get('web/login/login'));
     }
 }

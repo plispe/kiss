@@ -8,8 +8,7 @@ namespace App\Module\Web\Controller;
  */
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-
-use Psr\Log\LoggerInterface;
+use Zend\Diactoros\Response\HtmlResponse;
 
 /**
  * Class IndexController
@@ -19,27 +18,12 @@ use Psr\Log\LoggerInterface;
 class IndexController extends AbstractWebController
 {
     /**
-     * @var LoggerInterface
-     */
-    protected $logger;
-
-    /**
-     * IndexController constructor.
-     * @param LoggerInterface $logger
-     */
-    public function __construct(LoggerInterface $logger)
-    {
-        $this->logger = $logger;
-    }
-
-    /**
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface
      */
     public function defaultAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $this->logger->info('Test');
-        return $this->view->render('web/index/default.latte');
+        return new HtmlResponse((string)$this->viewFactory->get('web/index/default'));
     }
 }

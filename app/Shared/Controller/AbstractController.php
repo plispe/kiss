@@ -3,11 +3,6 @@
 namespace App\Shared\Controller;
 
 /**
- * @see http://auraphp.com/packages/Aura.Router/generating-paths.html#2.4
- */
-use Aura\Router\Generator;
-
-/**
  * @see  http://tactician.thephpleague.com/
  */
 use League\Tactician\CommandBus;
@@ -24,10 +19,4 @@ abstract class AbstractController
      * @var CommandBus
      */
     protected $commandBus;
-
-    /**
-     * @Inject
-     * @var Generator
-     */
-    protected $uriGenerator;
 }

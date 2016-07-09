@@ -64,8 +64,8 @@ $containerBuilder->addDefinitions((new \App\ServiceProvider\Server)->getServices
 $containerBuilder->addDefinitions((new \App\ServiceProvider\Monolog)->getServices());
 $containerBuilder->addDefinitions((new \App\ServiceProvider\AuraRouter)->getServices());
 $containerBuilder->addDefinitions((new \App\ServiceProvider\Latte)->getServices());
-$containerBuilder->addDefinitions((new \App\ServiceProvider\View)->getServices());
 $containerBuilder->addDefinitions((new \App\ServiceProvider\CommandBus)->getServices());
+$containerBuilder->addDefinitions((new \App\ServiceProvider\Bernard)->getServices());
 
 // Returns instance of builded container
 return $containerBuilder->build();

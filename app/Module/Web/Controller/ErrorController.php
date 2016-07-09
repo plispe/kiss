@@ -8,6 +8,7 @@ namespace App\Module\Web\Controller;
  */
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Zend\Diactoros\Response\HtmlResponse;
 
 /**
  * Class ErrorController
@@ -24,7 +25,7 @@ class ErrorController extends AbstractWebController
      */
     public function error403Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->view->render('web/error/403.latte');
+        return new HtmlResponse((string)$this->viewFactory->get('web/error/403'));
     }
 
     /**
@@ -35,7 +36,7 @@ class ErrorController extends AbstractWebController
      */
     public function error404Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->view->render('web/error/404.latte');
+        return new HtmlResponse((string)$this->viewFactory->get('web/error/404'));
     }
 
     /**
@@ -46,7 +47,7 @@ class ErrorController extends AbstractWebController
      */
     public function error500Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->view->render('web/error/500.latte');
+        return new HtmlResponse((string)$this->viewFactory->get('web/error/500'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ErrorController extends AbstractWebController
      */
     public function error502Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->view->render('web/error/502.latte');
+        return new HtmlResponse((string)$this->viewFactory->get('web/error/502'));
     }
 
     /**
@@ -68,7 +69,7 @@ class ErrorController extends AbstractWebController
      */
     public function error503Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->view->render('web/error/503.latte');
+        return new HtmlResponse((string)$this->viewFactory->get('web/error/503'));
     }
 
     /**
@@ -79,6 +80,6 @@ class ErrorController extends AbstractWebController
      */
     public function error504Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->view->render('web/error/504.latte');
+        return new HtmlResponse((string)$this->viewFactory->get('web/error/504'));
     }
 }
