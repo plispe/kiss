@@ -1,0 +1,20 @@
+{
+    "name": "Kiss devstack",
+    "description": "The most innovative PHP devstack standing on the shoulder of giants",
+    "repository": "https://github.com/plispe/kiss",
+    "keywords": ["php"],
+    "env": {
+        "DISPLAY_ERRORS": {
+            "value": "false"
+        },
+        "USE_DI_CACHE": {
+            "value": "false"
+        },
+        "USE_DOTENV_FILE": {
+            "value": "false"
+        },
+        "USE_LATTE_CACHE": {
+            "value": "true"
+        }
+    }
+}

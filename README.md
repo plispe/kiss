@@ -1,6 +1,8 @@
 # kiss
 The most innovative PHP devstack standing on the shoulder of giants
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Under the hood
 
 - The [PHP-DI](http://php-di.org/index.html) container is used, but every [container-interop](https://github.com/container-interop/container-interop) container can be used or with [Acclimate](https://github.com/jeremeamia/acclimate-container) you can use [several containers at once](http://php-di.org/doc/container-configuration.html#using-php-di-with-other-containers).
