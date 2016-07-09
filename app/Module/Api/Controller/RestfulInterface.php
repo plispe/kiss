@@ -16,7 +16,7 @@ use Psr\Http\Message\ServerRequestInterface;
  */
 interface RestfulInterface
 {
-     /**
+    /**
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      *

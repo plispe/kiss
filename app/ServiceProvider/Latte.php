@@ -6,6 +6,8 @@ namespace App\ServiceProvider;
  * Interop DI intervace
  * @see https://github.com/container-interop/container-interop
  */
+use Air\View\ViewFactoryInterface;
+use App\Vendor\Air\View\Latte\ViewFactory;
 use Interop\Container\ContainerInterface;
 
 /**
@@ -18,6 +20,10 @@ use Interop\Container\ServiceProvider;
  * @see https://latte.nette.org/cs/
  */
 use Latte\Engine;
+
+use AdamWathan\Form\FormBuilder;
+use Aura\Router\Generator;
+use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Class Latte
@@ -45,15 +51,52 @@ class Latte implements ServiceProvider
     public function getServices()
     {
         return [
-            Engine::class => function (ContainerInterface $container) {
-                $engine = new Engine;
+            Engine::class => $this->getLatteEngine(),
+            ViewFactoryInterface::class => $this->getViewFactory(),
+        ];
+    }
 
-                if (getenv('USE_LATTE_CACHE') !== 'false') {
-                    $engine->setTempDirectory($container->get('templates.cache.dir'));
-                }
+    /**
+     * @return \Closure
+     */
+    protected function getLatteEngine()
+    {
+        return function (ContainerInterface $container) {
+            $engine = new Engine;
 
-                return $engine;
+            if (getenv('USE_LATTE_CACHE') !== 'false') {
+                $engine->setTempDirectory($container->get('templates.cache.dir'));
             }
+
+            return $engine;
+        };
+    }
+
+    /**
+     * @return \Closure
+     */
+    protected function getViewFactory()
+    {
+        return function (ContainerInterface $container) {
+            $factory = new ViewFactory($container->get('temp.dir'), null, $this->getDefaultLatteData($container));
+            $factory->addPath($container->get('templates.dir'));
+
+            return $factory;
+        };
+    }
+
+    /**
+     * @param ContainerInterface $container
+     * @return array
+     */
+    protected function getDefaultLatteData(ContainerInterface $container)
+    {
+        return [
+            'builder' => $container->get(FormBuilder::class),
+            // Psr7 request
+            'request' => $container->get(ServerRequestInterface::class),
+            // Url generator
+            'urlGenerator' => $container->get(Generator::class)
         ];
     }
 }

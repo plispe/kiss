@@ -2,7 +2,7 @@
 
 namespace App\Module\Web\Controller;
 
-use App\Library\View;
+use Air\View\ViewFactoryInterface;
 use App\Shared\Controller\AbstractController;
 
 /**
@@ -14,7 +14,7 @@ abstract class AbstractWebController extends AbstractController
 {
     /**
      * @Inject
-     * @var View
+     * @var ViewFactoryInterface
      */
-    protected $view;
+    protected $viewFactory;
 }

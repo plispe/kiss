@@ -50,9 +50,9 @@ class AuraRouter implements ServiceProvider
     {
         return [
             RouterContainer::class => $this->getRouterContainer(),
-            Map::class             => $this->getMap(),
-            Matcher::class         => $this->getMatcher(),
-            Generator::class       => $this->getGenerator()
+            Map::class => $this->getMap(),
+            Matcher::class => $this->getMatcher(),
+            Generator::class => $this->getGenerator()
         ];
     }
 

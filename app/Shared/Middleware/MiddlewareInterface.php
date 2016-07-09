@@ -16,7 +16,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 interface MiddlewareInterface
 {
-     /**
+    /**
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @param callable $next

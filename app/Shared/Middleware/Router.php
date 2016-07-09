@@ -63,7 +63,7 @@ class Router implements MiddlewareInterface
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         // If no route is matcher
-        if (! $route = $this->matcher->match($request)) {
+        if (!$route = $this->matcher->match($request)) {
             $this->handleFailure($this->matcher);
         }
 

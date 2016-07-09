@@ -26,7 +26,7 @@ class Register
     public function __construct(string $emailAddress, string $password)
     {
         $this->emailAddress = $emailAddress;
-        $this->password     = $password;
+        $this->password = $password;
     }
 
     /**

@@ -85,7 +85,7 @@ class Application extends \Robo\Application
                 if (is_int($res)) {
                     $res = $res;
                 } else if (is_bool($res)) {
-                    $res = (int) !$res;
+                    $res = (int)!$res;
                 } else if ($res instanceof Result) {
                     $res = $res->getExitCode();
                 }

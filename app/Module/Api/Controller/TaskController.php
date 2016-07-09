@@ -21,7 +21,7 @@ use Zend\Diactoros\Response\JsonResponse;
 
 class TaskController extends AbstractApiController
 {
-     /**
+    /**
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      *
@@ -33,6 +33,11 @@ class TaskController extends AbstractApiController
         return $response;
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function findOneAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $response = new JsonResponse([]);

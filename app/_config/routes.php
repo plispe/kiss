@@ -13,19 +13,19 @@ $map->tokens([
     'module' => 'admin'
 ])->defaults([
     // Default module is web (without prefix)
-    'module'     => 'web',
+    'module' => 'web',
     // No default controller
     'controller' => null,
     // Default action id "default"
-    'action'     => 'default',
+    'action' => 'default',
     // No default id
-    'id'         => null,
+    'id' => null,
 ]);
 
 // /api
 $map->attach('api.', '/api', function ($map) {
     $map->defaults([
-            'module' => 'api',
+        'module' => 'api',
     ]);
 
     // /api/projects

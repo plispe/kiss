@@ -72,8 +72,8 @@ class Dibi implements ServiceProvider
         $dsn = new DbDsn($container->get('db.dsn'));
 
         return [
-            'driver'   => $dsn->getEngine(),
-            'host'     => $dsn->getHost(),
+            'driver' => $dsn->getEngine(),
+            'host' => $dsn->getHost(),
             'user' => $dsn->getUser(),
             'password' => $dsn->getPassword(),
             'database' => $dsn->getDatabase(),

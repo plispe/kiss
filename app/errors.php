@@ -24,7 +24,7 @@ $handler->error(function (\Throwable $e) {
 
     if (getenv('DISPLAY_ERRORS') === 'true') {
         // Display tracy bluescreen
-        $response = App\exceptionToHtmlResponse($e) ;
+        $response = App\exceptionToHtmlResponse($e);
     } else {
         // Check if api module is used
         $isApiModule = s($_SERVER['REQUEST_URI'])->startsWith('/api/');

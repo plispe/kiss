@@ -67,7 +67,7 @@ class Dispatcher implements MiddlewareInterface
             $action = $this->getFullActionName($route->attributes['action']);
 
             // Check existence of controller action
-            if (! method_exists($controller, $action)) {
+            if (!method_exists($controller, $action)) {
                 throw new NotFoundHttpException(sprintf('Controller "%s" has no action "%s".', $controllerClass, $action));
             }
             // Call controller action

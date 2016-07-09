@@ -49,7 +49,7 @@ class Flysystem implements ServiceProvider
     {
         return [
             MountManager::class => function (ContainerInterface $container) {
-                $localAdapter    = new Local($container->get('files.dir'));
+                $localAdapter = new Local($container->get('files.dir'));
                 $localFilesystem = new Filesystem($localAdapter);
 
                 return new MountManager([

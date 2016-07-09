@@ -2,6 +2,9 @@
 
 use Phinx\Migration\AbstractMigration;
 
+/**
+ * Class CreateUserTable
+ */
 class CreateUserTable extends AbstractMigration
 {
     /**

@@ -22,7 +22,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
  */
 abstract class AbstractApiController extends AbstractController
 {
-     /**
+    /**
      * @param ServerRequestInterface $request
      * @return ResponseInterface
      * @throws BadRequestHttpException

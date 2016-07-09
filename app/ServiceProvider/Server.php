@@ -59,7 +59,7 @@ class Server implements ServiceProvider
     public function getServices()
     {
         return [
-            Runner::class                 => $this->getRunner(),
+            Runner::class => $this->getRunner(),
             \Zend\Diactoros\Server::class => $this->getServer(),
             ServerRequestInterface::class => $this->getRequest()
         ];
