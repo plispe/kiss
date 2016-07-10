@@ -12,9 +12,5 @@ return [
     'temp.dir' => DI\string('{app.dir}../temp/'),
     'files.dir' => DI\string('{app.dir}../files/'),
     'config.dir' => DI\string('{app.dir}_config/'),
-    'templates.dir' => DI\string('{app.dir}_templates/'),
-    'stash.cache.dir' => DI\string('{temp.dir}cache/stash/'),
-    'templates.cache.dir' => DI\string('{temp.dir}cache/templates/'),
-    'clockwork.dir' => DI\string('{temp.dir}clockwork/'),
-    'db.dsn' => DI\env('DATABASE_DSN'),
+    'templates.dir' => DI\string('{app.dir}_templates/')
 ];
