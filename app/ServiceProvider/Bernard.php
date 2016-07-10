@@ -5,7 +5,6 @@ namespace App\ServiceProvider;
 use App\Vendor\Bernard\Router\PhpDiAwareRouter;
 use Bernard\Consumer;
 use Bernard\EventListener;
-use Bernard\Message;
 use Bernard\Producer;
 use Bernard\QueueFactory\PersistentFactory;
 use Bernard\Router\SimpleRouter;
@@ -17,10 +16,6 @@ use Pheanstalk\Pheanstalk;
 use Bernard\Driver\PheanstalkDriver;
 
 use Interop\Container\ServiceProvider;
-
-use Bernard\Serializer\JMSSerializer;
-use Bernard\JMSSerializer\EnvelopeHandler;
-use JMS\Serializer\SerializerBuilder;
 
 /**
  * Class Bernard

@@ -7,12 +7,6 @@
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 
-/**
- * Stringy
- * @see https://github.com/danielstjules/Stringy
- */
-use function Stringy\create as s;
-
 $handler = new Error\Handler();
 $handler->error(function (\Throwable $e) {
     $response = getenv('DISPLAY_ERRORS') === 'true' ?

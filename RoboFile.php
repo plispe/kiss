@@ -2,8 +2,6 @@
 
 require_once __DIR__ . '/app/environment.php';
 
-use App\CommandBus\Command\CommandInterface;
-
 /**
  * This is project's console commands configuration for Robo task runner.
  *
@@ -61,7 +59,7 @@ class RoboFile extends \Robo\Tasks
     {
         $this
             ->taskExec('vendor/bin/phpmetrics')
-            ->option('config','phpmetrics.yml')
+            ->option('config', 'phpmetrics.yml')
             ->option('ansi')
             ->option('failure-condition', 'false <> false')
             ->arg('.')
