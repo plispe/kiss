@@ -86,6 +86,7 @@
     },
     "extra": {
         "paas": {
+            "framework": "lumen",
             "document-root": "public",
             "index-document": "index.php",
             "engines": {
