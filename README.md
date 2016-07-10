@@ -1,11 +1,13 @@
 # kiss
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/plispe/kiss/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/plispe/kiss/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/8f4a896e-14f4-4502-920d-b61d02273b54/big.png)](https://insight.sensiolabs.com/projects/8f4a896e-14f4-4502-920d-b61d02273b54)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/plispe/kiss/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/plispe/kiss/?branch=master)
 
 ### The most innovative PHP devstack standing on the shoulder of giants
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-[![Deploy on Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/plispe/kiss)
+<a href="https://my.scalingo.com/deploy?source=https://github.com/plispe/kiss">
+   <img src="https://cdn.scalingo.com/deploy/button.svg" alt="Deploy on Scalingo" data-canonical-src="https://cdn.scalingo.com/deploy/button.svg" style="max-width:100%;">
+</a>
 
 ## Under the hood
 
