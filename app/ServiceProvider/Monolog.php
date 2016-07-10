@@ -25,12 +25,6 @@ use Monolog\Processor\IntrospectionProcessor;
 use Psr\Log\LoggerInterface;
 
 /**
- * Interop DI intervace
- * @see https://github.com/container-interop/container-interop
- */
-use Interop\Container\ContainerInterface;
-
-/**
  * Standard service providers
  * @see https://github.com/container-interop/service-provider
  */
@@ -67,7 +61,6 @@ class Monolog implements ServiceProvider
                 $logger->pushProcessor(new WebProcessor);
                 $logger->pushProcessor(new IntrospectionProcessor);
 
-                // $logger->pushHandler(new ChromePHPHandler);
                 $logger->pushHandler(new StreamHandler('php://stderr'));
 
                 return $logger;

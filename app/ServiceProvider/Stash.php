@@ -51,7 +51,6 @@ class Stash implements ServiceProvider
         return [
             Pool::class => function (ContainerInterface $container) {
                 $driver = new FileSystem(['path' => $container->get('stash.cache.dir')]);
-                //$driver = new \Stash\Driver\Redis(['servers' => ['127.0.0.1', '6379']]);
                 $pool = new Pool($driver);
 
                 return $pool;
