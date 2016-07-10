@@ -87,11 +87,11 @@
     "extra": {
         "paas": {
             "document-root": "public",
-            "index-document": "index.php"
-        },
-        "engines": {
-            "php": "7.0.*",
-            "nginx": "1.4.4"
+            "index-document": "index.php",
+            "engines": {
+                "php": "7.0.*",
+                "nginx": "1.4.4"
+            }
         }
     }
 }
