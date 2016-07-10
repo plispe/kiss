@@ -2,6 +2,7 @@
 The most innovative PHP devstack standing on the shoulder of giants
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy on Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy?source=https://github.com/plispe/kiss)
 
 ## Under the hood
 
