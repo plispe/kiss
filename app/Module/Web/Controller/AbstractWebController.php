@@ -12,7 +12,7 @@ use Air\View\ViewFactoryInterface;
 abstract class AbstractWebController
 {
     /**
-     * @Inject
+     * @inject
      * @var ViewFactoryInterface
      */
     protected $viewFactory;
