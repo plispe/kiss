@@ -1,9 +1,7 @@
 {
     "name": "KISS devstack",
     "description": "The most innovative PHP devstack standing on the shoulder of giants",
-    "logo": "https://scalingo.com/logo.svg",
     "repository": "https://github.com/plispe/kiss",
-    "website": "https://scalingo.com",
     "env": {
         "DISPLAY_ERRORS": {
             "value": "false"

@@ -83,5 +83,15 @@
         "optimize-autoloader": true,
         "sort-packages": true,
         "preferred-install": "dist"
+    },
+    "extra": {
+        "paas": {
+            "document-root": "public",
+            "index-document": "index.php"
+        },
+        "engines": {
+            "php": "7.0.*",
+            "nginx": "1.4.4"
+        }
     }
 }
