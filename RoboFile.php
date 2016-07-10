@@ -68,14 +68,4 @@ class RoboFile extends \Robo\Tasks
             ->printed(true)
             ->run();
     }
-
-    /**
-     * @param string $email
-     * @param string $password
-     * @return CommandInterface
-     */
-    public function userRegister(string $email, string $password): CommandInterface
-    {
-        return new \App\CommandBus\Command\User\Register($email, $password);
-    }
 }
