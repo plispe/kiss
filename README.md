@@ -1,4 +1,5 @@
 # kiss
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/plispe/kiss/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/plispe/kiss/?branch=master)
 The most innovative PHP devstack standing on the shoulder of giants
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
