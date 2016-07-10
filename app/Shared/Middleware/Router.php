@@ -26,7 +26,7 @@ use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 /**
  * Class Router
  * @package App\Shared\Middleware
- * 
+ *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 class Router implements MiddlewareInterface
@@ -84,7 +84,7 @@ class Router implements MiddlewareInterface
             $response = $handler($request, $response);
         } else {
             // Start dispatching route (calls next middleware which should be dispatcher)
-            $d        = $this->dispatcher;
+            $d = $this->dispatcher;
             $response = $d($request, $response, $next);
         }
 

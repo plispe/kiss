@@ -44,5 +44,4 @@ class PhpDiAwareRouter extends SimpleRouter
     {
         return true;
     }
-
 }

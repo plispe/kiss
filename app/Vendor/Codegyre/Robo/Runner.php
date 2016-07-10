@@ -25,7 +25,7 @@ use App\Shared\Behaviour\Common\DiContainerTrait;
 /**
  * Class Runner
  * @package App\Vendor\Codegyre\Robo
- * 
+ *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 class Runner extends \Robo\Runner

@@ -27,7 +27,6 @@ use Interop\Container\ServiceProvider;
  */
 class Dibi implements ServiceProvider
 {
-
     /**
      * Returns a list of all container entries registered by this service provider.
      *
@@ -72,5 +71,4 @@ class Dibi implements ServiceProvider
             'database' => $dsn->getDatabase(),
         ];
     }
-
 }

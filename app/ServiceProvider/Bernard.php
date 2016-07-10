@@ -57,14 +57,16 @@ class Bernard implements ServiceProvider
     /**
      * @return Serializer
      */
-    protected function getSerializer() {
+    protected function getSerializer()
+    {
         return new Serializer;
     }
 
     /**
      * @return EventDispatcher
      */
-    protected function getEventDispatcher() {
+    protected function getEventDispatcher()
+    {
         $dispatcher = new EventDispatcher;
         $dispatcher->addSubscriber(new EventListener\ErrorLogSubscriber);
         $dispatcher->addSubscriber(new EventListener\FailureSubscriber($this->getQueueFactory()));
@@ -74,14 +76,16 @@ class Bernard implements ServiceProvider
     /**
      * @return PersistentFactory
      */
-    protected function getQueueFactory() {
+    protected function getQueueFactory()
+    {
         return new PersistentFactory($this->getDriver(), $this->getSerializer());
     }
 
     /**
      * @return Producer
      */
-    protected function getProducer() {
+    protected function getProducer()
+    {
         return function () {
             return new Producer($this->getQueueFactory(), $this->getEventDispatcher());
         };
@@ -90,14 +94,16 @@ class Bernard implements ServiceProvider
     /**
      * @return SimpleRouter
      */
-    protected function getReceivers(ContainerInterface $container) {
+    protected function getReceivers(ContainerInterface $container)
+    {
         return new PhpDiAwareRouter($container);
     }
 
     /**
      * @return Consumer
      */
-    protected function getConsumer() {
+    protected function getConsumer()
+    {
         return function (ContainerInterface $container) {
             return new Consumer($this->getReceivers($container), $this->getEventDispatcher());
         };

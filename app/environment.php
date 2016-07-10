@@ -20,7 +20,7 @@ $dotEnvFile = __DIR__ . '/../';
 if (getenv('USE_DOTENV_FILE') !== 'false' && file_exists($dotEnvFile)) {
     /**
      * .env file parser
-     * 
+     *
      * @see https://github.com/vlucas/phpdotenv
      */
     (new Dotenv\Dotenv($dotEnvFile))->load();

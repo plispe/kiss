@@ -7,7 +7,7 @@ use DI\Container;
 /**
  * Class DiContainerTrait
  * @package App\Shared\Behaviour\Common
- * 
+ *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 trait DiContainerTrait
