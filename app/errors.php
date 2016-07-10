@@ -34,7 +34,7 @@ $handler->error(function (\Throwable $e) {
             App\exceptionToJsonResponse($e) : App\renderExceptionTemplateToHtmlResponse($e);
     }
 
-    /**
+    /*
      * Emittes PSR-7 message
      */
     (new SapiEmitter)->emit($response);

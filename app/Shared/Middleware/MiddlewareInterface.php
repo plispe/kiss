@@ -12,6 +12,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Interface MiddlewareInterface
  * @package App\Shared\Middleware
+ * 
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 interface MiddlewareInterface

@@ -14,11 +14,13 @@
  */
 $dotEnvFile = __DIR__ . '/../';
 
-/**
+/*
  * if .env file exists it will be parsed
  */
 if (getenv('USE_DOTENV_FILE') !== 'false' && file_exists($dotEnvFile)) {
     /**
+     * .env file parser
+     * 
      * @see https://github.com/vlucas/phpdotenv
      */
     (new Dotenv\Dotenv($dotEnvFile))->load();

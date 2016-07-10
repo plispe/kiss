@@ -2,11 +2,16 @@
 
 namespace App\Vendor\Air\View\Latte;
 
+/**
+ * Latte templating engine
+ * @see https://latte.nette.org/cs/
+ */
 use Latte\Engine;
 
 /**
  * Class LatteRenderer
  * @package App\Vendor\Air\View
+ *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 class Renderer extends \Air\View\Renderer

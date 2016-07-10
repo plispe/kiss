@@ -2,6 +2,10 @@
 
 namespace App\Vendor\Air\View\Latte;
 
+/**
+ * Air-php view library
+ * @see https://github.com/air-php/view
+ */
 use Air\View\View;
 use Air\View\ViewInterface;
 use Air\View\RendererInterface;
@@ -9,6 +13,7 @@ use Air\View\RendererInterface;
 /**
  * Class ViewFactory
  * @package App\Vendor\Air\View\Latte
+ *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 class ViewFactory extends \Air\View\ViewFactory

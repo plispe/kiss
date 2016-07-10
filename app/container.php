@@ -25,39 +25,39 @@ if (getenv('USE_PHPDI_CACHE') === 'true') {
      */
     $cache = new Doctrine\Common\Cache\ApcCache;
 
-    /**
+    /*
      * Sets cache namespace. usefun when more applications use same cache
      */
     $cache->setNamespace(getenv('PHPDI_CACHE_NAMESPACE'));
 
-    /**
+    /*
      * Sets cache definition file
      */
     $containerBuilder->setDefinitionCache($cache);
 }
 
-/**
+/*
  * Using annotations for dependency injection
  */
 $containerBuilder->useAnnotations(true);
 
-/**
+/*
  * Ignores error if phpdoc is invalid
  */
 $containerBuilder->ignorePhpDocErrors(true);
 
-/**
+/*
  * Path for proxy mannager
  */
 $containerBuilder->writeProxiesToFile(true, __DIR__ .'/../temp/proxies');
 
-/**
+/*
  * Service definitions
  */
 $containerBuilder->addDefinitions(__DIR__ .'/_config/di/parameters.php');
 $containerBuilder->addDefinitions(__DIR__ .'/_config/di/middlewares.php');
 
-/**
+/*
  * Service providers
  */
 $containerBuilder->addDefinitions((new \App\ServiceProvider\Server)->getServices());

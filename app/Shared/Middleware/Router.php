@@ -26,6 +26,7 @@ use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 /**
  * Class Router
  * @package App\Shared\Middleware
+ * 
  * @author Petr Pliska <petr.pliska@post.cz>
  */
 class Router implements MiddlewareInterface
