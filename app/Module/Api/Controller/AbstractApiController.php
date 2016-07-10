@@ -12,7 +12,6 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Own classes and interfaces
  */
-use App\Shared\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
@@ -20,7 +19,7 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
  * @package App\Module\Api\Controller
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-abstract class AbstractApiController extends AbstractController
+abstract class AbstractApiController
 {
     /**
      * @param ServerRequestInterface $request

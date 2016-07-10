@@ -3,8 +3,10 @@
 namespace App\Shared\Middleware;
 
 /**
- * Aura router classes
+ * Aura router
+ * @see http://auraphp.com/packages/Aura.Router/
  */
+use Aura\Router\Route;
 use Aura\Router\Matcher;
 
 /**
@@ -15,10 +17,11 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
- * Own classes and interfaces
+ * Symfony http exceptions
  */
-use App\Shared\Behaviour\Middleware\AuraSuccessHandlingTrait;
-use App\Shared\Behaviour\Middleware\AuraFailureHandlingTrait;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 /**
  * Class Router
@@ -27,16 +30,6 @@ use App\Shared\Behaviour\Middleware\AuraFailureHandlingTrait;
  */
 class Router implements MiddlewareInterface
 {
-    /**
-     * Handle unmatche route
-     */
-    use AuraFailureHandlingTrait;
-
-    /**
-     * Handle matched route
-     */
-    use AuraSuccessHandlingTrait;
-
     /**
      * @var Matcher
      */
@@ -68,5 +61,55 @@ class Router implements MiddlewareInterface
         }
 
         return $this->handleSuccess($route, $request->withAttribute('route', $route), $response, $next);
+    }
+
+    /**
+     * Handle route execution, if route handler is callable, it will be executed directly.
+     * Otherwise next middleware is called
+     *
+     * @param Route $route
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param callable $next
+     *
+     * @return ResponseInterface
+     */
+    protected function handleSuccess(Route $route, ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
+    {
+        if (is_callable($route->handler)) {
+            // get handler callable
+            $handler = $route->handler;
+            // Execute route handler
+            $response = $handler($request, $response);
+        } else {
+            // Start dispatching route (calls next middleware which should be dispatcher)
+            $d        = $this->dispatcher;
+            $response = $d($request, $response, $next);
+        }
+
+        return $response;
+    }
+
+    /**
+     * @param Matcher $matcher
+     *
+     * @throws MethodNotAllowedHttpException
+     * @throws NotAcceptableHttpException
+     * @throws NotFoundHttpException
+     */
+    protected function handleFailure(Matcher $matcher)
+    {
+        // get the first of the best-available non-matched routes
+        $failedRoute = $matcher->getFailedRoute();
+
+        // which matching rule failed?
+        switch (isset($failedRoute->failedRule) ? $failedRoute->failedRule : false) {
+            case 'Aura\Router\Rule\Allows':
+                throw new MethodNotAllowedHttpException($failedRoute->allows);
+            case 'Aura\Router\Rule\Accepts':
+                throw new NotAcceptableHttpException;
+            default:
+                throw new NotFoundHttpException;
+        }
     }
 }
