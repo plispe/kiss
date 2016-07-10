@@ -15,12 +15,6 @@ use Dibi\Connection;
 use AD7six\Dsn\DbDsn;
 
 /**
- * Interop DI intervace
- * @see https://github.com/container-interop/container-interop
- */
-use Interop\Container\ContainerInterface;
-
-/**
  * Standard service providers
  * @see https://github.com/container-interop/service-provider
  */
@@ -53,23 +47,22 @@ class Dibi implements ServiceProvider
     public function getServices()
     {
         return [
-            Connection::class => function (ContainerInterface $container) {
-                return new Connection($$this->getConnection());
+            Connection::class => function () {
+                return new Connection($this->getConnection());
             }
         ];
     }
 
     /**
-     * @param ContainerInterface $container
      * @return array
      */
-    protected function getConnection(ContainerInterface $container)
+    protected function getConnection()
     {
         /**
          * uses AD7six/php-dsn utility for parsing database DSN
          * @see https://github.com/AD7six/php-dsn
          */
-        $dsn = new DbDsn($container->get('db.dsn'));
+        $dsn = new DbDsn(getenv('DATABASE_DSN'));
 
         return [
             'driver' => $dsn->getEngine(),

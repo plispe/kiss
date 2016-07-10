@@ -3,12 +3,6 @@
 namespace App\ServiceProvider;
 
 /**
- * Interop DI intervace
- * @see https://github.com/container-interop/container-interop
- */
-use Interop\Container\ContainerInterface;
-
-/**
  * Standard service providers
  * @see https://github.com/container-interop/service-provider
  */
@@ -45,9 +39,9 @@ class Pomm implements ServiceProvider
     public function getServices()
     {
         return [
-            PommProject\Foundation\Pomm::class => function (ContainerInterface $container) {
+            PommProject\Foundation\Pomm::class => function () {
                 return new Pomm(['db' => [
-                    'dsn' => $container->get('db.dsn'),
+                    'dsn' => getenv('DATABASE_DSN'),
                     'class:session_builder' => SessionBuilder::class
                 ]]);
             }

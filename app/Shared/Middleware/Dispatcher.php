@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Dispatcher middleware
- *
- * @author Petr Pliska <petr.pliska@post.cz>
- */
-
 namespace App\Shared\Middleware;
 
 /**
@@ -27,6 +21,12 @@ use Psr\Http\Message\ResponseInterface;
  */
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Dispatcher
+ * @package App\Shared\Middleware
+ * 
+ * @author Petr Pliska <petr.pliska@post.cz>
+ */
 class Dispatcher implements MiddlewareInterface
 {
     /**

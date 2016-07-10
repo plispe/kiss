@@ -3,21 +3,23 @@
 namespace App\Vendor\Codegyre\Robo;
 
 /**
- * Foreign classes and interfaces
- */
-
-/**
+ * Robo task runner
+ *
  * @see http://robo.li/
  */
 use Robo\Result;
 use Robo\TaskInfo;
 
 /**
+ * Command Bus implementation
+ *
  * @see http://tactician.thephpleague.com/
  */
 use League\Tactician\CommandBus;
 
 /**
+ * Symfony console library
+ *
  * @see http://symfony.com/doc/current/components/console/introduction.html
  */
 use Symfony\Component\Console\Input\InputArgument;
