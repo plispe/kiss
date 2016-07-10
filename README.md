@@ -6,6 +6,7 @@
 ### The most innovative PHP devstack standing on the shoulder of giants
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 <a href="https://my.scalingo.com/deploy?source=https://github.com/plispe/kiss">
    <img src="https://cdn.scalingo.com/deploy/button.svg" alt="Deploy on Scalingo" data-canonical-src="https://cdn.scalingo.com/deploy/button.svg" style="max-width:100%; width="147" height="32">
 </a>
