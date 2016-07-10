@@ -12,8 +12,16 @@ use Air\View\ViewFactoryInterface;
 abstract class AbstractWebController
 {
     /**
-     * @inject
      * @var ViewFactoryInterface
      */
     protected $viewFactory;
+
+    /**
+     * AbstractWebController constructor.
+     * @param ViewFactoryInterface $viewFactory
+     */
+    public function __construct(ViewFactoryInterface $viewFactory)
+    {
+        $this->viewFactory = $viewFactory;
+    }
 }
