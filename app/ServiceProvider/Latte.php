@@ -56,7 +56,7 @@ class Latte implements ServiceProvider
     protected function getViewFactory()
     {
         return function (ContainerInterface $container) {
-            $factory = new ViewFactory($container->get('temp.dir') . '/latte', null, $this->getDefaultLatteData($container));
+            $factory = new ViewFactory($container->get('temp.dir') . '/cache/templates/', null, $this->getDefaultLatteData($container));
             $factory->addPath($container->get('templates.dir'));
 
             return $factory;
