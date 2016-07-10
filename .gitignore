@@ -4,12 +4,9 @@
 .DS_Store
 .idea
 
+temp/cache/stash/*
 temp/cache/templates/*
 temp/proxies/*
 vendor/*
-node_modules/*
 
-app/_templates/_gassetic/development
-public/assets/*
-assets/bower
 !.gitkeep
