@@ -25,9 +25,7 @@ use \Latte\Engine;
  * @see https://github.com/zendframework/zend-diactoros
  */
 use Zend\Diactoros\ServerRequestFactory;
-use Zend\Diactoros\Response\JsonResponse;
 use Zend\Diactoros\Response\HtmlResponse;
-use Zend\Diactoros\Response\EmptyResponse;
 
 /**
  * Symfony exceptions
@@ -70,24 +68,6 @@ if (! function_exists('App\exceptionToHtmlResponse')) {
         (new BlueScreen())->render($e);
 
         return new HtmlResponse(ob_get_clean(), getStatusCode($e));
-    }
-}
-
-if (! function_exists('App\exceptionToJsonResponse')) {
-    /**
-     * Turns Exception object into PSR-7 JsonResponse
-     * @param \Exception
-     *
-     * @return JsonResponse
-     */
-    function exceptionToJsonResponse(\Throwable $e): JsonResponse
-    {
-        $code          = getStatusCode($e);
-
-        return new JsonResponse(
-            ['error' => (new EmptyResponse($code))->getReasonPhrase()],
-            $code
-        );
     }
 }
 

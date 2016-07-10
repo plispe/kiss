@@ -23,7 +23,7 @@ if (getenv('USE_PHPDI_CACHE') === 'true') {
      * PHP DI uses doctrine cache
      * @see http://php-di.org/doc/performances.html
      */
-    $cache = new Doctrine\Common\Cache\ApcCache;
+    $cache = new Doctrine\Common\Cache\ApcuCache;
 
     /*
      * Sets cache namespace. usefun when more applications use same cache
@@ -38,34 +38,25 @@ if (getenv('USE_PHPDI_CACHE') === 'true') {
 
 /*
  * Using annotations for dependency injection
- */
-$containerBuilder->useAnnotations(true);
-
-/*
  * Ignores error if phpdoc is invalid
  */
-$containerBuilder->ignorePhpDocErrors(true);
-
-/*
- * Path for proxy mannager
- */
-$containerBuilder->writeProxiesToFile(true, __DIR__ .'/../temp/proxies');
+$containerBuilder
+    ->useAnnotations(true)
+    ->ignorePhpDocErrors(true)
+    ->writeProxiesToFile(true, __DIR__ .'/../temp/proxies');
 
 /*
  * Service definitions
  */
-$containerBuilder->addDefinitions(__DIR__ .'/_config/di/parameters.php');
-$containerBuilder->addDefinitions(__DIR__ .'/_config/di/middlewares.php');
-
-/*
- * Service providers
- */
-$containerBuilder->addDefinitions((new \App\ServiceProvider\Server)->getServices());
-$containerBuilder->addDefinitions((new \App\ServiceProvider\Monolog)->getServices());
-$containerBuilder->addDefinitions((new \App\ServiceProvider\AuraRouter)->getServices());
-$containerBuilder->addDefinitions((new \App\ServiceProvider\Latte)->getServices());
-$containerBuilder->addDefinitions((new \App\ServiceProvider\CommandBus)->getServices());
-$containerBuilder->addDefinitions((new \App\ServiceProvider\Bernard)->getServices());
+$containerBuilder
+    ->addDefinitions(__DIR__ .'/_config/di/parameters.php')
+    ->addDefinitions(__DIR__ .'/_config/di/middlewares.php')
+    ->addDefinitions((new \App\ServiceProvider\Server)->getServices())
+    ->addDefinitions((new \App\ServiceProvider\Monolog)->getServices())
+    ->addDefinitions((new \App\ServiceProvider\AuraRouter)->getServices())
+    ->addDefinitions((new \App\ServiceProvider\Latte)->getServices())
+    ->addDefinitions((new \App\ServiceProvider\CommandBus)->getServices())
+    ->addDefinitions((new \App\ServiceProvider\Bernard)->getServices());
 
 // Returns instance of builded container
 return $containerBuilder->build();

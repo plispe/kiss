@@ -81,14 +81,12 @@ class Router implements MiddlewareInterface
             // get handler callable
             $handler = $route->handler;
             // Execute route handler
-            $response = $handler($request, $response);
-        } else {
-            // Start dispatching route (calls next middleware which should be dispatcher)
-            $d = $this->dispatcher;
-            $response = $d($request, $response, $next);
+            return $handler($request, $response);
         }
 
-        return $response;
+        // Start dispatching route (calls next middleware which should be dispatcher)
+        $d = ($this->dispatcher);
+        return $d($request, $response, $next);
     }
 
     /**
@@ -104,10 +102,10 @@ class Router implements MiddlewareInterface
         $failedRoute = $matcher->getFailedRoute();
 
         // which matching rule failed?
-        switch (isset($failedRoute->failedRule) ? $failedRoute->failedRule : false) {
-            case 'Aura\Router\Rule\Allows':
+        switch ($failedRoute->failedRule ?? false) {
+            case \Aura\Router\Rule\Allows::class:
                 throw new MethodNotAllowedHttpException($failedRoute->allows);
-            case 'Aura\Router\Rule\Accepts':
+            case \Aura\Router\Rule\Accepts::class:
                 throw new NotAcceptableHttpException;
             default:
                 throw new NotFoundHttpException;

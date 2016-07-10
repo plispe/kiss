@@ -17,7 +17,7 @@ $dotEnvFile = __DIR__ . '/../';
 /*
  * if .env file exists it will be parsed
  */
-if (getenv('USE_DOTENV_FILE') !== 'false' && file_exists($dotEnvFile)) {
+if (getenv('USE_DOTENV_FILE') !== 'false') {
     /**
      * .env file parser
      *

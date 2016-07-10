@@ -70,11 +70,9 @@ class Dispatcher implements MiddlewareInterface
             if (!method_exists($controller, $action)) {
                 throw new NotFoundHttpException(sprintf('Controller "%s" has no action "%s".', $controllerClass, $action));
             }
-            // Call controller action
-            $response = $controller->$action($request, $response);
 
-            $response = $next($request, $response, $next);
-            return $response;
+            // Call controller action
+            return $next($request, $controller->$action($request, $response), $next);
         }
     }
 

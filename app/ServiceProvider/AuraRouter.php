@@ -84,7 +84,7 @@ class AuraRouter implements ServiceProvider
     protected function getMatcher()
     {
         return function (ContainerInterface $container) {
-            $map = $container->get(Map::class);
+            $container->get(Map::class);
             return $container->get(RouterContainer::class)->getMatcher();
         };
     }

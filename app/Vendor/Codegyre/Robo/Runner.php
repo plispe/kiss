@@ -30,9 +30,6 @@ use App\Shared\Behaviour\Common\DiContainerTrait;
  */
 class Runner extends \Robo\Runner
 {
-    /**
-     *
-     */
     use DiContainerTrait;
 
     /**
