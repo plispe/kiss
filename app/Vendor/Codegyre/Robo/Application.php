@@ -93,7 +93,7 @@ class Application extends \Robo\Application
                 }
 
                 // exit script with status
-                exit($res);
+                return $res;
             });
             $this->add($command);
         }
