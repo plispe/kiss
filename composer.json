@@ -73,7 +73,10 @@
         "lint": "composer robo devtools:check-php-syntax",
         "phpmetrics": "composer robo devtools:calculate-php-metrics",
         "robo": "bin/robo.php --ansi",
-        "start": "composer robo devtools:run-php-server"
+        "start": "composer robo devtools:run-php-server",
+        "post-create-project-cmd": [
+            "bin/init.php"
+        ]
 
     },
     "config": {
