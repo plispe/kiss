@@ -12,3 +12,7 @@
 <a href="https://my.scalingo.com/deploy?source=https://github.com/plispe/kiss" target="_blank">
    <img src="https://cdn.scalingo.com/deploy/button.svg" alt="Deploy on Scalingo" data-canonical-src="https://cdn.scalingo.com/deploy/button.svg" style="max-width:100%; width="147" height="32">
 </a>
+
+## Docs
+
+Coming soon
