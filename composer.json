@@ -74,6 +74,7 @@
         "phpmetrics": "composer robo devtools:calculate-php-metrics",
         "robo": "bin/robo.php --ansi",
         "start": "composer robo devtools:run-php-server",
+        "codecept": "vendor/bin/codecept --ansi",
         "post-create-project-cmd": [
             "bin/init.php"
         ]
