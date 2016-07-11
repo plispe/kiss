@@ -8,12 +8,10 @@ require_once __DIR__ . '/../app/errors.php';
 /**
  * DI container
  * @see http://php-di.org/
- */
-$container = require_once __DIR__ . '/../app/container.php';
-
-/**
+ *
  * @author Petr Pliska <petr.pliska@post.cz>
  */
+$container = require_once __DIR__ . '/../app/container.php';
 
 use App\Vendor\Codegyre\Robo\Runner;
 
