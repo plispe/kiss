@@ -15,4 +15,4 @@
 
 ## Docs
 
-Coming soon
+Coming soon ...
