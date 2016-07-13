@@ -1,0 +1,8 @@
+php-7.0-apache:
+  build: ./.docker
+  container_name: kiss-php-70
+  ports:
+    - "80:80"
+  volumes:
+    - .:/var/www/html
+    - .docker/apache/sites-enabled:/etc/apache2/sites-enabled
