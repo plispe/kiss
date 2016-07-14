@@ -1,0 +1,10 @@
+.git
+.editorconfig
+README.md
+apigen.yaml
+app.json
+codeception.yml
+Procfile
+LICENSE
+scalingo.json
+phpmetrics.yml
