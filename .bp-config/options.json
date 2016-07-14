@@ -1,6 +1,8 @@
 {
+    "PHP_VERSION": "7.0.8",
     "PHP_MODULES": ["cli"],
     "PHP_EXTENSIONS": ["intl", "mbstring"],
     "WEB_SERVER": "nginx",
-    "WEBDIR": "public"
+    "WEBDIR": "public",
+
 }
