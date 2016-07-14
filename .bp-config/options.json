@@ -3,5 +3,6 @@
     "PHP_MODULES": ["cli"],
     "PHP_EXTENSIONS": ["intl", "mbstring"],
     "WEB_SERVER": "nginx",
-    "WEBDIR": "public"
+    "WEBDIR": "public",
+    "LIBDIR": "."
 }
