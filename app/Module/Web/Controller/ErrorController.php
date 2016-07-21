@@ -6,6 +6,7 @@ namespace App\Module\Web\Controller;
  * PSR-7 interfaces
  * @see http://www.php-fig.org/psr/psr-7/
  */
+use Air\View\ViewFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Zend\Diactoros\Response\HtmlResponse;
@@ -15,8 +16,22 @@ use Zend\Diactoros\Response\HtmlResponse;
  * @package App\Module\Web\Controller
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-class ErrorController extends AbstractWebController
+class ErrorController
 {
+    /**
+     * @var ViewFactoryInterface
+     */
+    protected $viewFactory;
+
+    /**
+     * AbstractWebController constructor.
+     * @param ViewFactoryInterface $viewFactory
+     */
+    public function __construct(ViewFactoryInterface $viewFactory)
+    {
+        $this->viewFactory = $viewFactory;
+    }
+
     /**
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
