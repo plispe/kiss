@@ -28,7 +28,7 @@
         "nesbot/carbon": "1.21.0",
         "ocramius/psr7-session": "2.0.0",
         "oscarotero/psr7-middlewares": "3.16.1",
-        "pda/pheanstalk": "3.1.0",
+        "pda/pheanstalk": "^3.1",
         "php-di/php-di": "5.3.0",
         "relay/relay": "1.1.0",
         "symfony/http-foundation": "3.1.2",

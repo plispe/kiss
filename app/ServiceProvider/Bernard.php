@@ -6,16 +6,20 @@ use App\Vendor\Bernard\Router\PhpDiAwareRouter;
 use Bernard\Consumer;
 use Bernard\EventListener;
 use Bernard\Producer;
+use Bernard\QueueFactory;
 use Bernard\QueueFactory\PersistentFactory;
 use Bernard\Router\SimpleRouter;
 use Bernard\Serializer;
 use Interop\Container\ContainerInterface;
+use Normalt\Normalizer\RecursiveReflectionNormalizer;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
 use Pheanstalk\Pheanstalk;
 use Bernard\Driver\PheanstalkDriver;
 
 use Interop\Container\ServiceProvider;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\PropertyNormalizer;
 
 /**
  * Class Bernard
@@ -46,6 +50,7 @@ class Bernard implements ServiceProvider
         return [
             Producer::class => $this->getProducer(),
             Consumer::class => $this->getConsumer(),
+            QueueFactory::class => $this->getQueueFactory(),
         ];
     }
 
@@ -54,7 +59,7 @@ class Bernard implements ServiceProvider
      */
     protected function getSerializer()
     {
-        return new Serializer;
+        return new Serializer(new RecursiveReflectionNormalizer([new PropertyNormalizer()]));
     }
 
     /**
@@ -63,8 +68,8 @@ class Bernard implements ServiceProvider
     protected function getEventDispatcher()
     {
         $dispatcher = new EventDispatcher;
-        $dispatcher->addSubscriber(new EventListener\ErrorLogSubscriber);
-        $dispatcher->addSubscriber(new EventListener\FailureSubscriber($this->getQueueFactory()));
+//        $dispatcher->addSubscriber(new EventListener\ErrorLogSubscriber);
+//        $dispatcher->addSubscriber(new EventListener\FailureSubscriber($this->getQueueFactory()));
         return $dispatcher;
     }
 
@@ -109,7 +114,7 @@ class Bernard implements ServiceProvider
      */
     protected function getDriver()
     {
-        $pheanstalk = new Pheanstalk('localhost');
+        $pheanstalk = new Pheanstalk('127.0.0.1');
         return new PheanstalkDriver($pheanstalk);
     }
 }

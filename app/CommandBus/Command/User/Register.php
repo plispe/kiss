@@ -2,12 +2,14 @@
 
 namespace App\CommandBus\Command\User;
 
+use App\CommandBus\Command\AbstractCommand;
+
 /**
  * Class Register
  * @package App\CommandBus\Command\User
  * @author Petr Pliska <petr.pliska@post.cz>
  */
-class Register
+class Register extends AbstractCommand
 {
     /**
      * @var string
