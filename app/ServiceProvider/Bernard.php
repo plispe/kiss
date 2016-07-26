@@ -18,7 +18,6 @@ use Pheanstalk\Pheanstalk;
 use Bernard\Driver\PheanstalkDriver;
 
 use Interop\Container\ServiceProvider;
-use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\PropertyNormalizer;
 
 /**
@@ -68,8 +67,8 @@ class Bernard implements ServiceProvider
     protected function getEventDispatcher()
     {
         $dispatcher = new EventDispatcher;
-//        $dispatcher->addSubscriber(new EventListener\ErrorLogSubscriber);
-//        $dispatcher->addSubscriber(new EventListener\FailureSubscriber($this->getQueueFactory()));
+        $dispatcher->addSubscriber(new EventListener\ErrorLogSubscriber);
+        $dispatcher->addSubscriber(new EventListener\FailureSubscriber($this->getQueueFactory()));
         return $dispatcher;
     }
 
