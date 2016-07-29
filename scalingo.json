@@ -15,5 +15,8 @@
         "USE_LATTE_CACHE": {
             "value": "true"
         }
-    }
+    },
+    "compile": [
+        "composer global require hirak/prestissimo"
+    ]
 }
