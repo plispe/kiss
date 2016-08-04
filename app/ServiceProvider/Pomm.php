@@ -40,7 +40,7 @@ class Pomm implements ServiceProvider
     {
         return [
             \PommProject\Foundation\Pomm::class => function () {
-                return new Pomm(['db' => [
+                return new \PommProject\Foundation\Pomm(['db' => [
                     'dsn' => getenv('DATABASE_DSN'),
                     'class:session_builder' => SessionBuilder::class
                 ]]);
