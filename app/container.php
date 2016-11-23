@@ -56,7 +56,8 @@ $containerBuilder
     ->addDefinitions((new \App\ServiceProvider\AuraRouter)->getServices())
     ->addDefinitions((new \App\ServiceProvider\Latte)->getServices())
     ->addDefinitions((new \App\ServiceProvider\CommandBus)->getServices())
-    ->addDefinitions((new \App\ServiceProvider\Bernard)->getServices());
+    ->addDefinitions((new \App\ServiceProvider\Bernard)->getServices())
+    ->addDefinitions((new \App\ServiceProvider\Ting)->getServices());
 
 // Returns instance of builded container
 return $containerBuilder->build();

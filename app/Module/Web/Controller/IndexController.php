@@ -7,8 +7,12 @@ namespace App\Module\Web\Controller;
  * @see http://www.php-fig.org/psr/psr-7/
  */
 use Air\View\ViewFactoryInterface;
+use CCMBenchmark\Ting\Repository\RepositoryFactory;
+use CCMBenchmark\Ting\Services;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\LoggerInterface;
+use App\Model\Repository\City;
 use Zend\Diactoros\Response\HtmlResponse;
 
 /**
@@ -24,11 +28,17 @@ class IndexController
     protected $viewFactory;
 
     /**
+     * @var RepositoryFactory
+     */
+    protected $repositoryFactory;
+
+    /**
      * AbstractWebController constructor.
      * @param ViewFactoryInterface $viewFactory
      */
-    public function __construct(ViewFactoryInterface $viewFactory)
+    public function __construct(ViewFactoryInterface $viewFactory, RepositoryFactory $repositoryFactory)
     {
+        $this->repositoryFactory = $repositoryFactory;
         $this->viewFactory = $viewFactory;
     }
 
@@ -39,6 +49,9 @@ class IndexController
      */
     public function defaultAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+        $cityRepository = $this->repositoryFactory->get(City::class);
+        $city = $cityRepository->get(3);
+        dump($city);
         return new HtmlResponse((string)$this->viewFactory->get('web/index/default'));
     }
 }
