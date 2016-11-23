@@ -8,11 +8,7 @@ namespace App\Module\Web\Controller;
  */
 use Air\View\ViewFactoryInterface;
 use CCMBenchmark\Ting\Repository\RepositoryFactory;
-use CCMBenchmark\Ting\Services;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Log\LoggerInterface;
-use App\Model\Repository\City;
 use Zend\Diactoros\Response\HtmlResponse;
 
 /**
@@ -43,15 +39,10 @@ class IndexController
     }
 
     /**
-     * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
      * @return ResponseInterface
      */
-    public function defaultAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function defaultAction(): ResponseInterface
     {
-        $cityRepository = $this->repositoryFactory->get(City::class);
-        $city = $cityRepository->get(3);
-        dump($city);
         return new HtmlResponse((string)$this->viewFactory->get('web/index/default'));
     }
 }
