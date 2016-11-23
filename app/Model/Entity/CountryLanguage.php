@@ -41,7 +41,7 @@ class CountryLanguage implements NotifyPropertyInterface
         return (string)$this->language;
     }
 
-    public function setIsOfficial($official)
+    public function setOfficial($official)
     {
         $this->propertyChanged('official', $this->official, $official);
         $this->official = (string)$official;
