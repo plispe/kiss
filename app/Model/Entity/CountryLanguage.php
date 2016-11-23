@@ -16,7 +16,7 @@ class CountryLanguage implements NotifyPropertyInterface
 
     protected $code = null;
     protected $language = null;
-    protected $isOfficial = null;
+    protected $official = null;
     protected $percentage = null;
 
     public function setCode($code)
@@ -41,15 +41,15 @@ class CountryLanguage implements NotifyPropertyInterface
         return (string)$this->language;
     }
 
-    public function setIsOfficial($isOfficial)
+    public function setIsOfficial($official)
     {
-        $this->propertyChanged('isOfficial', $this->isOfficial, $isOfficial);
-        $this->isOfficial = (string)$isOfficial;
+        $this->propertyChanged('official', $this->official, $official);
+        $this->official = (string)$official;
     }
 
-    public function getIsOfficial()
+    public function getOfficial()
     {
-        return (string)$this->isOfficial;
+        return (string)$this->official;
     }
 
     public function setPercentage($percentage)

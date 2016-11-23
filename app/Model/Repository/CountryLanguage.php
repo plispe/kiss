@@ -37,7 +37,7 @@ class CountryLanguage extends \CCMBenchmark\Ting\Repository\Repository implement
         ));
 
         $metadata->addField(array(
-            'fieldName' => 'isOfficial',
+            'fieldName' => 'official',
             'columnName' => 'col_is_official',
             'type' => 'boolean'
         ));

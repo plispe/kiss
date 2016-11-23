@@ -51,29 +51,29 @@ class Ting implements ServiceProvider
             'main' => [
                 'namespace' => '\CCMBenchmark\Ting\Driver\Mysqli',
                 'master' => [
-                    'host'      => $dsn->getHost(),
-                    'user'      => $dsn->getUser(),
-                    'password'  => $dsn->getPass(),
-                    'port'      => $dsn->getPort(),
+                    'host' => $dsn->getHost(),
+                    'user' => $dsn->getUser(),
+                    'password' => $dsn->getPass(),
+                    'port' => $dsn->getPort(),
                 ],
             ]
         ];
         return [
-            ConnectionPool::class => function(ContainerInterface $c) use ($config) {
+            ConnectionPool::class => function (ContainerInterface $c) use ($config) {
                 $pool = new ConnectionPool;
                 $pool->setConfig($config);
 
                 return $pool;
             },
 
-            MetadataRepository::class => function(ContainerInterface $c) {
-                $repository =  new MetadataRepository($c->get(SerializerFactory::class));
+            MetadataRepository::class => function (ContainerInterface $c) {
+                $repository = new MetadataRepository($c->get(SerializerFactory::class));
                 $repository->batchLoadMetadata('App\Model\Repository', $c->get('app.dir') . '/Model/Repository/*.php');
 
                 return $repository;
             },
 
-            UnitOfWork::class => function(ContainerInterface $c) {
+            UnitOfWork::class => function (ContainerInterface $c) {
                 return new UnitOfWork(
                     $c->get(ConnectionPool::class),
                     $c->get(MetadataRepository::class),
@@ -81,7 +81,7 @@ class Ting implements ServiceProvider
                 );
             },
 
-            CollectionFactory::class => function(ContainerInterface $c) {
+            CollectionFactory::class => function (ContainerInterface $c) {
                 return new CollectionFactory(
                     $c->get(MetadataRepository::class),
                     $c->get(UnitOfWork::class),
@@ -89,15 +89,15 @@ class Ting implements ServiceProvider
                 );
             },
 
-            QueryFactory::class => function(ContainerInterface $c) {
+            QueryFactory::class => function (ContainerInterface $c) {
                 return new QueryFactory;
             },
 
-            SerializerFactory::class => function(ContainerInterface $c) {
+            SerializerFactory::class => function (ContainerInterface $c) {
                 return new SerializerFactory;
             },
 
-            Hydrator::class => function(ContainerInterface $c) {
+            Hydrator::class => function (ContainerInterface $c) {
                 $hydrator = new Hydrator;
 
                 $hydrator->setMetadataRepository($c->get(MetadataRepository::class));
@@ -106,7 +106,7 @@ class Ting implements ServiceProvider
                 return $hydrator;
             },
 
-            HydratorSingleObject::class => function(ContainerInterface $c) {
+            HydratorSingleObject::class => function (ContainerInterface $c) {
                 $hydrator = new HydratorSingleObject;
 
                 $hydrator->setMetadataRepository($c->get(MetadataRepository::class));
@@ -115,7 +115,7 @@ class Ting implements ServiceProvider
                 return $hydrator;
             },
 
-            RepositoryFactory::class => function(ContainerInterface $c) {
+            RepositoryFactory::class => function (ContainerInterface $c) {
                 return new RepositoryFactory(
                     $c->get(ConnectionPool::class),
                     $c->get(MetadataRepository::class),
@@ -126,7 +126,7 @@ class Ting implements ServiceProvider
                     $c->get(SerializerFactory::class)
                 );
             },
-            Cache::class => function(ContainerInterface $c) {
+            Cache::class => function (ContainerInterface $c) {
                 return new VoidCache;
             }
         ];
