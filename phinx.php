@@ -23,7 +23,7 @@ return [
     // Paths
     'paths' => [
         // Path to migrations dir
-        'migrations' => __DIR__ . '/app/migrations',
+        'migrations' => __DIR__ . '/app/_db/migrations',
     ],
 
     // Defined environments
@@ -37,7 +37,7 @@ return [
             'host' => $databaseDsn->getHost(),
             'name' => $databaseDsn->getDatabase(),
             'user' => $databaseDsn->getUser(),
-            'pass' => $databaseDsn->getPassword(),
+            'pass' => $databaseDsn->getPass(),
             'port' => $databaseDsn->getPort(),
             'charset' => 'utf8'
         ]
