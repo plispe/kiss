@@ -1,10 +1,10 @@
 version: "2"
 services:
   php:
-    build: ./.docker
+    build: .
     container_name: kiss-php-70
     ports:
       - "80:80"
     volumes:
       - .:/var/www/html
-      - .docker/apache/sites-enabled:/etc/apache2/sites-enabled
+      - .docker-config/apache/sites-enabled:/etc/apache2/sites-enabled
