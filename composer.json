@@ -27,11 +27,12 @@
         "league/uri": "4.2.0",
         "monolog/monolog": "1.21.0",
         "nesbot/carbon": "1.21.0",
-        "psr7-sessions/storageless": "2.0.0",
         "oscarotero/psr7-middlewares": "3.18.0",
         "pda/pheanstalk": "^3.1",
         "php-di/php-di": "5.4.0",
+        "psr7-sessions/storageless": "2.0.0",
         "relay/relay": "1.1.0",
+        "robmorgan/phinx": "^0.6.5",
         "symfony/http-foundation": "3.1.7",
         "symfony/http-kernel": "3.1.7",
         "tedivm/stash": "0.14.1",
@@ -75,6 +76,7 @@
         "robo": "php bin/robo.php --ansi",
         "start": "composer robo devtools:run-php-server",
         "codecept": "vendor/bin/codecept --ansi",
+        "phinx": "vendor/bin/phinx --ansi",
         "post-create-project-cmd": [
             "php bin/init.php"
         ]
