@@ -7,8 +7,6 @@ namespace App\Module\Web\Controller;
  * @see http://www.php-fig.org/psr/psr-7/
  */
 use Air\View\ViewFactoryInterface;
-use App\Model\Repository\City;
-use CCMBenchmark\Ting\Repository\RepositoryFactory;
 use Psr\Http\Message\ResponseInterface;
 use Zend\Diactoros\Response\HtmlResponse;
 
@@ -25,17 +23,11 @@ class IndexController
     protected $viewFactory;
 
     /**
-     * @var RepositoryFactory
-     */
-    protected $repositoryFactory;
-
-    /**
      * AbstractWebController constructor.
      * @param ViewFactoryInterface $viewFactory
      */
-    public function __construct(ViewFactoryInterface $viewFactory, RepositoryFactory $repositoryFactory)
+    public function __construct(ViewFactoryInterface $viewFactory)
     {
-        $this->repositoryFactory = $repositoryFactory;
         $this->viewFactory = $viewFactory;
     }
 
@@ -44,15 +36,6 @@ class IndexController
      */
     public function defaultAction()
     {
-        /** @var \App\Model\Repository\City $r */
-        $r = $this->repositoryFactory->get(City::class);
-
-        /** @var \App\Model\Entity\City $brno */
-        $brno = $r->get(['cit_id' => 4084]);
-        $brno->setPopulation(450000);
-        $brno->setDistrict("Jihomoravsky");
-        $r->save($brno);
-
         return new HtmlResponse((string)$this->viewFactory->get('web/index/default'));
     }
 }
