@@ -14,10 +14,6 @@
  */
 return [
     'middlewares' => [
-        \PSR7Session\Http\SessionMiddleware::fromSymmetricKeyDefaults(
-            getenv('SESSION_KEY') ?: 'session-key',
-            getenv('SESSION_EXPIRATION_TIME') ?: 1440
-        ),
         DI\get(\App\Shared\Middleware\Router::class),
     ]
 ];

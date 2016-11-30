@@ -18,6 +18,9 @@
 
 use Zend\Diactoros\Server;
 
+// Hotfix for php 5.6
+date_default_timezone_set("Europe/Prague");
+
 // composer autoloader
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -26,6 +29,8 @@ require_once __DIR__ . '/../app/environment.php';
 
 // includes error handler
 require_once __DIR__ . '/../app/errors.php';
+
+
 
 // includes DI container
 $container = require_once __DIR__ . '/../app/container.php';
