@@ -2,10 +2,10 @@
 
 namespace App\Vendor\CCMBenchmark\Ting;
 
+use Exception;
 use App\Model\Entity\Changelog;
 use CCMBenchmark\Ting\ConnectionPool;
 use CCMBenchmark\Ting\Entity\NotifyPropertyInterface;
-use CCMBenchmark\Ting\Entity\PropertyListenerInterface;
 use CCMBenchmark\Ting\MetadataRepository;
 use CCMBenchmark\Ting\Query\QueryFactoryInterface;
 use CCMBenchmark\Ting\Repository\Metadata;
@@ -140,7 +140,7 @@ class ChangeloggedIdentityAwareUnityOfWork extends UnitOfWork
                 $this->addToChangelog($metadata->getTable(), $entity, $properties);
             },
             function () use ($entity) {
-                throw new Exception('Could not find repository matching entity "' . get_class($entity) . '"');
+                throw new \Exception('Could not find repository matching entity "' . get_class($entity) . '"');
             }
         );
     }
