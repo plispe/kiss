@@ -66,4 +66,9 @@ class RoboFile extends \Robo\Tasks
             ->printed(true)
             ->run();
     }
+
+    public function hello($name)
+    {
+        echo $name;
+    }
 }

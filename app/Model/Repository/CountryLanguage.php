@@ -13,6 +13,11 @@ use CCMBenchmark\Ting\Serializer\SerializerFactoryInterface;
  */
 class CountryLanguage extends \CCMBenchmark\Ting\Repository\Repository implements MetadataInitializer
 {
+    /**
+     * @param SerializerFactoryInterface $serializerFactory
+     * @param array $options
+     * @return Metadata
+     */
     public static function initMetadata(SerializerFactoryInterface $serializerFactory, array $options = [])
     {
         $metadata = new Metadata($serializerFactory);
@@ -22,31 +27,31 @@ class CountryLanguage extends \CCMBenchmark\Ting\Repository\Repository implement
         $metadata->setDatabase('heroku_44a071ce1e8ee67');
         $metadata->setTable('t_countrylanguage_col');
 
-        $metadata->addField(array(
+        $metadata->addField([
             'primary' => true,
             'fieldName' => 'code',
             'columnName' => 'cou_code',
             'type' => 'string'
-        ));
+        ]);
 
-        $metadata->addField(array(
+        $metadata->addField([
             'primary' => true,
             'fieldName' => 'language',
             'columnName' => 'col_language',
             'type' => 'string'
-        ));
+        ]);
 
-        $metadata->addField(array(
+        $metadata->addField([
             'fieldName' => 'official',
             'columnName' => 'col_is_official',
             'type' => 'boolean'
-        ));
+        ]);
 
-        $metadata->addField(array(
+        $metadata->addField([
             'fieldName' => 'percentage',
             'columnName' => 'col_percentage',
             'type' => 'double'
-        ));
+        ]);
 
         return $metadata;
     }

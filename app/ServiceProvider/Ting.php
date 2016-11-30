@@ -3,6 +3,7 @@
 namespace App\ServiceProvider;
 
 use AD7six\Dsn\Db\MysqlDsn;
+use App\Vendor\CCMBenchmark\Ting\ChangeloggedIdentityAwareUnityOfWork;
 use CCMBenchmark\Ting\Cache\Cache;
 use CCMBenchmark\Ting\ConnectionPool;
 use CCMBenchmark\Ting\MetadataRepository;
@@ -74,10 +75,11 @@ class Ting implements ServiceProvider
             },
 
             UnitOfWork::class => function (ContainerInterface $c) {
-                return new UnitOfWork(
+                return new ChangeloggedIdentityAwareUnityOfWork(
                     $c->get(ConnectionPool::class),
                     $c->get(MetadataRepository::class),
-                    $c->get(QueryFactory::class)
+                    $c->get(QueryFactory::class),
+                    10
                 );
             },
 

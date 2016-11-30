@@ -13,6 +13,9 @@ use CCMBenchmark\Ting\Serializer\SerializerFactoryInterface;
  */
 class City extends \CCMBenchmark\Ting\Repository\Repository implements MetadataInitializer
 {
+    /**
+     * @return \CCMBenchmark\Ting\Repository\CollectionInterface
+     */
     public function getZCountryWithLotsPopulation()
     {
 
@@ -24,6 +27,9 @@ class City extends \CCMBenchmark\Ting\Repository\Repository implements MetadataI
         return $query->setParams(['name' => 'Z%', 'population' => 200000])->query();
     }
 
+    /**
+     * @return mixed
+     */
     public function getNumberOfCities()
     {
 
@@ -32,6 +38,11 @@ class City extends \CCMBenchmark\Ting\Repository\Repository implements MetadataI
         return $query->setParams(['population' => 20000])->query()->first();
     }
 
+    /**
+     * @param SerializerFactoryInterface $serializerFactory
+     * @param array $options
+     * @return Metadata
+     */
     public static function initMetadata(SerializerFactoryInterface $serializerFactory, array $options = [])
     {
         $metadata = new Metadata($serializerFactory);
@@ -41,37 +52,37 @@ class City extends \CCMBenchmark\Ting\Repository\Repository implements MetadataI
         $metadata->setDatabase('heroku_44a071ce1e8ee67');
         $metadata->setTable('t_city_cit');
 
-        $metadata->addField(array(
+        $metadata->addField([
             'primary' => true,
             'autoincrement' => true,
             'fieldName' => 'id',
             'columnName' => 'cit_id',
             'type' => 'int'
-        ));
+        ]);
 
-        $metadata->addField(array(
+        $metadata->addField([
             'fieldName' => 'name',
             'columnName' => 'cit_name',
             'type' => 'string'
-        ));
+        ]);
 
-        $metadata->addField(array(
+        $metadata->addField([
             'fieldName' => 'countryCode',
             'columnName' => 'cou_code',
             'type' => 'string'
-        ));
+        ]);
 
-        $metadata->addField(array(
+        $metadata->addField([
             'fieldName' => 'district',
             'columnName' => 'cit_district',
             'type' => 'string'
-        ));
+        ]);
 
-        $metadata->addField(array(
+        $metadata->addField([
             'fieldName' => 'population',
             'columnName' => 'cit_population',
             'type' => 'int'
-        ));
+        ]);
 
         return $metadata;
     }

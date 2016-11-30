@@ -13,8 +13,9 @@ require_once __DIR__ . '/../app/errors.php';
  */
 $container = require_once __DIR__ . '/../app/container.php';
 
-use App\Vendor\Codegyre\Robo\Runner;
+use App\Vendor\Consolidation\Robo\Runner;
 
 $runner = new Runner;
 $runner->setDiContainer($container);
-$runner->execute();
+$statusCode = $runner->execute($_SERVER['argv']);
+exit($statusCode);
