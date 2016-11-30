@@ -15,7 +15,7 @@ class Register
      * @param RegisterCommand $command
      * @return bool
      */
-    public function __invoke(RegisterCommand $command):bool
+    public function __invoke(RegisterCommand $command)
     {
         // Do your core application logic here. Don't actually echo stuff. :)
         echo "User {$command->getEmailAddress()} was registered!\n";

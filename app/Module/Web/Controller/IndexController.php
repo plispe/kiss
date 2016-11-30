@@ -42,7 +42,7 @@ class IndexController
     /**
      * @return ResponseInterface
      */
-    public function defaultAction(): ResponseInterface
+    public function defaultAction()
     {
         /** @var \App\Model\Repository\City $r */
         $r = $this->repositoryFactory->get(City::class);

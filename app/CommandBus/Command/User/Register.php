@@ -34,7 +34,7 @@ class Register extends AbstractCommand
     /**
      * @return string
      */
-    public function getEmailAddress(): string
+    public function getEmailAddress()
     {
         return $this->emailAddress;
     }

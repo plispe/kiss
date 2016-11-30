@@ -173,7 +173,7 @@ class ChangeloggedIdentityAwareUnityOfWork extends UnitOfWork
      * @param string $uuid
      * @return array
      */
-    protected function extractChangedProperties(string $uuid): array
+    protected function extractChangedProperties(string $uuid)
     {
         $properties = [];
         if (isset($this->entitiesChanged[$uuid])) {

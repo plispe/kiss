@@ -54,7 +54,7 @@ class Router implements MiddlewareInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
     {
         // If no route is matcher
         if (!$route = $this->matcher->match($request)) {
@@ -75,7 +75,7 @@ class Router implements MiddlewareInterface
      *
      * @return ResponseInterface
      */
-    protected function handleSuccess(Route $route, ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
+    protected function handleSuccess(Route $route, ServerRequestInterface $request, ResponseInterface $response, callable $next)
     {
         if (is_callable($route->handler)) {
             // get handler callable
@@ -101,8 +101,13 @@ class Router implements MiddlewareInterface
         // get the first of the best-available non-matched routes
         $failedRoute = $matcher->getFailedRoute();
 
+        $rule = false;
+        if (isset($failedRoute->failedRule)) {
+            $rule = $failedRoute->failedRule;
+        }
+
         // which matching rule failed?
-        switch ($failedRoute->failedRule ?? false) {
+        switch ($rule) {
             case \Aura\Router\Rule\Allows::class:
                 throw new MethodNotAllowedHttpException($failedRoute->allows);
             case \Aura\Router\Rule\Accepts::class:

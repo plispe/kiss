@@ -45,7 +45,7 @@ use AdamWathan\Form\FormBuilder;
  *
  * @return Int
  */
-function getStatusCode(\Throwable $e): int
+function getStatusCode(\Throwable $e)
 {
     return $e instanceof HttpExceptionInterface ?
         $e->getStatusCode() : Response::HTTP_INTERNAL_SERVER_ERROR;
@@ -59,7 +59,7 @@ function getStatusCode(\Throwable $e): int
  *
  * @return HtmlResponse
  */
-function exceptionToHtmlResponse(\Throwable $e): HtmlResponse
+function exceptionToHtmlResponse(\Throwable $e)
 {
     ob_start();
     (new BlueScreen())->render($e);
@@ -75,7 +75,7 @@ function exceptionToHtmlResponse(\Throwable $e): HtmlResponse
  *
  * @return HtmlResponse
  */
-function renderExceptionTemplateToHtmlResponse(\Throwable $e): HtmlResponse
+function renderExceptionTemplateToHtmlResponse(\Throwable $e)
 {
     $code = getStatusCode($e);
     $template = sprintf(__DIR__ . '/_templates/web/error/%s.latte', getStatusCode($e));
