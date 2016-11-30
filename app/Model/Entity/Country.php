@@ -131,5 +131,4 @@ class Country implements NotifyPropertyInterface
     {
         $this->countryLanguage = $countryLanguage;
     }
-
 }

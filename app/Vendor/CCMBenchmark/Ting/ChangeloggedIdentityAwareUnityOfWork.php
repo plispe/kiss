@@ -82,9 +82,12 @@ class ChangeloggedIdentityAwareUnityOfWork extends UnitOfWork
     protected function processNew($uuid)
     {
         $entity = $this->entities[$uuid];
+
+        $properties = $this->extractChangedProperties($uuid);
+
         $this->metadataRepository->findMetadataForEntity(
             $entity,
-            function (Metadata $metadata) use ($entity, $uuid) {
+            function (Metadata $metadata) use ($entity, $uuid, $properties) {
                 $connection = $metadata->getConnection($this->connectionPool);
                 $query = $metadata->generateQueryForInsert(
                     $connection,
@@ -99,7 +102,7 @@ class ChangeloggedIdentityAwareUnityOfWork extends UnitOfWork
 
                 unset($this->entitiesChanged[$uuid]);
                 unset($this->entitiesShouldBePersisted[$uuid]);
-//                $this->addToChangelog($metadata->getTable(), $entity, $properties);
+                $this->addToChangelog($metadata->getTable(), $entity, $properties);
                 $this->manage($entity);
             },
             function () use ($entity) {
@@ -144,7 +147,7 @@ class ChangeloggedIdentityAwareUnityOfWork extends UnitOfWork
 
     /**
      * @param string $table
-     * @param PropertyListenerInterface $entity
+     * @param NotifyPropertyInterface $entity
      * @param array $properties
      */
     protected function addToChangelog(string $table, NotifyPropertyInterface $entity, array $properties)
