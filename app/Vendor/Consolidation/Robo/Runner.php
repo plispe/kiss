@@ -31,4 +31,16 @@ use App\Shared\Behaviour\Common\DiContainerTrait;
 class Runner extends \Robo\Runner
 {
     use DiContainerTrait;
+
+    /**
+     * @param \League\Container\ContainerAwareInterface|\Robo\Contract\BuilderAwareInterface|string $commandClass
+     * @return \League\Container\ContainerAwareInterface|null|object|\Robo\Contract\BuilderAwareInterface|string
+     */
+    protected function instantiateCommandClass($commandClass)
+    {
+        $commandClass = parent::instantiateCommandClass($commandClass);
+
+        $this->diContainer->injectOn($commandClass);
+        return $commandClass;
+    }
 }
