@@ -5,9 +5,9 @@
 
     "require": {
         "php": ">=5.6.0",
+        "ext-fileinfo": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "ext-fileinfo": "*",
         "ad7six/dsn": "0.4.0",
         "adamwathan/form": "0.8.10",
         "air-php/view": "0.3.1",
