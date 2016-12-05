@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "74025d8bd212bb414289de880b41e087",
-    "content-hash": "e1cedabd453ce584b314dd127d7732cf",
+    "hash": "d416b4105f9fe6d66f1c8eee468aeaa1",
+    "content-hash": "0f142fdc956820f786f175180fd46239",
     "packages": [
         {
             "name": "ad7six/dsn",
@@ -319,16 +319,16 @@
         },
         {
             "name": "beberlei/assert",
-            "version": "v2.6.7",
+            "version": "v2.6.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "2b4c9249a7ceef51402d39bd797aae16cfd8f36f"
+                "reference": "848c8f0bde97b48d1e159075e20a6667583f3978"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/2b4c9249a7ceef51402d39bd797aae16cfd8f36f",
-                "reference": "2b4c9249a7ceef51402d39bd797aae16cfd8f36f",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/848c8f0bde97b48d1e159075e20a6667583f3978",
+                "reference": "848c8f0bde97b48d1e159075e20a6667583f3978",
                 "shasum": ""
             },
             "require": {
@@ -336,13 +336,13 @@
                 "php": ">=5.3"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "2.0.0-alpha",
+                "friendsofphp/php-cs-fixer": "^2.0",
                 "phpunit/phpunit": "@stable"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Assert": "lib/"
+                "psr-4": {
+                    "Assert\\": "lib/Assert"
                 },
                 "files": [
                     "lib/Assert/functions.php"
@@ -370,7 +370,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2016-11-14 16:46:13"
+            "time": "2016-12-05 11:33:17"
         },
         {
             "name": "bernard/bernard",
@@ -378,12 +378,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bernardphp/bernard.git",
-                "reference": "b89aca8385211a30cc0a6c0dbfee7a9c230747af"
+                "reference": "65a03b6531dd02c13d233cbe5d68738f2d9d116e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bernardphp/bernard/zipball/b89aca8385211a30cc0a6c0dbfee7a9c230747af",
-                "reference": "b89aca8385211a30cc0a6c0dbfee7a9c230747af",
+                "url": "https://api.github.com/repos/bernardphp/bernard/zipball/65a03b6531dd02c13d233cbe5d68738f2d9d116e",
+                "reference": "65a03b6531dd02c13d233cbe5d68738f2d9d116e",
                 "shasum": ""
             },
             "require": {
@@ -438,7 +438,7 @@
                 "message queue",
                 "queue"
             ],
-            "time": "2016-11-28 15:34:07"
+            "time": "2016-12-05 09:07:17"
         },
         {
             "name": "bernard/normalt",
@@ -2613,16 +2613,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.6.7",
+            "version": "5.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "38810e97481723ef918f6e35c03cb1014a645bd5"
+                "reference": "336aff0ac52e306c98e7455bc3e8d7b0bf777a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/38810e97481723ef918f6e35c03cb1014a645bd5",
-                "reference": "38810e97481723ef918f6e35c03cb1014a645bd5",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/336aff0ac52e306c98e7455bc3e8d7b0bf777a5e",
+                "reference": "336aff0ac52e306c98e7455bc3e8d7b0bf777a5e",
                 "shasum": ""
             },
             "require": {
@@ -2641,7 +2641,7 @@
                 "phpunit/phpunit-mock-objects": "^3.2",
                 "sebastian/comparator": "~1.2.2",
                 "sebastian/diff": "~1.2",
-                "sebastian/environment": "^1.3 || ^2.0",
+                "sebastian/environment": "^1.3.4 || ^2.0",
                 "sebastian/exporter": "~2.0",
                 "sebastian/global-state": "~1.0",
                 "sebastian/object-enumerator": "~2.0",
@@ -2665,7 +2665,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.6.x-dev"
+                    "dev-master": "5.7.x-dev"
                 }
             },
             "autoload": {
@@ -2691,7 +2691,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-11-28 16:04:24"
+            "time": "2016-12-03 08:33:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5668,7 +5668,8 @@
     "platform": {
         "php": ">=5.6.0",
         "ext-intl": "*",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "ext-fileinfo": "*"
     },
     "platform-dev": []
 }
