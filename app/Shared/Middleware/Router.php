@@ -54,7 +54,7 @@ class Router implements MiddlewareInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         // If no route is matcher
         if (!$route = $this->matcher->match($request)) {
@@ -75,7 +75,7 @@ class Router implements MiddlewareInterface
      *
      * @return ResponseInterface
      */
-    protected function handleSuccess(Route $route, ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    protected function handleSuccess(Route $route, ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         if (is_callable($route->handler)) {
             // get handler callable

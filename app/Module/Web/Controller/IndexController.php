@@ -34,7 +34,7 @@ class IndexController
     /**
      * @return ResponseInterface
      */
-    public function defaultAction()
+    public function defaultAction(): ResponseInterface
     {
         return new HtmlResponse((string)$this->viewFactory->get('web/index/default'));
     }

@@ -56,7 +56,7 @@ class Server implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             Runner::class => $this->getRunner(),
@@ -68,7 +68,7 @@ class Server implements ServiceProvider
     /**
      * @return \Closure
      */
-    protected function getRunner()
+    protected function getRunner(): \Closure
     {
         return function (ContainerInterface $container) {
             return new Runner($container->get('middlewares'), function ($middleware) use ($container) {
@@ -88,7 +88,7 @@ class Server implements ServiceProvider
     /**
      * @return \Closure
      */
-    protected function getServer()
+    protected function getServer(): \Closure
     {
         return function (ContainerInterface $container) {
             return \Zend\Diactoros\Server::createServerfromRequest(
@@ -101,7 +101,7 @@ class Server implements ServiceProvider
     /**
      * @return \Closure
      */
-    protected function getRequest()
+    protected function getRequest(): \Closure
     {
         return function () {
             return ServerRequestFactory::fromGlobals();

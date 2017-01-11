@@ -41,7 +41,7 @@ class Ting implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         /**
          * uses AD7six/php-dsn utility for parsing database DSN

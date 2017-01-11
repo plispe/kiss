@@ -46,7 +46,7 @@ class AuraRouter implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             RouterContainer::class => $this->getRouterContainer(),
@@ -59,7 +59,7 @@ class AuraRouter implements ServiceProvider
     /**
      * @return \Closure
      */
-    protected function getRouterContainer()
+    protected function getRouterContainer(): \Closure
     {
         return function () {
             return new RouterContainer;
@@ -69,7 +69,7 @@ class AuraRouter implements ServiceProvider
     /**
      * @return \Closure
      */
-    protected function getMap()
+    protected function getMap(): \Closure
     {
         return function (ContainerInterface $container) {
             $map = $container->get(RouterContainer::class)->getMap();
@@ -81,7 +81,7 @@ class AuraRouter implements ServiceProvider
     /**
      * @return \Closure
      */
-    protected function getMatcher()
+    protected function getMatcher(): \Closure
     {
         return function (ContainerInterface $container) {
             $container->get(Map::class);
@@ -92,7 +92,7 @@ class AuraRouter implements ServiceProvider
     /**
      * @return \Closure
      */
-    protected function getGenerator()
+    protected function getGenerator(): \Closure
     {
         return function (ContainerInterface $container) {
             return $container->get(RouterContainer::class)->getGenerator();

@@ -53,7 +53,7 @@ class Monolog implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             LoggerInterface::class => function () {

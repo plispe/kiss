@@ -38,7 +38,7 @@ class SwiftMailer implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             Swift_Mailer::class => function () {

@@ -29,7 +29,6 @@ use Interop\Container\ServiceProvider;
  */
 class Gaufrette implements ServiceProvider
 {
-
     /**
      * Returns a list of all container entries registered by this service provider.
      *
@@ -46,7 +45,7 @@ class Gaufrette implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             Filesystem::class => function (ContainerInterface $container) {

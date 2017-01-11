@@ -36,7 +36,7 @@ class Pomm implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             \PommProject\Foundation\Pomm::class => function () {

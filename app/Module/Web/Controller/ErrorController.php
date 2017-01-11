@@ -38,7 +38,7 @@ class ErrorController
      *
      * @return ResponseInterface
      */
-    public function error403Action(ServerRequestInterface $request, ResponseInterface $response)
+    public function error403Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return new HtmlResponse((string)$this->viewFactory->get('web/error/403'));
     }
@@ -49,7 +49,7 @@ class ErrorController
      *
      * @return ResponseInterface
      */
-    public function error404Action(ServerRequestInterface $request, ResponseInterface $response)
+    public function error404Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return new HtmlResponse((string)$this->viewFactory->get('web/error/404'));
     }
@@ -60,7 +60,7 @@ class ErrorController
      *
      * @return ResponseInterface
      */
-    public function error500Action(ServerRequestInterface $request, ResponseInterface $response)
+    public function error500Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return new HtmlResponse((string)$this->viewFactory->get('web/error/500'));
     }
@@ -71,7 +71,7 @@ class ErrorController
      *
      * @return ResponseInterface
      */
-    public function error502Action(ServerRequestInterface $request, ResponseInterface $response)
+    public function error502Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return new HtmlResponse((string)$this->viewFactory->get('web/error/502'));
     }
@@ -82,7 +82,7 @@ class ErrorController
      *
      * @return ResponseInterface
      */
-    public function error503Action(ServerRequestInterface $request, ResponseInterface $response)
+    public function error503Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return new HtmlResponse((string)$this->viewFactory->get('web/error/503'));
     }
@@ -93,7 +93,7 @@ class ErrorController
      *
      * @return ResponseInterface
      */
-    public function error504Action(ServerRequestInterface $request, ResponseInterface $response)
+    public function error504Action(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return new HtmlResponse((string)$this->viewFactory->get('web/error/504'));
     }

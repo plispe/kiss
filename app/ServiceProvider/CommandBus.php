@@ -46,7 +46,7 @@ class CommandBus implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             \League\Tactician\CommandBus::class => function (ContainerInterface $container) {

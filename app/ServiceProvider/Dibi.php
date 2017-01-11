@@ -43,7 +43,7 @@ class Dibi implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             Connection::class => function () {
@@ -55,7 +55,7 @@ class Dibi implements ServiceProvider
     /**
      * @return array
      */
-    protected function getConnection()
+    protected function getConnection(): array
     {
         /**
          * uses AD7six/php-dsn utility for parsing database DSN

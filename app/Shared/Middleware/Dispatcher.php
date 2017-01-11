@@ -46,7 +46,7 @@ class Dispatcher implements MiddlewareInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next): ResponseInterface
     {
         $route = $request->getAttribute('route');
 
@@ -77,12 +77,10 @@ class Dispatcher implements MiddlewareInterface
     }
 
     /**
-     * @param String $controllerClass
-     *
-     * @return Bool
-     * @throws NotFoundHttpException
+     * @param string $controllerClass
+     * @return bool
      */
-    protected function controllerClassExists($controllerClass)
+    protected function controllerClassExists(string $controllerClass): bool
     {
         $existence = class_exists($controllerClass);
 
@@ -98,22 +96,20 @@ class Dispatcher implements MiddlewareInterface
     /**
      * Get real action name, for example indexAction
      *
-     * @param String $action
-     * @return String
+     * @param string $action
+     * @return string
      */
-    protected function getFullActionName($action)
+    protected function getFullActionName(string $action): string
     {
         return sprintf('%sAction', $action);
     }
 
     /**
-     * Get real controller class name
-     *
-     * @param $module
-     * @param $controller
+     * @param string $module
+     * @param string $controller
      * @return string
      */
-    protected function getFullControllerName($module, $controller)
+    protected function getFullControllerName(string $module, string $controller): string
     {
         return sprintf(
             '\App\Module\%s\Controller\%sController',

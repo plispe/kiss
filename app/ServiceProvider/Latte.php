@@ -43,7 +43,7 @@ class Latte implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             ViewFactoryInterface::class => $this->getViewFactory(),
@@ -53,7 +53,7 @@ class Latte implements ServiceProvider
     /**
      * @return \Closure
      */
-    protected function getViewFactory()
+    protected function getViewFactory(): \Closure
     {
         return function (ContainerInterface $container) {
             $factory = new ViewFactory($container->get('temp.dir') . '/cache/templates/', null, $this->getDefaultLatteData($container));
@@ -67,7 +67,7 @@ class Latte implements ServiceProvider
      * @param ContainerInterface $container
      * @return array
      */
-    protected function getDefaultLatteData(ContainerInterface $container)
+    protected function getDefaultLatteData(ContainerInterface $container): array
     {
         return [
             'builder' => $container->get(FormBuilder::class),

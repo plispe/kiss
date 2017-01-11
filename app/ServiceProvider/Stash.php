@@ -46,7 +46,7 @@ class Stash implements ServiceProvider
      *
      * @return callable[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return [
             Pool::class => function (ContainerInterface $container) {

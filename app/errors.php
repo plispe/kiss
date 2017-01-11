@@ -8,7 +8,7 @@
  */
 
 $handler = new Error\Handler();
-$handler->error(function (\Exception $e) {
+$handler->error(function (\Throwable $e) {
     $response = getenv('DISPLAY_ERRORS') === 'true' ?
         // Display tracy bluescreen
         App\exceptionToHtmlResponse($e) :
